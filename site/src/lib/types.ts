@@ -11,6 +11,7 @@ export interface MetaCountry {
   in_top20: boolean;
   aggregate: boolean;
   financial_centre: boolean;
+  iso_num?: string | null;
   latest: string | null;
 }
 
@@ -68,4 +69,33 @@ export interface Heatmap {
   measure: string;
   periods: string[];
   rows: { country: string; usd: (number | null)[]; pct: (number | null)[] }[];
+}
+
+export interface NowcastSource {
+  country: string;
+  freq: "M" | "W";
+  currency: "USD" | "EUR" | "JPY";
+  url: string;
+  citation: string;
+  stale: boolean;
+  periods: string[];
+  nonres: (number | null)[];
+  res: (number | null)[];
+  net: (number | null)[];
+}
+export interface Nowcast { sources: Record<string, NowcastSource> }
+
+export interface CrossCheck {
+  periods: string[];
+  threshold: { rel: number; abs_bn: number };
+  measures: string[];
+  countries: { country: string; compared: number; flagged: number; max_abs_diff: number | null; missing_in_oecd: number }[];
+  flagged: { country: string; measure: string; period: string; imf: number; oecd: number; diff: number }[];
+  excluded?: { country: string; reason: string }[];
+}
+
+export interface RevisionEntry { date: string; last_common_quarter: string; new: number; revised: number; removed: number }
+export interface Revisions {
+  latest: RevisionEntry & { changes: { country: string; measure: string; period: string; old: number; new: number; diff: number }[] };
+  history: RevisionEntry[];
 }

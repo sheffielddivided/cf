@@ -1,0 +1,18 @@
+Table 2: Foreign Long-Term Securities Held by U.S. Residents														
+All Countries and International and Regional Organizations														
+A positive number for net U.S. purchases from foreigners denotes an increase in a U.S. position														
+Millions of dollars														
+Link: https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt														
+														
+			Total Foreign Securities	Total Foreign Securities	Total Foreign Securities	Foreign Gov't Bonds	Foreign Gov't Bonds	Foreign Gov't Bonds	Foreign Corp. Bonds	Foreign Corp. Bonds	Foreign Corp. Bonds	Foreign Corp. Stocks	Foreign Corp. Stocks	Foreign Corp. Stocks
+Country	Country Code	Date	Holdings	Net U.S. Purchases	Valuation Change	Holdings	Net U.S. Purchases	Valuation Change	Holdings	Net U.S. Purchases	Valuation Change	Holdings	Net U.S. Purchases	Valuation Change
+country	country_code	date	us_lt_total_pos	us_lt_total_net	us_lt_total_valchg	us_lt_govt_bond_pos	us_lt_govt_bond_net	us_lt_govt_bond_valchg	us_lt_corp_bond_pos	us_lt_corp_bond_net	us_lt_corp_bond_valchg	us_lt_eqty_pos	us_lt_eqty_net	us_lt_eqty_valchg
+Grand Total	99996	2026-09	20340380	31389	-459924	925082	5921	-27049	2799704	32096	-55520	16615594	-6628	-377355
+Grand Total	99996	2026-08	20806499	22053	372000	944928	8177	1691	2821920	16594	1191	17039651	-2718	369118
+Grand Total	99996	2026-07	20361767	68544	-156286	934719	10555	-4929	2804333	22524	-30642	16622715	35465	-120715
+Grand Total	99996	2026-06	20554138	34015	-78588	929298	13321	-9350	2825632	37734	-18065	16799208	-17040	-51173
+Grand Total	99996	2026-05	20571453	30736	574850	918933	6403	2056	2818016	15223	6865	16834504	9110	565929
+Grand Total	99996	2026-04	19954168	102219	1110830	906952	24736	15366	2790621	11875	8839	16256595	65608	1086625
+Grand Total	99996	2026-03	18699206	15221	-1479300	867485	2628	-37350	2754799	17737	-60222	15076922	-5144	-1381728
+Grand Total	99996	2026-02	20212178	43863	570390	902012	14633	5194	2795322	9440	-8451	16514844	19790	573647
+Grand Total	99996	2026-01	19561597	48127	719863	886957	33144	8671	2792859	10980	1277	15881781	4003	709915

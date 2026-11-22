@@ -7,18 +7,24 @@ export const routes = (lang: Lang) =>
     ? {
         home: `${BASE}/`,
         heatmap: `${BASE}/varmekart/`,
+        nowcast: `${BASE}/naakast/`,
+        quality: `${BASE}/datakvalitet/`,
         method: `${BASE}/metode/`,
         country: (iso: string) => `${BASE}/land/${iso}/`,
       }
     : {
         home: `${BASE}/en/`,
         heatmap: `${BASE}/en/heatmap/`,
+        nowcast: `${BASE}/en/nowcast/`,
+        quality: `${BASE}/en/data-quality/`,
         method: `${BASE}/en/method/`,
         country: (iso: string) => `${BASE}/en/country/${iso}/`,
       };
 
 /** The same page in the other language. */
-export function alternate(lang: Lang, page: "home" | "heatmap" | "method" | { country: string }) {
+export type PageKey = "home" | "heatmap" | "nowcast" | "quality" | "method";
+
+export function alternate(lang: Lang, page: PageKey | { country: string }) {
   const other: Lang = lang === "nb" ? "en" : "nb";
   const r = routes(other);
   return typeof page === "string" ? r[page] : r.country(page.country);
@@ -32,10 +38,16 @@ export const t = {
     siteTagline: "Netto kapitalstrømmer inn og ut av verdens største økonomier",
     navOverview: "Oversikt",
     navHeatmap: "Varmekart",
+    navNowcast: "Nåkast",
+    navQuality: "Datakvalitet",
     navMethod: "Metode",
     otherLang: "English",
     skip: "Hopp til innhold",
     // controls
+    view: "Visning",
+    viewRanking: "Rangering",
+    viewMap: "Kart",
+    mapNote: "Euroområdet er et aggregat og vises ikke på kartet. Kartet viser hvert lands verdi, ikke strømmer mellom land.",
     period: "Periode",
     periodQ: "Siste felles kvartal",
     period4q: "Siste fire kvartaler",
@@ -88,9 +100,15 @@ export const t = {
     siteTagline: "Net capital flows into and out of the world’s largest economies",
     navOverview: "Overview",
     navHeatmap: "Heatmap",
+    navNowcast: "Nowcast",
+    navQuality: "Data quality",
     navMethod: "Method",
     otherLang: "Norsk",
     skip: "Skip to content",
+    view: "View",
+    viewRanking: "Ranking",
+    viewMap: "Map",
+    mapNote: "The euro area is an aggregate and is not drawn on the map. The map shows each country’s value, not flows between countries.",
     period: "Period",
     periodQ: "Latest common quarter",
     period4q: "Last four quarters",
@@ -141,3 +159,18 @@ export type Dict = (typeof t)[Lang];
 
 export const countryName = (c: { name_nb: string; name_en: string }, lang: Lang) =>
   lang === "nb" ? c.name_nb : c.name_en;
+
+export const measureName: Record<Lang, Record<string, string>> = {
+  nb: {
+    fa_ex_reserves: "Finansregnskap ekskl. reserver", fa_total: "Finansregnskap totalt",
+    fdi: "Direkteinvesteringer", portfolio: "Portefølje", other_inv: "Annen investering",
+    derivatives: "Derivater", reserves: "Reserver", current_account: "Driftsbalanse",
+    capital_account: "Kapitalkonto", errors_omissions: "Feil og utelatelser",
+  },
+  en: {
+    fa_ex_reserves: "Financial account excl. reserves", fa_total: "Financial account, total",
+    fdi: "Direct investment", portfolio: "Portfolio", other_inv: "Other investment",
+    derivatives: "Derivatives", reserves: "Reserves", current_account: "Current account",
+    capital_account: "Capital account", errors_omissions: "Errors and omissions",
+  },
+};

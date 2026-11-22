@@ -8,7 +8,7 @@ interface Props {
   lang: Lang;
   title: string;
   description?: string;
-  current: "home" | "heatmap" | "method" | "country";
+  current: "home" | "heatmap" | "nowcast" | "quality" | "method" | "country";
   alternateHref: string;
 }
 const { lang, title, description, current, alternateHref } = Astro.props;
@@ -38,6 +38,8 @@ const fullTitle = current === "home" ? `${d.siteTitle} – ${d.siteTagline}` : `
         <nav class="site-nav" aria-label={lang === "nb" ? "Hovedmeny" : "Main"}>
           <a href={r.home} aria-current={current === "home" ? "page" : undefined}>{d.navOverview}</a>
           <a href={r.heatmap} aria-current={current === "heatmap" ? "page" : undefined}>{d.navHeatmap}</a>
+          <a href={r.nowcast} aria-current={current === "nowcast" ? "page" : undefined}>{d.navNowcast}</a>
+          <a href={r.quality} aria-current={current === "quality" ? "page" : undefined}>{d.navQuality}</a>
           <a href={r.method} aria-current={current === "method" ? "page" : undefined}>{d.navMethod}</a>
           <a href={alternateHref} hreflang={lang === "nb" ? "en" : "nb"} lang={lang === "nb" ? "en" : "nb"}>{d.otherLang}</a>
         </nav>

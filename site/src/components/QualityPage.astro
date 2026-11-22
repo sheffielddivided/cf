@@ -1,0 +1,118 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, countryName, measureName, routes, t } from "../lib/i18n";
+import { optionalData } from "../lib/optional-data";
+import { date, num, quarter } from "../lib/format";
+import type { CrossCheck, Lang, Meta, Revisions } from "../lib/types";
+import meta from "../../public/data/meta.json";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const nb = lang === "nb";
+const m = meta as Meta;
+const r = routes(lang);
+const rev = optionalData<Revisions>("revisions");
+const cc = optionalData<CrossCheck>("crosscheck");
+const name = (iso: string) => {
+  const c = m.countries.find((x) => x.iso3 === iso);
+  return c ? countryName(c, lang) : iso;
+};
+const mn = measureName[lang];
+---
+<Base lang={lang} title={d.navQuality} current="quality" alternateHref={alternate(lang, "quality")}>
+  <h1>{d.navQuality}</h1>
+  <p class="muted">
+    {nb
+      ? "Hva som endret seg ved siste oppdatering, hvor IMF og OECD er uenige, og hvilke advarsler kvalitetskontrollene ga. Alle tall er i mrd. USD med sidens fortegn (positivt = innstrømning)."
+      : "What changed in the latest update, where the IMF and the OECD disagree, and which warnings the quality checks raised. All figures are USD bn in the site’s sign (positive = inflow)."}
+  </p>
+
+  <h2>{nb ? "Siste oppdatering" : "Latest update"}</h2>
+  {rev ? (
+    <>
+      <p>
+        {date(rev.latest.date, lang)} ({nb ? "siste felles kvartal" : "latest common quarter"} {quarter(rev.latest.last_common_quarter, lang)}):{" "}
+        {nb
+          ? `${rev.latest.new} nye, ${rev.latest.revised} reviderte og ${rev.latest.removed} fjernede observasjoner.`
+          : `${rev.latest.new} new, ${rev.latest.revised} revised and ${rev.latest.removed} removed observations.`}
+      </p>
+      {rev.latest.changes.length === 0 ? (
+        <p class="muted">{nb ? "Ingen netto-tall ble revidert." : "No net figures were revised."}</p>
+      ) : (
+        <div class="table-scroll">
+          <table class="data">
+            <caption class="visually-hidden">{nb ? "Største revisjoner" : "Largest revisions"}</caption>
+            <thead><tr><th scope="col">{d.country}</th><th scope="col">{nb ? "Måltall" : "Measure"}</th><th scope="col">{d.periodCol}</th><th scope="col" class="num">{nb ? "Før" : "Before"}</th><th scope="col" class="num">{nb ? "Nå" : "Now"}</th><th scope="col" class="num">{nb ? "Endring" : "Change"}</th></tr></thead>
+            <tbody>
+              {rev.latest.changes.slice(0, 25).map((c) => (
+                <tr><td><a href={r.country(c.country)}>{name(c.country)}</a></td><td>{mn[c.measure] ?? c.measure}</td><td>{quarter(c.period, lang)}</td><td class="num">{num(c.old, lang)}</td><td class="num">{num(c.new, lang)}</td><td class="num">{num(c.diff, lang)}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <h3 style="margin-top:1.25rem">{nb ? "Tidligere oppdateringer" : "Earlier updates"}</h3>
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th scope="col">{nb ? "Dato" : "Date"}</th><th scope="col">{nb ? "Siste felles kvartal" : "Latest common quarter"}</th><th scope="col" class="num">{nb ? "Nye" : "New"}</th><th scope="col" class="num">{nb ? "Reviderte" : "Revised"}</th><th scope="col" class="num">{nb ? "Fjernet" : "Removed"}</th></tr></thead>
+          <tbody>
+            {rev.history.slice(0, 12).map((h) => (
+              <tr><td>{date(h.date, lang)}</td><td>{quarter(h.last_common_quarter, lang)}</td><td class="num">{h.new}</td><td class="num">{h.revised}</td><td class="num">{h.removed}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  ) : <p class="muted">{d.notReported}</p>}
+
+  <h2>{nb ? "Kryssjekk mot OECD" : "Cross-check against the OECD"}</h2>
+  {cc ? (
+    <>
+      <p>
+        {nb
+          ? `OECD publiserer de samme betalingsbalansetallene. Vi sammenligner finansregnskapet totalt, direkteinvesteringer, portefølje og annen investering for ${quarter(cc.periods[0], lang)} – ${quarter(cc.periods[cc.periods.length - 1], lang)}. Et avvik flagges når forskjellen er over ${Math.round(cc.threshold.rel * 100)} % og over ${num(cc.threshold.abs_bn, lang)} mrd. USD. Avvik skyldes oftest at én av kildene ennå ikke har tatt inn en revisjon.`
+          : `The OECD publishes the same balance of payments figures. We compare the total financial account, direct investment, portfolio and other investment for ${quarter(cc.periods[0], lang)} – ${quarter(cc.periods[cc.periods.length - 1], lang)}. A difference is flagged when it exceeds ${Math.round(cc.threshold.rel * 100)}% and USD ${num(cc.threshold.abs_bn, lang)} bn. Differences usually mean one source has not yet taken in a revision.`}
+      </p>
+      {cc.excluded && cc.excluded.length > 0 && (
+        <p class="muted small">
+          {nb
+            ? `Ikke sammenlignet: ${cc.excluded.map((e) => name(e.country)).join(", ")}. IMFs og OECDs aggregater er satt sammen ulikt, så forskjeller sier ikke noe om revisjoner.`
+            : `Not compared: ${cc.excluded.map((e) => name(e.country)).join(", ")}. The IMF’s and OECD’s aggregates are compiled differently, so differences say nothing about revisions.`}
+        </p>
+      )}
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th scope="col">{d.country}</th><th scope="col" class="num">{nb ? "Sammenlignet" : "Compared"}</th><th scope="col" class="num">{nb ? "Flagget" : "Flagged"}</th><th scope="col" class="num">{nb ? "Største avvik" : "Largest difference"}</th><th scope="col" class="num">{nb ? "Mangler hos OECD" : "Missing at OECD"}</th></tr></thead>
+          <tbody>
+            {[...cc.countries].sort((a, b) => b.flagged - a.flagged || name(a.country).localeCompare(name(b.country))).map((c) => (
+              <tr><td><a href={r.country(c.country)}>{name(c.country)}</a></td><td class="num">{c.compared}</td><td class="num">{c.flagged}</td><td class="num">{c.max_abs_diff === null ? "–" : num(c.max_abs_diff, lang)}</td><td class="num">{c.missing_in_oecd}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {cc.flagged.length > 0 && (
+        <>
+          <h3 style="margin-top:1.25rem">{nb ? "Flaggede avvik" : "Flagged differences"}</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th scope="col">{d.country}</th><th scope="col">{nb ? "Måltall" : "Measure"}</th><th scope="col">{d.periodCol}</th><th scope="col" class="num">IMF</th><th scope="col" class="num">OECD</th><th scope="col" class="num">{nb ? "Forskjell" : "Difference"}</th></tr></thead>
+              <tbody>
+                {cc.flagged.slice(0, 40).map((f) => (
+                  <tr><td>{name(f.country)}</td><td>{mn[f.measure] ?? f.measure}</td><td>{quarter(f.period, lang)}</td><td class="num">{num(f.imf, lang)}</td><td class="num">{num(f.oecd, lang)}</td><td class="num">{num(f.diff, lang)}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+      <p class="cite" style="margin-top:0.75rem">OECD (2026), Balance of payments (DSD_BOP@DF_BOP), <a href="https://data-explorer.oecd.org/">https://data-explorer.oecd.org/</a></p>
+    </>
+  ) : <p class="muted">{d.notReported}</p>}
+
+  <h2>{nb ? "Advarsler fra kvalitetskontrollene" : "Warnings from the quality checks"}</h2>
+  {m.warnings.length === 0 ? <p class="muted">{nb ? "Ingen." : "None."}</p> : (
+    <ul class="notes" lang="nb">{m.warnings.map((w) => <li>{w}</li>)}</ul>
+  )}
+  {!nb && m.warnings.length > 0 && <p class="small muted">Warnings are generated in Norwegian.</p>}
+</Base>

@@ -51,6 +51,18 @@ BNP er IMFs årlige BNP i dollar fra World Economic Outlook. Hvert kvartal får 
 
 De 20 største økonomiene etter BNP i **referanseåret**, som er siste hele år med data. Listen låses for referanseåret og regnes automatisk ut på nytt når et nytt år er komplett. Euroområdet vises som eget aggregat og summeres aldri med medlemslandene.
 
+## Kart
+
+Kartet viser samme tall som rangeringen, som farge per land. Standard er andel av BNP, fordi store land ellers dominerer. Kartet viser hvert lands netto kapitalstrøm mot resten av verden, ikke strømmer mellom land. Euroområdet er et aggregat og tegnes ikke.
+
+## Nåkast
+
+Nåkast-siden viser ferskere indikatorer fra nasjonale kilder: amerikanske verdipapirkjøp (US Treasury, TIC, månedlig), euroområdets betalingsbalanse (ECB, månedlig) og japanske verdipapirkjøp (finansdepartementet, ukentlig). De dekker bare deler av kapitalstrømmene, bruker egne valutaer og definisjoner, og er aldri med i rangeringen.
+
+## Kryssjekk mot OECD
+
+Hver uke sammenlignes IMF-tallene med OECDs betalingsbalanse for de siste åtte kvartalene. Avvik over 5 % og 0,5 mrd. USD vises på datakvalitet-siden. Aggregater som euroområdet sammenlignes ikke, fordi IMF og OECD setter dem sammen ulikt.
+
 ## Usikkerhet og revisjoner
 
 - Betalingsbalansetall **revideres**, ofte betydelig, de første årene etter publisering. Store revisjoner logges i repoet.
@@ -67,4 +79,10 @@ Source: International Monetary Fund, Balance of Payments (BOP), [https://data.im
 
 Source: International Monetary Fund, World Economic Outlook (WEO), [https://data.imf.org/en/datasets/IMF.RES:WEO](https://data.imf.org/en/datasets/IMF.RES:WEO)
 
-Dataene gjengis etter IMFs vilkår for statistiske data. Siden er ikke laget av eller godkjent av IMF.
+OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.org/](https://data-explorer.oecd.org/) – brukt til kryssjekk.
+
+Nåkast: U.S. Department of the Treasury (TIC), European Central Bank (BPS) og Ministry of Finance Japan (International Transactions in Securities).
+
+Kart: Natural Earth via world-atlas (offentlig eiendom).
+
+Dataene gjengis etter kildenes vilkår. Siden er ikke laget av eller godkjent av IMF, OECD, ECB, US Treasury eller det japanske finansdepartementet.

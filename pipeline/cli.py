@@ -14,6 +14,7 @@ def main(argv: list[str] | None = None) -> int:
 
     p_explore = sub.add_parser("explore", help="phase 0: explore IMF/OECD SDMX APIs")
     p_explore.add_argument("--out", type=Path, default=Path("data/explore"))
+    p_explore.add_argument("--nowcast", action="store_true", help="phase 2: ECB, TIC and MOF")
 
     p_cov = sub.add_parser("coverage", help="phase 0: build the coverage matrix from IMF data")
     p_cov.add_argument("--out", type=Path, default=Path("data/explore"))
@@ -32,9 +33,9 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     if args.command == "explore":
-        from .explore import explore
+        from .explore import explore, explore_nowcast
 
-        manifest = explore(args.out)
+        manifest = explore_nowcast(args.out) if args.nowcast else explore(args.out)
         print(f"manifest: {manifest}")
     elif args.command == "coverage":
         from .coverage import run

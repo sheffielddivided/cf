@@ -4,6 +4,7 @@ import { rankingBars } from "./ranking";
 import { DEFAULTS, measureFor, parseState, serializeState } from "./state";
 import { barPath } from "./ranking-chart";
 import { colorLimit } from "./heatmap-chart";
+import { mapLimit } from "./map-chart";
 import type { Meta, Ranking } from "./types";
 
 const cell = (usd: number | null, pct: number | null) => ({ usd, pct });
@@ -78,6 +79,11 @@ describe("charts", () => {
   it("rounds only the data end of a bar", () => {
     expect(barPath(100, 200, 0, 16)).toMatch(/^M100,0H196Q200,0 200,4/);
     expect(barPath(100, 40, 0, 16)).toMatch(/^M100,0H44Q40,0 40,4/);
+  });
+  it("picks a clean map limit just above the largest value", () => {
+    expect(mapLimit([-11.6, 4, 5.5])).toBe(15);
+    expect(mapLimit([1271, -714])).toBe(1500);
+    expect(mapLimit([0.8])).toBe(0.8);
   });
   it("uses a clean symmetric color limit", () => {
     const rows = [{ country: "A", values: Array.from({ length: 100 }, (_, i) => i - 50 + 0.5) }];

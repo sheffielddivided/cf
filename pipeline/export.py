@@ -179,6 +179,7 @@ def export_all(
              "name_en": names.get(c, {}).get("name_en", c), "in_top20": c in top,
              "aggregate": bool(names.get(c, {}).get("aggregate")),
              "financial_centre": bool(names.get(c, {}).get("financial_centre")),
+             "iso_num": names.get(c, {}).get("iso_num"),
              "latest": latest.get(c)}
             for c in countries
         ],

@@ -58,8 +58,30 @@ def weo_csv() -> str:
     return "".join(lines)
 
 
+FX = Path(__file__).parent / "fixtures"
+
+
+def oecd_csv() -> str:
+    # USA identical to IMF (FAB = 3.0 * 100 bn); China 10 % off in 2026-Q2 -> one flag
+    lines = ["REF_AREA,MEASURE,ACCOUNTING_ENTRY,UNIT_MEASURE,ADJUSTMENT,TIME_PERIOD,"
+             "OBS_VALUE,UNIT_MULT"]
+    for p in model.window("2026-Q2", 8):
+        lines.append(f"USA,FA,N,USD_EXC,N,{p},{3.0 * 100 * 1000:.0f},6")
+        chn = 3.0 * -50 * 1000 * (1.1 if p == "2026-Q2" else 1.0)
+        lines.append(f"CHN,FA,N,USD_EXC,N,{p},{chn:.0f},6")
+    return "\n".join(lines) + "\n"
+
+
 def handler(request: httpx.Request) -> httpx.Response:
-    path = request.url.path
+    host, path = request.url.host, request.url.path
+    if host == "sdmx.oecd.org":
+        return httpx.Response(200, text=oecd_csv())
+    if host == "data-api.ecb.europa.eu":
+        return httpx.Response(200, text=(FX / "ecb_bps.csv").read_text())
+    if host == "treasury.gov":
+        return httpx.Response(200, text=(FX / path.rsplit("/", 1)[-1]).read_text())
+    if host == "www.mof.go.jp":
+        return httpx.Response(200, content=(FX / "mof_week.csv").read_bytes())
     if "/IMF.RES/WEO/" in path:
         return httpx.Response(200, text=weo_csv())
     if "/IMF.STA/BOP/" in path:
@@ -77,7 +99,7 @@ def repo(tmp_path: Path) -> Path:
     cfg = {
         "extra": ["NOR"], "aggregates": ["EA"],
         "countries": [
-            {"iso3": "USA", "name_nb": "USA", "name_en": "United States"},
+            {"iso3": "USA", "iso_num": "840", "name_nb": "USA", "name_en": "United States"},
             {"iso3": "CHN", "name_nb": "Kina", "name_en": "China"},
             {"iso3": "DEU", "name_nb": "Tyskland", "name_en": "Germany"},
             {"iso3": "RUS", "name_nb": "Russland", "name_en": "Russia"},
@@ -130,12 +152,38 @@ def test_update_end_to_end(repo: Path):
     assert (site / "download/USA.csv").exists()
     assert not [w for w in summary["warnings"] if w.startswith(("identitet", "speiling"))]
 
+    # Phase 2: OECD cross-check, nowcast, revisions, map codes
+    cross = json.loads((site / "crosscheck.json").read_text())
+    assert [(f["country"], f["period"]) for f in cross["flagged"]] == [("CHN", "2026-Q2")]
+    assert cross["excluded"] == [{"country": "G163", "reason": "aggregate"}]
+    assert all(c["country"] != "G163" for c in cross["countries"])
+    usa = next(c for c in cross["countries"] if c["country"] == "USA")
+    assert usa["flagged"] == 0 and usa["compared"] == 8
+    now = json.loads((site / "nowcast.json").read_text())
+    assert set(now["sources"]) == {"US_TIC", "EA_ECB", "JP_MOF"}
+    assert now["sources"]["US_TIC"]["net"][-1] == pytest.approx(155.318)
+    assert not now["sources"]["JP_MOF"]["stale"]
+    rev = json.loads((site / "revisions.json").read_text())
+    assert rev["history"][0]["date"] == "2026-11-22" and rev["latest"]["changes"] == []
+    assert any("kryssjekk: 1 avvik" in w for w in summary["warnings"])
+
     # A second identical run changes nothing
     before = (site / "meta.json").read_text()
     rc = run(repo, today=date(2026, 11, 29), transport=httpx.MockTransport(handler))
     summary = json.loads((repo / "run/summary.json").read_text())
     assert rc == 0 and summary["changed"] is False
     assert (site / "meta.json").read_text() == before
+
+    # A nowcast source that fails keeps its previous values, marked stale
+    def flaky(request: httpx.Request) -> httpx.Response:
+        if request.url.host == "www.mof.go.jp":
+            return httpx.Response(404)  # not retried, keeps the test fast
+        return handler(request)
+
+    rc = run(repo, today=date(2026, 11, 29), transport=httpx.MockTransport(flaky))
+    now = json.loads((site / "nowcast.json").read_text())
+    assert rc == 0 and now["sources"]["JP_MOF"]["stale"] is True
+    assert now["sources"]["JP_MOF"]["net"]
 
 
 def test_source_error_writes_nothing(repo: Path):

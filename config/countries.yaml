@@ -1,37 +1,37 @@
-# Navn og flagg for land. Selve utvalget (topp 20 etter BNP i referanseåret) beregnes og
+# Navn, flagg og ISO-tallkode (for kartet) for land. Selve utvalget (topp 20 etter BNP i referanseåret) beregnes og
 # låses av pipelinen i data/processed/selection.json; land som kommer inn i topp 20 uten å
 # stå her, får en advarsel og vises med landkode til navnet legges til.
 extra: [NOR]           # valgbare ekstraland
 aggregates: [EA]       # euroområdet (IMF-kode G163); summeres aldri med medlemslandene
 
 countries:
-  - {iso3: USA, iso2: US, name_nb: USA, name_en: United States}
-  - {iso3: CHN, iso2: CN, name_nb: Kina, name_en: China}
-  - {iso3: DEU, iso2: DE, name_nb: Tyskland, name_en: Germany}
-  - {iso3: JPN, iso2: JP, name_nb: Japan, name_en: Japan}
-  - {iso3: IND, iso2: IN, name_nb: India, name_en: India}
-  - {iso3: GBR, iso2: GB, name_nb: Storbritannia, name_en: United Kingdom}
-  - {iso3: FRA, iso2: FR, name_nb: Frankrike, name_en: France}
-  - {iso3: ITA, iso2: IT, name_nb: Italia, name_en: Italy}
-  - {iso3: CAN, iso2: CA, name_nb: Canada, name_en: Canada}
-  - {iso3: BRA, iso2: BR, name_nb: Brasil, name_en: Brazil}
-  - {iso3: RUS, iso2: RU, name_nb: Russland, name_en: Russia}
-  - {iso3: ESP, iso2: ES, name_nb: Spania, name_en: Spain}
-  - {iso3: MEX, iso2: MX, name_nb: Mexico, name_en: Mexico}
-  - {iso3: AUS, iso2: AU, name_nb: Australia, name_en: Australia}
-  - {iso3: KOR, iso2: KR, name_nb: Sør-Korea, name_en: South Korea}
-  - {iso3: IDN, iso2: ID, name_nb: Indonesia, name_en: Indonesia}
-  - {iso3: NLD, iso2: NL, name_nb: Nederland, name_en: Netherlands, financial_centre: true}
-  - {iso3: TUR, iso2: TR, name_nb: Tyrkia, name_en: Türkiye}
-  - {iso3: SAU, iso2: SA, name_nb: Saudi-Arabia, name_en: Saudi Arabia}
-  - {iso3: CHE, iso2: CH, name_nb: Sveits, name_en: Switzerland, financial_centre: true}
-  - {iso3: POL, iso2: PL, name_nb: Polen, name_en: Poland}
-  - {iso3: ARG, iso2: AR, name_nb: Argentina, name_en: Argentina}
-  - {iso3: BEL, iso2: BE, name_nb: Belgia, name_en: Belgium}
-  - {iso3: SWE, iso2: SE, name_nb: Sverige, name_en: Sweden}
-  - {iso3: IRL, iso2: IE, name_nb: Irland, name_en: Ireland, financial_centre: true}
-  - {iso3: SGP, iso2: SG, name_nb: Singapore, name_en: Singapore, financial_centre: true}
-  - {iso3: ARE, iso2: AE, name_nb: De forente arabiske emirater, name_en: United Arab Emirates}
-  - {iso3: ISR, iso2: IL, name_nb: Israel, name_en: Israel}
-  - {iso3: THA, iso2: TH, name_nb: Thailand, name_en: Thailand}
-  - {iso3: NOR, iso2: "NO", name_nb: Norge, name_en: Norway}
+  - {iso3: USA, iso_num: "840", iso2: US, name_nb: USA, name_en: United States}
+  - {iso3: CHN, iso_num: "156", iso2: CN, name_nb: Kina, name_en: China}
+  - {iso3: DEU, iso_num: "276", iso2: DE, name_nb: Tyskland, name_en: Germany}
+  - {iso3: JPN, iso_num: "392", iso2: JP, name_nb: Japan, name_en: Japan}
+  - {iso3: IND, iso_num: "356", iso2: IN, name_nb: India, name_en: India}
+  - {iso3: GBR, iso_num: "826", iso2: GB, name_nb: Storbritannia, name_en: United Kingdom}
+  - {iso3: FRA, iso_num: "250", iso2: FR, name_nb: Frankrike, name_en: France}
+  - {iso3: ITA, iso_num: "380", iso2: IT, name_nb: Italia, name_en: Italy}
+  - {iso3: CAN, iso_num: "124", iso2: CA, name_nb: Canada, name_en: Canada}
+  - {iso3: BRA, iso_num: "076", iso2: BR, name_nb: Brasil, name_en: Brazil}
+  - {iso3: RUS, iso_num: "643", iso2: RU, name_nb: Russland, name_en: Russia}
+  - {iso3: ESP, iso_num: "724", iso2: ES, name_nb: Spania, name_en: Spain}
+  - {iso3: MEX, iso_num: "484", iso2: MX, name_nb: Mexico, name_en: Mexico}
+  - {iso3: AUS, iso_num: "036", iso2: AU, name_nb: Australia, name_en: Australia}
+  - {iso3: KOR, iso_num: "410", iso2: KR, name_nb: Sør-Korea, name_en: South Korea}
+  - {iso3: IDN, iso_num: "360", iso2: ID, name_nb: Indonesia, name_en: Indonesia}
+  - {iso3: NLD, iso_num: "528", iso2: NL, name_nb: Nederland, name_en: Netherlands, financial_centre: true}
+  - {iso3: TUR, iso_num: "792", iso2: TR, name_nb: Tyrkia, name_en: Türkiye}
+  - {iso3: SAU, iso_num: "682", iso2: SA, name_nb: Saudi-Arabia, name_en: Saudi Arabia}
+  - {iso3: CHE, iso_num: "756", iso2: CH, name_nb: Sveits, name_en: Switzerland, financial_centre: true}
+  - {iso3: POL, iso_num: "616", iso2: PL, name_nb: Polen, name_en: Poland}
+  - {iso3: ARG, iso_num: "032", iso2: AR, name_nb: Argentina, name_en: Argentina}
+  - {iso3: BEL, iso_num: "056", iso2: BE, name_nb: Belgia, name_en: Belgium}
+  - {iso3: SWE, iso_num: "752", iso2: SE, name_nb: Sverige, name_en: Sweden}
+  - {iso3: IRL, iso_num: "372", iso2: IE, name_nb: Irland, name_en: Ireland, financial_centre: true}
+  - {iso3: SGP, iso_num: "702", iso2: SG, name_nb: Singapore, name_en: Singapore, financial_centre: true}
+  - {iso3: ARE, iso_num: "784", iso2: AE, name_nb: De forente arabiske emirater, name_en: United Arab Emirates}
+  - {iso3: ISR, iso_num: "376", iso2: IL, name_nb: Israel, name_en: Israel}
+  - {iso3: THA, iso_num: "764", iso2: TH, name_nb: Thailand, name_en: Thailand}
+  - {iso3: NOR, iso_num: "578", iso2: "NO", name_nb: Norge, name_en: Norway}

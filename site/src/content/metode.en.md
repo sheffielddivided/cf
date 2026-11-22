@@ -51,6 +51,18 @@ GDP is the IMF’s annual GDP in US dollars from the World Economic Outlook. Eac
 
 The 20 largest economies by GDP in the **reference year**, which is the last complete year with data. The list is locked for the reference year and recomputed automatically when a new year is complete. The euro area is shown as a separate aggregate and is never added to its member countries.
 
+## Map
+
+The map shows the same figures as the ranking, as a color per country. The default is share of GDP, because large economies would otherwise dominate. It shows each country’s net capital flow with the rest of the world, not flows between countries. The euro area is an aggregate and is not drawn.
+
+## Nowcast
+
+The nowcast page shows fresher indicators from national sources: US securities transactions (US Treasury, TIC, monthly), the euro area balance of payments (ECB, monthly) and Japanese securities transactions (Ministry of Finance, weekly). They cover only part of capital flows, use their own currencies and definitions, and are never part of the ranking.
+
+## Cross-check against the OECD
+
+Every week the IMF figures are compared with the OECD’s balance of payments for the last eight quarters. Differences above 5% and USD 0.5 bn are listed on the data quality page. Aggregates such as the euro area are not compared, because the IMF and the OECD compile them differently.
+
 ## Uncertainty and revisions
 
 - Balance of payments data is **revised**, often substantially, in the first years after publication. Large revisions are logged in the repository.
@@ -67,4 +79,10 @@ Source: International Monetary Fund, Balance of Payments (BOP), [https://data.im
 
 Source: International Monetary Fund, World Economic Outlook (WEO), [https://data.imf.org/en/datasets/IMF.RES:WEO](https://data.imf.org/en/datasets/IMF.RES:WEO)
 
-The data is reproduced under the IMF’s terms for statistical data. The site is not produced or endorsed by the IMF.
+OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.org/](https://data-explorer.oecd.org/) – used for the cross-check.
+
+Nowcast: U.S. Department of the Treasury (TIC), European Central Bank (BPS) and Ministry of Finance Japan (International Transactions in Securities).
+
+Map: Natural Earth via world-atlas (public domain).
+
+Data is reproduced under each source’s terms. The site is not produced or endorsed by the IMF, the OECD, the ECB, the US Treasury or Japan’s Ministry of Finance.
