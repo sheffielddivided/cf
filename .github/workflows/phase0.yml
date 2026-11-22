@@ -6,7 +6,7 @@ name: phase0-explore
 
 on:
   push:
-    branches: [main]
+    branches: [main, "phase0/**"]
     paths:
       - "pipeline/**"
       - "config/**"
@@ -36,6 +36,11 @@ jobs:
           mkdir -p data/explore
           set -o pipefail
           uv run pipeline explore --out data/explore 2>&1 | tee data/explore/run.log || echo "explore exited with $?" | tee -a data/explore/run.log
+
+      - name: Coverage matrix
+        run: |
+          set -o pipefail
+          uv run pipeline coverage --out data/explore/coverage 2>&1 | tee data/explore/coverage.log || echo "coverage exited with $?" | tee -a data/explore/coverage.log
 
       - name: Publish results to bot/phase0
         if: always()
