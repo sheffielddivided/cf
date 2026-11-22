@@ -4,8 +4,9 @@ Les `docs/DESIGN.md` først. Den er fasit for definisjoner, datamodell og regler
 Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI-tekst på norsk (bokmål) med engelsk som andrespråk.
 
 ## Status
-- Fase 0 er levert og forslagene godkjent (se `docs/PHASE0_FINDINGS.md`). Fase 1 pågår: pipeline først, deretter frontend.
-- Ikke start på frontend (`site/`) før pipelinen i fase 1 leverer data.
+- Fase 0 og fase 1 (pipeline + nettside) er levert. Neste er fase 2 (OECD-kryssjekk, kart, nåkast), se `docs/DESIGN.md`.
+- Nettsiden ligger i `site/` (Astro). Den leser bare filene i `site/public/data/`, som pipelinen skriver. Endre aldri disse for hånd.
+- Grafer: følg dataviz-reglene (blå = innstrømning, oransje = utstrømning, tabellvisning for hver graf, ingen dobbel y-akse).
 
 ## Arbeidsmåte
 - Jobb fase for fase. Én PR per avgrenset oppgave, med tester. Bruk GitHub Issues for oppgaver og funn.
@@ -33,3 +34,5 @@ Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI
 - `uv run pipeline update` – fase 1: hent, normaliser, kontroller og eksporter (krever nett til api.imf.org)
 - `uv run pytest` – tester
 - `uv run ruff check .` – lint
+- `cd site && npm ci && npm run dev` – nettsiden lokalt (http://localhost:4321/cf/)
+- `cd site && npx astro check && npm test && npm run build` – typesjekk, tester og bygg

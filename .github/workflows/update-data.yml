@@ -30,6 +30,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -48,6 +51,7 @@ jobs:
           echo "pipeline exit code: $code"
 
       - name: Commit data (main)
+        id: commit
         if: steps.run.outputs.code == '0' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
@@ -59,6 +63,8 @@ jobs:
           else
             git commit -F run/commit_message.txt
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Publish preview (branches)
@@ -92,3 +98,15 @@ jobs:
         run: |
           echo "Pipeline feilet (exit ${{ steps.run.outputs.code }}). Se run/summary.json."
           exit 1
+
+  deploy:
+    # Publish the site with the new data (bot commits do not trigger deploy.yml by themselves).
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ref: ${{ needs.update.outputs.sha }}

@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+import { routes, t } from "../lib/i18n";
+import type { Lang, Meta } from "../lib/types";
+import meta from "../../public/data/meta.json";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  current: "home" | "heatmap" | "method" | "country";
+  alternateHref: string;
+}
+const { lang, title, description, current, alternateHref } = Astro.props;
+const d = t[lang];
+const r = routes(lang);
+const m = meta as Meta;
+const fullTitle = current === "home" ? `${d.siteTitle} – ${d.siteTagline}` : `${title} – ${d.siteTitle}`;
+---
+<!doctype html>
+<html lang={lang === "nb" ? "nb" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description ?? d.siteTagline} />
+    <link rel="alternate" hreflang={lang === "nb" ? "nb" : "en"} href={new URL(Astro.url.pathname, Astro.site).href} />
+    <link rel="alternate" hreflang={lang === "nb" ? "en" : "nb"} href={new URL(alternateHref, Astro.site).href} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{d.skip}</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={r.home}>{d.siteTitle}</a>
+        <nav class="site-nav" aria-label={lang === "nb" ? "Hovedmeny" : "Main"}>
+          <a href={r.home} aria-current={current === "home" ? "page" : undefined}>{d.navOverview}</a>
+          <a href={r.heatmap} aria-current={current === "heatmap" ? "page" : undefined}>{d.navHeatmap}</a>
+          <a href={r.method} aria-current={current === "method" ? "page" : undefined}>{d.navMethod}</a>
+          <a href={alternateHref} hreflang={lang === "nb" ? "en" : "nb"} lang={lang === "nb" ? "en" : "nb"}>{d.otherLang}</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        {m.sources.map((s) => (
+          <p class="cite">
+            {s.citation.replace(s.url, "").replace(/,\s*$/, "")},{" "}
+            <a href={s.url}>{s.url}</a>
+          </p>
+        ))}
+        <p>{d.footerData}</p>
+        <p><a href="https://github.com/sheffielddivided/cf">{d.footerRepo}</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

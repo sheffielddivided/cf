@@ -145,7 +145,7 @@ IMF BOP er primærkilden. OECD er kontroll og utfylling. Resten er separate modu
 **Filer til nettsiden** (`site/public/data/`)
 
 - `meta.json`: siste oppdatering, siste felles kvartal og kildeliste.
-- `ranking_<period>.json`: ferdigberegnet rangering for standardvalgene.
+- `ranking.json`: ferdigberegnet rangering for alle valg (kvartal, fire kvartaler, år, nyeste per land; USD og % av BNP).
 - `country/<ISO3>.json`: alle serier for ett land, under 100 kB.
 - `heatmap.json`: land × kvartal for hovedmålet.
 - `download/*.csv`: det samme som CSV for nedlasting.
@@ -221,7 +221,7 @@ Land som rader og kvartaler som kolonner, med divergerende fargeskala rundt null
 **3. Landside**
 
 1. Nøkkeltall: siste periode i USD og % av BNP, endring fra året før og datastatus.
-2. Tidsserie over ti år: kvartalsstolper med en linje for rullerende firekvartals sum.
+2. Tidsserie fra 2010: kvartalsstolper med en linje for glidende snitt over fire kvartaler. Snittet brukes i stedet for firekvartalssummen, så linjen og stolpene har samme skala på samme akse.
 3. Bidrag per komponent: stablede stolper med positive og negative verdier rundt null.
 4. **De to sidene av nettoen:** utlendingers netto kjøp i landet mot innenlandske aktørers netto kjøp ute, som to linjer.
 5. Kontroll: driftsbalansen og feil og utelatelser.
@@ -240,7 +240,7 @@ Forklarer BPM6, fortegnet, hva «ekskl. reserver» betyr, strømmer mot beholdni
 
 Rolig og redaksjonelt, nærmere Financial Times enn et handelsterminal-dashbord. Tallene skal være det mest synlige på siden.
 
-- **Farger for retning:** blågrønn for innstrømning og oransje for utstrømning (fargeblindtrygt). Grått betyr manglende data. Samme skala over hele siden.
+- **Farger for retning:** blå for innstrømning og oransje for utstrømning, validert for fargeblindhet i lys og mørk modus (blågrønn ble forkastet fordi den har for lav fargemetning). Varmekartet bruker samme to farger med grått i midten. Komponenter bruker en fast, validert rekkefølge av fem kategorifarger. Manglende data er en tom rute eller teksten «ikke rapportert». Hver graf har en tabellvisning.
 - **Lys og mørk modus** via CSS-variabler, der systemvalget styrer standard.
 - **Typografi:** systemfont eller Inter, med tabellsifre (`font-variant-numeric: tabular-nums`) i alle tall.
 - **Tallformat:** norsk som standard (`84,2 mrd. USD`, `−1,3 % av BNP`) og engelsk som valg. Bruk `Intl.NumberFormat`.
@@ -289,7 +289,7 @@ To deler: en Python-pipeline som lager data, og en statisk frontend som leser de
 | SDMX | Egen tynn klient med `httpx` | IMF-API-et er nytt; en tynn klient gjør feil lette å se |
 | Lagring | Parquet i `data/processed/`, råsvar i `data/raw/` (gzip) | Git-vennlig størrelse, full sporbarhet |
 | Frontend | Astro + TypeScript, statisk build | Null server, lite JavaScript |
-| Grafer | Observable Plot | Presis kontroll og lite kode |
+| Grafer | Egen SVG for rangering og varmekart, Observable Plot for landsidene | Full kontroll der det trengs, lite kode ellers |
 | Kart | D3-geo + Natural Earth 110m (TopoJSON i repoet) | Ingen tile-server eller API-nøkkel |
 | Tester | `pytest` (pipeline), Vitest + Playwright (frontend) | |
 | Hosting | GitHub Pages | Gratis, samme sted som koden |
@@ -326,13 +326,13 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 
 **Fase 1: MVP**
 
-- [ ] Pipelinen henter IMF BOP (+ BNP), normaliserer, kjører alle kvalitetskontroller og eksporterer JSON/CSV.
-- [ ] `update-data.yml` kjører etter plan og ved manuell start, committer kun ved endring og åpner Issue ved advarsler.
-- [ ] Oversikt med rangering og globale kontroller, varmekart, landside og metodeside på norsk og engelsk.
-- [ ] Alle tilstander ligger i URL-en, og hver graf har en tabellversjon.
-- [ ] Lighthouse: ytelse ≥ 90 og tilgjengelighet ≥ 95 på mobil.
-- [ ] Enhetstester for fortegn, % av BNP, siste felles kvartal og håndtering av manglende data.
-- [ ] Siden er publisert på GitHub Pages med kildeangivelse på hver side.
+- [x] Pipelinen henter IMF BOP (+ BNP), normaliserer, kjører alle kvalitetskontroller og eksporterer JSON/CSV.
+- [x] `update-data.yml` kjører etter plan og ved manuell start, committer kun ved endring og åpner Issue ved advarsler.
+- [x] Oversikt med rangering og globale kontroller, varmekart, landside og metodeside på norsk og engelsk.
+- [x] Alle tilstander ligger i URL-en, og hver graf har en tabellversjon.
+- [x] Lighthouse: ytelse ≥ 90 og tilgjengelighet ≥ 95 på mobil. *(Målt 22.11.2026: ytelse 97–100, tilgjengelighet 100.)*
+- [x] Enhetstester for fortegn, % av BNP, siste felles kvartal og håndtering av manglende data.
+- [ ] Siden er publisert på GitHub Pages med kildeangivelse på hver side. *(Klar; krever at Pages er slått på med kilde «GitHub Actions».)*
 
 **Fase 2: Kontroll og nåkast**
 

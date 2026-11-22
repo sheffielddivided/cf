@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, t } from "../lib/i18n";
+import type { Lang } from "../lib/types";
+import { Content as Nb } from "../content/metode.nb.md";
+import { Content as En } from "../content/metode.en.md";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+---
+<Base lang={lang} title={d.navMethod} current="method" alternateHref={alternate(lang, "method")}>
+  <article class="prose">
+    <h1>{lang === "nb" ? "Metode" : "Method"}</h1>
+    {lang === "nb" ? <Nb /> : <En />}
+  </article>
+</Base>

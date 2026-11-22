@@ -1,0 +1,9 @@
+---
+import CountryPage from "../../components/CountryPage.astro";
+import { allCountries } from "../../lib/countries-static";
+export function getStaticPaths() {
+  return allCountries().map((data) => ({ params: { iso: data.country }, props: { data } }));
+}
+const { data } = Astro.props;
+---
+<CountryPage lang="nb" data={data} />

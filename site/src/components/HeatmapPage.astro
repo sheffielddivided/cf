@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, t } from "../lib/i18n";
+import { windowLabel } from "../lib/format";
+import type { Lang, Meta } from "../lib/types";
+import meta from "../../public/data/meta.json";
+import heatmap from "../../public/data/heatmap.json";
+import ranking from "../../public/data/ranking.json";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const m = meta as Meta;
+const title = lang === "nb" ? "Varmekart: netto kapitalstrøm per kvartal" : "Heatmap: net capital flow by quarter";
+const lede = lang === "nb"
+  ? `Netto kapitalstrøm ekskl. reserver for hvert land og kvartal, ${windowLabel([heatmap.periods[0], heatmap.periods[heatmap.periods.length - 1]], lang)}. Blått er netto innstrømning, oransje netto utstrømning. Landene er sortert etter siste fire kvartaler.`
+  : `Net capital flow excluding reserves for each country and quarter, ${windowLabel([heatmap.periods[0], heatmap.periods[heatmap.periods.length - 1]], lang)}. Blue is net inflow, orange net outflow. Countries are sorted by the last four quarters.`;
+---
+<Base lang={lang} title={d.navHeatmap} current="heatmap" alternateHref={alternate(lang, "heatmap")}>
+  <h1>{title}</h1>
+  <p class="muted">{lede}</p>
+  <section class="panel" id="heatmap" data-lang={lang}>
+    <form class="controls" onsubmit="return false" aria-label={lang === "nb" ? "Visningsvalg" : "View options"}>
+      <label class="control">{d.unit}
+        <select name="unit">
+          <option value="pct">{d.unitPct} {lang === "nb" ? "(annualisert)" : "(annualised)"}</option>
+          <option value="usd">{d.unitUsd}</option>
+        </select>
+      </label>
+      <label class="control">{d.selection}
+        <select name="sel">
+          <option value="all">{d.selAll}</option>
+          <option value="top20">{d.selTop20}</option>
+        </select>
+      </label>
+    </form>
+    <div class="chart-head">
+      <div id="heatmap-legend" style="min-height:34px"></div>
+      <button type="button" class="toggle" id="table-toggle" aria-pressed="false">{d.showTable}</button>
+    </div>
+    <div class="table-scroll" id="heatmap-chart" style={`min-height:${22 + heatmap.rows.length * 22 + 6}px`}></div>
+    <div class="table-scroll" id="heatmap-table" hidden></div>
+    <div class="footnotes"><p>{d.footnoteMissing}</p></div>
+  </section>
+  <script type="application/json" id="heatmap-data" set:html={JSON.stringify({ meta: m, heatmap, ranking })} />
+</Base>
+
+<script>
+  import { initHeatmap } from "../lib/heatmap";
+  const root = document.getElementById("heatmap");
+  if (root) initHeatmap(root);
+</script>
