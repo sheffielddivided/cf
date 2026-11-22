@@ -178,7 +178,7 @@ En feil i kontrollene stopper jobben før noe committes. Siden viser da forrige 
 
 | Fil | Utløses av | Gjør |
 | --- | --- | --- |
-| `update-data.yml` | Cron ukentlig (man. 05:17 UTC) + `workflow_dispatch` | Kjører `pipeline update`. Committer `data/` og `site/public/data/` bare ved endring, med en maskinlaget revisjonsoppsummering. Advarsler gir en Issue (`data-quality` / `revision`). Feil gir en Issue (`source-down`) uten commit. `concurrency` hindrer overlappende kjøringer |
+| `update-data.yml` | Cron ukentlig (man. 05:17 UTC) + `workflow_dispatch` + push til `main` som endrer `pipeline/` eller `config/` (andre grener: resultat til `bot/data-preview`) | Kjører `pipeline update`. Committer `data/` og `site/public/data/` bare ved endring, med en maskinlaget revisjonsoppsummering. Advarsler gir en Issue (`data-quality` / `revision`). Feil gir en Issue (`source-down`) uten commit. `concurrency` hindrer overlappende kjøringer |
 | `ci.yml` | Push og pull request | `pytest`, lint (`ruff`), senere typesjekk, Vitest, Playwright-røyktest og Lighthouse CI |
 | `deploy.yml` | Push til `main` som endrer `site/**` eller data | Astro-build, deretter `actions/deploy-pages` |
 | `release-snapshot.yml` | Når siste felles kvartal flytter seg | Lager en GitHub Release (`data-2026Q2`) med CSV-er som vedlegg, så hver datautgave kan siteres |
