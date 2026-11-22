@@ -1,0 +1,134 @@
+[
+  {
+    "name": "nb_fx_page",
+    "url": "https://www.norges-bank.no/tema/statistikk/valutatransaksjoner-daglig/",
+    "accept": null,
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 52406,
+    "file": "raw/nb_fx_page.html.gz",
+    "error": null,
+    "seconds": 0.78
+  },
+  {
+    "name": "nb_dataflows",
+    "url": "https://data.norges-bank.no/api/dataflow/all/all/latest",
+    "accept": "application/vnd.sdmx.structure+json; version=1.0; charset=utf-8",
+    "status": 406,
+    "content_type": "application/xml;charset=UTF-8",
+    "bytes": 476,
+    "file": "raw/nb_dataflows.xml.gz",
+    "error": null,
+    "seconds": 0.48
+  },
+  {
+    "name": "imf3_dataflows_p3",
+    "url": "https://api.imf.org/external/sdmx/3.0/structure/dataflow/*/*/+",
+    "accept": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "bytes": 402812,
+    "file": "raw/imf3_dataflows_p3.json.gz",
+    "error": null,
+    "seconds": 0.42
+  },
+  {
+    "name": "imf3_pip_structure",
+    "url": "https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/PIP/+?references=all",
+    "accept": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "bytes": 2882834,
+    "file": "raw/imf3_pip_structure.json.gz",
+    "error": null,
+    "seconds": 0.17
+  },
+  {
+    "name": "imf3_pip_usa_a_csv",
+    "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/USA.*.*.*.*.*.A?c%5BTIME_PERIOD%5D=ge%3A2023",
+    "accept": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "bytes": 39570996,
+    "file": "raw/imf3_pip_usa_a_csv.csv.gz",
+    "error": null,
+    "seconds": 6.87
+  },
+  {
+    "name": "imf3_pip_usa_s_csv",
+    "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/USA.*.*.*.*.*.S?c%5BTIME_PERIOD%5D=ge%3A2023",
+    "accept": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "bytes": 75979576,
+    "file": "raw/imf3_pip_usa_s_csv.csv.gz",
+    "error": null,
+    "seconds": 8.79
+  },
+  {
+    "name": "imf3_dip_structure",
+    "url": "https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/DIP/+?references=all",
+    "accept": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "bytes": 2716481,
+    "file": "raw/imf3_dip_structure.json.gz",
+    "error": null,
+    "seconds": 0.27
+  },
+  {
+    "name": "imf3_dip_usa_a_csv",
+    "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/DIP/+/USA.*.*.*.A?c%5BTIME_PERIOD%5D=ge%3A2023",
+    "accept": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "bytes": 8451721,
+    "file": "raw/imf3_dip_usa_a_csv.csv.gz",
+    "error": null,
+    "seconds": 1.77
+  },
+  {
+    "name": "imf3_dip_usa_s_csv",
+    "url": "https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/DIP/+/USA.*.*.*.S?c%5BTIME_PERIOD%5D=ge%3A2023",
+    "accept": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "bytes": 2085,
+    "file": "raw/imf3_dip_usa_s_csv.csv.gz",
+    "error": null,
+    "seconds": 0.18
+  },
+  {
+    "name": "imf3_iip_structure",
+    "url": "https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/IIP/+?references=all",
+    "accept": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "status": 200,
+    "content_type": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "bytes": 3820556,
+    "file": "raw/imf3_iip_structure.json.gz",
+    "error": null,
+    "seconds": 0.24
+  },
+  {
+    "name": "bis_lbs_structure",
+    "url": "https://stats.bis.org/api/v2/structure/dataflow/BIS/WS_LBS_D_PUB/+?references=all",
+    "accept": "application/vnd.sdmx.structure+json;version=2.0.0",
+    "status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "bytes": 522223,
+    "file": "raw/bis_lbs_structure.json.gz",
+    "error": null,
+    "seconds": 0.55
+  },
+  {
+    "name": "bis_lbs_us_csv",
+    "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/+/Q.*.*.*.*.*.*.*.US.*.*.*?c%5BTIME_PERIOD%5D=ge%3A2025-Q1",
+    "accept": "application/vnd.sdmx.data+csv;version=2.0.0",
+    "status": 200,
+    "content_type": "text/csv;charset=UTF-8",
+    "bytes": 2029586,
+    "file": "raw/bis_lbs_us_csv.csv.gz",
+    "error": null,
+    "seconds": 1.26
+  }
+]

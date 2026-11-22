@@ -1,0 +1,21 @@
+code	name
+A	All sectors
+B	Banks, total
+C	Non-financial corporations
+F	Non-bank financial institutions
+G	General government
+H	Households and NPISHs
+I	Banks, related offices
+J	Banks, unrelated banks
+K	Unallocated non-financial sectors
+L	Unallocated non-financial private sector
+M	Banks, central banks
+N	Non-banks, total
+O	Official sector
+P	Non-financial sectors
+R	Non-bank private sector
+S	Non-financial private sector
+U	Unallocated by sector
+X	Residual by sector
+Y	Residual non-bank private sector
+Z	Residual non-financial private sector

@@ -1,0 +1,980 @@
+code	name
+ANPNFA	Acquisitions nonproduced nonfinancial assets
+CAB	Current account balance (credit less debit)
+CABXEF	Current account balance excluding exceptional financing
+CKAB	Current and capital account balance (credit less debit)
+D	Direct investment
+D1	Compensation of employees
+D1_F3	Direct investor in direct invesment enterprises, Debt securities
+D1_F5	Direct investor in direct invesment enterprises, Equity and investment fund shares
+D1_F5A	Direct investor in direct invesment enterprises, Equity and investment fund shares/units: other than reinvestment of earnings
+D1_F5_D42S	Direct investor in direct invesment enterprises, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+D1_FL	Direct investor in direct invesment enterprises, Debt instruments
+D1_FL_D4Q	Direct investor in direct invesment enterprises, Debt instruments, Investment income on interest and income attributable to policy holders
+D2	Taxes on production and imports
+D2_F3	Direct investment enterprises in direct investor, Debt securities
+D2_F5	Direct investment enterprises in direct investor, Equity and investment fund shares
+D2_F5A	Direct investment enterprises in direct investor, Equity and investment fund shares/units: other than reinvestment of earnings
+D2_F5_D42S	Direct investment enterprises in direct investor, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+D2_FL	Direct investment enterprises in direct investor, Debt instruments
+D2_FL_D4Q	Direct investment enterprises in direct investor, Debt instruments, Investment income on interest and income attributable to policy holders
+D3	Subsidies
+D3_F3	Direct investment between fellow enterprises, Debt securities
+D3_F5	Direct investment between fellow enterprises, Equity and investment fund shares
+D3_F5A	Direct investment between fellow enterprises, Equity and investment fund shares/units: other than reinvestment of earnings
+D3_F5_D42S	Direct investment between fellow enterprises, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+D3_FL	Direct investment between fellow enterprises, Debt instruments
+D3_FL_D4Q	Direct investment between fellow enterprises, Debt instruments, Investment income on interest and income attributable to policy holders
+D45	Investment income on rent
+D4O	Other primary income
+D4P	Investment income on other investment income
+D5Z_S13	Current taxes on income, wealth, etc. of which: payable by border, seasonal, and other short-term workers (current taxes on income, wealth, etc.), General government
+D5_S13	Current taxes on income, wealth, etc., General government
+D5_S1W	Current taxes on income, wealth, etc., Financial corporations, nonfinancial corporations, households, and NPISHs
+D61Z_S13	Social contributions payable by border, seasonal, and other short-term workers, General government
+D61_S13	Social contributions, General government
+D61_S1W	Social contributions, Financial corporations, nonfinancial corporations, households, and NPISHs
+D62_S13	Social benefits, General government
+D62_S1W	Social benefits, Financial corporations, nonfinancial corporations, households, and NPISHs
+D71_S1W	Net non-life insurance premiums, Financial corporations, nonfinancial corporations, households, and NPISHs
+D72_S1W	Nonlife insurance claims, Financial corporations, nonfinancial corporations, households, and NPISHs
+D74EF	Secondary income: o/w exceptional financing (memo item)
+D74EF1	Secondary income: grants received from IMF subsidy accounts (memo item: o/w exceptional financing), secondary income
+D74EF2	Secondary income: other intergovernmental grants (memo item: o/w exceptional financing)
+D74XEF	Secondary income excluding exceptional financing
+D74_S13	Secondary income: Current international cooperation, General government
+D74_S1W	Secondary income: Current international cooperation, Financial corporations, nonfinancial corporations, households, and NPISHs
+D751_S13	Current transfers to NPISH, General government
+D751_S1W	Current transfers to NPISH, Financial corporations, nonfinancial corporations, households, and NPISHs
+D752W_S1W	Workers' remittances, Financial corporations, nonfinancial corporations, households, and NPISHs
+D752_S1W	Personal transfers (current transfers between resident and nonresident households), Financial corporations, nonfinancial corporations, households, and NPISHs
+D75_S13	Miscellaneous current transfers, General government
+D75_S1W	Miscellaneous current transfers, Financial corporations, nonfinancial corporations, households, and NPISHs
+D8_S1W	Adjustment for change in pension entitlements, Financial corporations, nonfinancial corporations, households, and NPISHs
+D9	Capital transfers
+D91_S13	Capital taxes, General government
+D91_S1W	Capital taxes, Financial corporations, nonfinancial corporations, households, and NPISHs
+D99AEF	Debt forgiveness (memo item: o/w exceptional financing)
+D99A_S13	Other capital transfers: debt forgiveness, General government
+D99A_S1W	Other capital transfers: debt forgiveness, Financial corporations, nonfinancial corporations, households, and NPISHs
+D99R1_S1W	Capital transfers between households, Financial corporations, nonfinancial corporations, households, and NPISHs
+D99R2_S1W	Capital transfers to NPISH, Financial corporations, nonfinancial corporations, households, and NPISHs
+D9A_S13	Capital transfers other than debt forgiveness, General government
+D9A_S1W	Capital transfers other than debt forgiveness, Financial corporations, nonfinancial corporations, households, and NPISHs
+D9EF	Capital transfers (memo item: o/w exceptional financing)
+D9Z	Grants received from IMF subsidy accounts (memo item: o/w exceptional financing)
+D9_S13	Capital transfers, General government
+D9_S1W	Capital transfers, Financial corporations, nonfinancial corporations, households, and NPISHs
+DCNRESICL_DIC	Debt claims on nonresidents, inter-company lending
+DCNRESICL_DIC_S	Debt claims on nonresidents, inter-company lending, Short-term
+DCNRES_DIC	Debt claims on nonresidents
+DCNRES_DIC_S	Debt claims on nonresidents, Short-term
+DCNRES_DIC_S121	Debt claims on nonresidents, Central bank
+DCNRES_DIC_S121_S	Debt claims on nonresidents, Central bank, Short-term
+DCNRES_DIC_S122	Debt claims on nonresidents, Deposit taking corporations, except the Central Bank
+DCNRES_DIC_S122_S	Debt claims on nonresidents, Deposit taking corporations, except the Central Bank, Short-term
+DCNRES_DIC_S12R	Debt claims on nonresidents, Other financial corporations
+DCNRES_DIC_S12R_S	Debt claims on nonresidents, Other financial corporations, Short-term
+DCNRES_DIC_S13	Debt claims on nonresidents, General government
+DCNRES_DIC_S13_S	Debt claims on nonresidents, General government, Short-term
+DCNRES_DIC_S1Z	Debt claims on nonresidents, Other Sectors (BPM6)
+DCNRES_DIC_S1ZOTH	Debt claims on nonresidents, Other sectors: Other
+DCNRES_DIC_S1ZOTH_S	Debt claims on nonresidents, Other sectors: Other, Short-term
+DCNRES_DIC_S1Z_S	Debt claims on nonresidents, Other Sectors (BPM6), Short-term
+DLNRESICL_DIC	Debt liabilities to nonresidents: inter-company lending
+DLNRESICL_DIC_S	Debt liabilities to nonresidents: inter-company lending, Short-term
+DLNRES_DIC	Debt liabilities to nonresidents
+DLNRES_DIC_S	Debt liabilities to nonresidents, Short-term
+DLNRES_DIC_S121	Debt liabilities to nonresidents, Central bank
+DLNRES_DIC_S121_S	Debt liabilities to nonresidents, Central bank, Short-term
+DLNRES_DIC_S122	Debt liabilities to nonresidents, Deposit taking corporations, except the Central Bank
+DLNRES_DIC_S122_S	Debt liabilities to nonresidents, Deposit taking corporations, except the Central Bank, Short-term
+DLNRES_DIC_S12R	Debt liabilities to nonresidents, Other financial corporations
+DLNRES_DIC_S12R_S	Debt liabilities to nonresidents, Other financial corporations, Short-term
+DLNRES_DIC_S13	Debt liabilities to nonresidents, General government
+DLNRES_DIC_S13_S	Debt liabilities to nonresidents, General government, Short-term
+DLNRES_DIC_S1Z	Debt liabilities to nonresidents, Other Sectors (BPM6)
+DLNRES_DIC_S1ZOTH	Debt liabilities to nonresidents, Other sectors: Other
+DLNRES_DIC_S1ZOTH_S	Debt liabilities to nonresidents, Other sectors: Other, Short-term
+DLNRES_DIC_S1Z_S	Debt liabilities to nonresidents, Other Sectors (BPM6), Short-term
+DXEF	Direct investment, excluding exceptional financing
+D_D41G	Direct investment, Investment income on interest before FISIM
+D_F	Direct investment, Total financial assets/liabilities
+D_F3	Direct investment, Debt securities
+D_F5	Direct investment, Equity and investment fund shares
+D_F51_FEF1	Direct investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing)
+D_F52B	Direct investment, Investment fund shares/units: reinvestment of earnings
+D_F52B_S123	Direct investment, Investment fund shares/units: reinvestment of earnings, Money market funds
+D_F52_D4S	Direct investment, Investment fund shares/units, Investment income on investment income attributable to shareholders, including income on if, including rie
+D_F52_MV	Direct investment, Investment fund shares/units
+D_F52_S123_MV	Direct investment, Investment fund shares/units, Money market funds
+D_F5A	Direct investment, Equity and investment fund shares/units: other than reinvestment of earnings
+D_F5B	Direct investment, Equity and investment fund shares/units: reinvestment of earnings
+D_F5XEF	Direct investment, Equity and investment fund shares/units: excluding exceptional financing
+D_F5_D42S	Direct investment, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+D_F5_D43S	Direct investment, Equity and investment fund shares, Investment income on reinvested earnings on FDI (including IF)
+D_F5_D44P	Direct investment, Equity and investment fund shares, Investment income on income attributable to policy holders (insurance, pension and standardized guarantee schemes)
+D_F5_D4S	Direct investment, Equity and investment fund shares, Investment income on investment income attributable to shareholders, including income on if, including rie
+D_FL	Direct investment, Debt instruments
+D_FL1XEF	Direct investment, Debt instruments (excluding exceptional financing)
+D_FL_D4Q	Direct investment, Debt instruments, Investment income on interest and income attributable to policy holders
+D_FL_FEF	Direct investment, Debt instruments, Total exceptional financing
+D_FL_FEF4	Direct investment, Debt instruments, Rescheduling of arrears: total (memo item: o/w exceptional financing)
+D_FL_FEF41	Direct investment, Debt instruments, Rescheduling of arrears on principal (memo item: o/w exceptional financing)
+D_FL_FEF42	Direct investment, Debt instruments, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing)
+D_FL_FEF5	Direct investment, Debt instruments, Accumulation of arrears: total (memo item: o/w exceptional financing)
+D_FL_FEF51	Direct investment, Debt instruments, Accumulation of arrears on principal (memo item: o/w exceptional financing)
+D_FL_FEF52	Direct investment, Debt instruments, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing)
+D_FL_FEF53	Direct investment, Debt instruments, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing)
+D_FL_FEF6	Direct investment, Debt instruments, Repayment of arrears: total (memo item: o/w exceptional financing)
+D_FL_FEF61	Direct investment, Debt instruments, Repayment of arrears on principal (memo item: o/w exceptional financing)
+D_FL_FEF62	Direct investment, Debt instruments, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing)
+D_FL_FEF7	Direct investment, Debt instruments, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing)
+D_FL_FEF71	Direct investment, Debt instruments, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing)
+D_FL_FEF72	Direct investment, Debt instruments, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing)
+D_FL_FEF8	Direct investment, Debt instruments, Cancellation of arrears total (memo item: o/w exceptional financing)
+D_FL_FEF81	Direct investment, Debt instruments, Cancellation of arrears on principal (memo item: o/w exceptional financing)
+D_FL_FEF82	Direct investment, Debt instruments, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing)
+D_F_D4P	Direct investment, Total financial assets/liabilities, Investment income on other investment income
+D_F_FEF	Direct investment, Total financial assets/liabilities, Total exceptional financing
+D_IN1	Direct investment, Primary income
+EO	Net errors and omissions
+EO_AFR	Net errors and omissions, Adjusted using IMF accounting records
+F12AFA_AFR	Special Drawing Rights (SDRs): allocations, Adjusted using IMF accounting records
+F12HFA_AFR	SDRs holdings, Adjusted using IMF accounting records
+F4CF4IMFN	Net credit and loans from the IMF (excluding reserve position)
+F711A_T	Financial derivatives (other than reserves) options
+F712_T	Forward type
+F71_T	Financial derivatives
+F72_T	Employee stock options
+F7FCT_DIC	Foreign currency derivatives by sector notional value of contracts with nonresidents total
+F7FCT_DIC_S1Z	Foreign currency derivatives by sector notional value of contracts with nonresidents total, Other Sectors (BPM6)
+F7FCT_PAY	Foreign currency derivatives by sector notional value of contracts with nonresidents total
+F7FCT_PAY_S1Z	Foreign currency derivatives by sector notional value of contracts with nonresidents total, Other Sectors (BPM6)
+F7FCT_RC	Foreign currency derivatives by sector notional value of contracts with nonresidents total
+F7FCT_RC_S1Z	Foreign currency derivatives by sector notional value of contracts with nonresidents total, Other Sectors (BPM6)
+F7FC_DIC_S121	Foreign currency derivatives by sector notional value of contracts with nonresidents, Central bank
+F7FC_DIC_S122	Foreign currency derivatives by sector notional value of contracts with nonresidents, Deposit taking corporations, except the Central Bank
+F7FC_DIC_S12R	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other financial corporations
+F7FC_DIC_S13	Foreign currency derivatives by sector notional value of contracts with nonresidents, General government
+F7FC_DIC_S1ZOTH	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other sectors: Other
+F7FC_PAY_S121	Foreign currency derivatives by sector notional value of contracts with nonresidents, Central bank
+F7FC_PAY_S122	Foreign currency derivatives by sector notional value of contracts with nonresidents, Deposit taking corporations, except the Central Bank
+F7FC_PAY_S12R	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other financial corporations
+F7FC_PAY_S13	Foreign currency derivatives by sector notional value of contracts with nonresidents, General government
+F7FC_PAY_S1ZOTH	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other sectors: Other
+F7FC_RC_S121	Foreign currency derivatives by sector notional value of contracts with nonresidents, Central bank
+F7FC_RC_S122	Foreign currency derivatives by sector notional value of contracts with nonresidents, Deposit taking corporations, except the Central Bank
+F7FC_RC_S12R	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other financial corporations
+F7FC_RC_S13	Foreign currency derivatives by sector notional value of contracts with nonresidents, General government
+F7FC_RC_S1ZOTH	Foreign currency derivatives by sector notional value of contracts with nonresidents, Other sectors: Other
+FAB	Financial account balance (assets less liabilities)
+FABXRRI	Financial account balance, excluding reserves and related items
+FAB_AFR	Financial account balance (assets less liabilities), Adjusted using IMF accounting records
+FEF	Total exceptional financing
+FK_AFR	Reserve position in the IMF, Adjusted using IMF accounting records
+FR411NR	Reserve-related liabilities (RRL) to nonresidents
+FR411NRCLIMF	Credit and loans from the IMF: reserve-related liabilities (RRL) to nonresidents
+FR411NRDEP	Deposits: reserve-related liabilities (RRL) to nonresidents
+FR411NRDS	Debt securities: reserve-related liabilities (RRL) to nonresidents
+FR411NRF4	Loans: reserve-related liabilities (RRL) to nonresidents
+FR411NRF4O	Loans, Other (reserve-related liabilities (RRL) to nonresidents)
+FR411NRF4REP	Loans, Repo Loans (reserve-related liabilities (RRL) to nonresidents)
+FR411NRFC	Other short-term foreign currency liabilities to nonresidents: reserve-related liabilities (RRL) to nonresidents
+FXR_F712	Financial derivatives and employee stock options (other than reserves), Forward type
+FXR_F71OTR	Financial derivatives and employee stock options (other than reserves), Financial derivatives (other than reserves)
+FXR_F72	Financial derivatives and employee stock options (other than reserves), Employee stock options
+FXR_OPT	Financial derivatives and employee stock options (other than reserves), Options
+F_D4P	Total financial assets/liabilities, Investment income on other investment income
+F_F7	Financial derivatives (other than reserves) and employee stock options
+F_F71	Financial derivatives and employee stock options, Financial derivatives
+F_F711A	Financial derivatives and employee stock options, Financial derivatives (other than reserves) options
+F_F712	Financial derivatives and employee stock options, Forward type
+F_F72	Financial derivatives and employee stock options, Employee stock options
+F_F7_S121	Financial derivatives (other than reserves) and employee stock options, Central bank
+F_F7_S121_T	Financial derivatives (other than reserves) and employee stock options, Central bank
+F_F7_S122	Financial derivatives (other than reserves) and employee stock options, Deposit taking corporations, except the Central Bank
+F_F7_S122_T	Financial derivatives (other than reserves) and employee stock options, Deposit taking corporations, except the Central Bank
+F_F7_S12R	Financial derivatives (other than reserves) and employee stock options, Other financial corporations
+F_F7_S12R_T	Financial derivatives (other than reserves) and employee stock options, Other financial corporations
+F_F7_S13	Financial derivatives (other than reserves) and employee stock options, General government
+F_F7_S13_T	Financial derivatives (other than reserves) and employee stock options, General government
+F_F7_S1V	Financial derivatives (other than reserves) and employee stock options, Non financial corporations, households and NPISH
+F_F7_S1V_T	Financial derivatives (other than reserves) and employee stock options, Non financial corporations, households and NPISH
+F_F7_S1X	Financial derivatives (other than reserves) and employee stock options, Monetary authorities
+F_F7_S1X_T	Financial derivatives (other than reserves) and employee stock options, Monetary authorities
+F_F7_S1Z	Financial derivatives (other than reserves) and employee stock options, Other Sectors (BPM6)
+F_F7_S1Z_T	Financial derivatives (other than reserves) and employee stock options, Other Sectors (BPM6)
+F_F7_T	Financial derivatives (other than reserves) and employee stock options
+F_FEF9	Total financial assets/liabilities, Arrears not in exceptional financing (supplementary item: o/w)
+G	Goods
+G1	General merchandise on a balance of payments basis
+G1Z	General merchandise on a balance of payments basis, re-exports
+G2	Net exports of goods under merchanting
+G21	Goods acquired under merchanting
+G22	Goods sold under merchanting
+G3	Nonmonetary gold
+GS	Goods and services
+GSIN1	Goods, services and primary income
+IIP	International Investment Position
+IN1	Primary income
+IN2	Secondary income
+IN22_S1W	Other current transfers excluding personal transfers, Financial corporations, nonfinancial corporations, households, and NPISHs
+IN2_S13	Secondary income, General government
+IN2_S1W	Secondary income, Financial corporations, nonfinancial corporations, households, and NPISHs
+KAB	Capital account balance (credit less debit)
+KAXRRI	Capital account balance, excluding reserves and related items
+NIIP	Net International Investment Position
+NIIP_AFR	Net International Investment Position, Adjusted using IMF accounting records
+NLNB	Net lending (+) / net borrowing (-)
+NNAACQ	Acquisitions/Disposals (net) of nonproduced nonfinancial assets
+NNAACQA	Acquisitions (net): nonproduced assets
+NNADISP	Disposals, nonproduced nonfinancial assets
+NOTSDRBSKT	Reseve Assets, Not in SDR basket
+NP	Nonproduced nonfinancial assets
+O	Other investment
+OXEF	Other investment, excluding exceptional financing
+OXEF_F519	Other investment, excluding exceptional financing, Other equity
+O_AFR	Other investment, Adjusted using IMF accounting records
+O_D41	Other investment, Investment income, interest income
+O_D41G	Other investment, Investment income on interest before FISIM
+O_D9AEF	Other investment, Other investment grants (memo item: o/w exceptional financing)
+O_F	Other investment, Total financial assets/liabilities
+O_F12	Other investment, Special Drawing Rights (SDRs)
+O_F12AFA_AFR	Other investment, Special Drawing Rights (SDRs): allocations, Adjusted using IMF accounting records
+O_F12_FEF4	Other investment, Special Drawing Rights (SDRs), Rescheduling of arrears: total (memo item: o/w exceptional financing)
+O_F12_FEF5	Other investment, Special Drawing Rights (SDRs), Accumulation of arrears: total (memo item: o/w exceptional financing)
+O_F12_FEF6	Other investment, Special Drawing Rights (SDRs), Repayment of arrears: total (memo item: o/w exceptional financing)
+O_F12_FEF8	Other investment, Special Drawing Rights (SDRs), Cancellation of arrears total (memo item: o/w exceptional financing)
+O_F12_FEF_S1N	Other investment, Special Drawing Rights (SDRs), Total exceptional financing, Not sectorised
+O_F12_S1N	Other investment, Special Drawing Rights (SDRs), Not sectorised
+O_F2	Other investment, Currency and deposits
+O_F221_S122	Other investment, Inter-bank positions, Deposit taking corporations, except the Central Bank
+O_F221_S122_NV	Other investment, Inter-bank positions, Deposit taking corporations, except the Central Bank
+O_F2_NV	Other investment, Currency and deposits
+O_F2_S121	Other investment, Currency and deposits, Central bank
+O_F2_S121_L	Other investment, Currency and deposits, Central bank, Long-term
+O_F2_S121_L_NV	Other investment, Currency and deposits, Central bank, Long-term
+O_F2_S121_NV	Other investment, Currency and deposits, Central bank
+O_F2_S121_S	Other investment, Currency and deposits, Central bank, Short-term
+O_F2_S121_S_NV	Other investment, Currency and deposits, Central bank, Short-term
+O_F2_S122	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank
+O_F2_S122_L	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank, Long-term
+O_F2_S122_L_NV	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank, Long-term
+O_F2_S122_NV	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank
+O_F2_S122_S	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank, Short-term
+O_F2_S122_S_NV	Other investment, Currency and deposits, Deposit taking corporations, except the Central Bank, Short-term
+O_F2_S12R	Other investment, Currency and deposits, Other financial corporations
+O_F2_S12R_L	Other investment, Currency and deposits, Other financial corporations, Long-term
+O_F2_S12R_L_NV	Other investment, Currency and deposits, Other financial corporations, Long-term
+O_F2_S12R_NV	Other investment, Currency and deposits, Other financial corporations
+O_F2_S12R_S	Other investment, Currency and deposits, Other financial corporations, Short-term
+O_F2_S12R_S_NV	Other investment, Currency and deposits, Other financial corporations, Short-term
+O_F2_S13	Other investment, Currency and deposits, General government
+O_F2_S13_L	Other investment, Currency and deposits, General government, Long-term
+O_F2_S13_L_NV	Other investment, Currency and deposits, General government, Long-term
+O_F2_S13_NV	Other investment, Currency and deposits, General government
+O_F2_S13_S	Other investment, Currency and deposits, General government, Short-term
+O_F2_S13_S_NV	Other investment, Currency and deposits, General government, Short-term
+O_F2_S1V	Other investment, Currency and deposits, Non financial corporations, households and NPISH
+O_F2_S1V_L	Other investment, Currency and deposits, Non financial corporations, households and NPISH, Long-term
+O_F2_S1V_L_NV	Other investment, Currency and deposits, Non financial corporations, households and NPISH, Long-term
+O_F2_S1V_NV	Other investment, Currency and deposits, Non financial corporations, households and NPISH
+O_F2_S1V_S	Other investment, Currency and deposits, Non financial corporations, households and NPISH, Short-term
+O_F2_S1V_S_NV	Other investment, Currency and deposits, Non financial corporations, households and NPISH, Short-term
+O_F2_S1X	Other investment, Currency and deposits, Monetary authorities
+O_F2_S1X_L	Other investment, Currency and deposits, Monetary authorities, Long-term
+O_F2_S1X_L_NV	Other investment, Currency and deposits, Monetary authorities, Long-term
+O_F2_S1X_NV	Other investment, Currency and deposits, Monetary authorities
+O_F2_S1X_S	Other investment, Currency and deposits, Monetary authorities, Short-term
+O_F2_S1X_S_NV	Other investment, Currency and deposits, Monetary authorities, Short-term
+O_F2_S1Z	Other investment, Currency and deposits, Other Sectors (BPM6)
+O_F2_S1Z_L	Other investment, Currency and deposits, Other Sectors (BPM6), Long-term
+O_F2_S1Z_L_NV	Other investment, Currency and deposits, Other Sectors (BPM6), Long-term
+O_F2_S1Z_NV	Other investment, Currency and deposits, Other Sectors (BPM6)
+O_F2_S1Z_S	Other investment, Currency and deposits, Other Sectors (BPM6), Short-term
+O_F2_S1Z_S_NV	Other investment, Currency and deposits, Other Sectors (BPM6), Short-term
+O_F4	Other investment, Loans
+O_F4CF4_S121_AFR	Other investment, Loans, credit, and loans with the IMF (other than reserves), Central bank, Adjusted using IMF accounting records
+O_F4CF4_S13_AFR	Other investment, Loans, credit, and loans with the IMF (other than reserves), General government, Adjusted using IMF accounting records
+O_F4_AFR	Other investment, Loans, Adjusted using IMF accounting records
+O_F4_NV	Other investment, Loans
+O_F4_S121	Other investment, Loans, Central bank
+O_F4_S121_AFR	Other investment, Loans, Central bank, Adjusted using IMF accounting records
+O_F4_S121_L	Other investment, Loans, Central bank, Long-term
+O_F4_S121_L_NV	Other investment, Loans, Central bank, Long-term
+O_F4_S121_NV	Other investment, Loans, Central bank
+O_F4_S121_S	Other investment, Loans, Central bank, Short-term
+O_F4_S121_S_NV	Other investment, Loans, Central bank, Short-term
+O_F4_S122	Other investment, Loans, Deposit taking corporations, except the Central Bank
+O_F4_S122_L	Other investment, Loans, Deposit taking corporations, except the Central Bank, Long-term
+O_F4_S122_L_NV	Other investment, Loans, Deposit taking corporations, except the Central Bank, Long-term
+O_F4_S122_NV	Other investment, Loans, Deposit taking corporations, except the Central Bank
+O_F4_S122_S	Other investment, Loans, Deposit taking corporations, except the Central Bank, Short-term
+O_F4_S122_S_NV	Other investment, Loans, Deposit taking corporations, except the Central Bank, Short-term
+O_F4_S12R	Other investment, Loans, Other financial corporations
+O_F4_S12R_L	Other investment, Loans, Other financial corporations, Long-term
+O_F4_S12R_L_NV	Other investment, Loans, Other financial corporations, Long-term
+O_F4_S12R_NV	Other investment, Loans, Other financial corporations
+O_F4_S12R_S	Other investment, Loans, Other financial corporations, Short-term
+O_F4_S12R_S_NV	Other investment, Loans, Other financial corporations, Short-term
+O_F4_S13	Other investment, Loans, General government
+O_F4_S13_AFR	Other investment, Loans, General government, Adjusted using IMF accounting records
+O_F4_S13_L	Other investment, Loans, General government, Long-term
+O_F4_S13_L_NV	Other investment, Loans, General government, Long-term
+O_F4_S13_NV	Other investment, Loans, General government
+O_F4_S13_S	Other investment, Loans, General government, Short-term
+O_F4_S13_S_NV	Other investment, Loans, General government, Short-term
+O_F4_S1V	Other investment, Loans, Non financial corporations, households and NPISH
+O_F4_S1V_L	Other investment, Loans, Non financial corporations, households and NPISH, Long-term
+O_F4_S1V_L_NV	Other investment, Loans, Non financial corporations, households and NPISH, Long-term
+O_F4_S1V_NV	Other investment, Loans, Non financial corporations, households and NPISH
+O_F4_S1V_S	Other investment, Loans, Non financial corporations, households and NPISH, Short-term
+O_F4_S1V_S_NV	Other investment, Loans, Non financial corporations, households and NPISH, Short-term
+O_F4_S1X	Other investment, Loans, Monetary authorities
+O_F4_S1X_L	Other investment, Loans, Monetary authorities, Long-term
+O_F4_S1X_L_NV	Other investment, Loans, Monetary authorities, Long-term
+O_F4_S1X_NV	Other investment, Loans, Monetary authorities
+O_F4_S1X_S	Other investment, Loans, Monetary authorities, Short-term
+O_F4_S1X_S_NV	Other investment, Loans, Monetary authorities, Short-term
+O_F4_S1Z	Other investment, Loans, Other Sectors (BPM6)
+O_F4_S1Z_L	Other investment, Loans, Other Sectors (BPM6), Long-term
+O_F4_S1Z_L_NV	Other investment, Loans, Other Sectors (BPM6), Long-term
+O_F4_S1Z_NV	Other investment, Loans, Other Sectors (BPM6)
+O_F4_S1Z_S	Other investment, Loans, Other Sectors (BPM6), Short-term
+O_F4_S1Z_S_NV	Other investment, Loans, Other Sectors (BPM6), Short-term
+O_F519	Other investment, Other equity
+O_F519_FEF1	Other investment, Other equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing)
+O_F519_MV	Other investment, Other equity
+O_F5_D422	Other investment, Equity and investment fund shares, Investment income on withdrawals from income of quasi corporations (investment income)
+O_F6	Other investment, Insurance, pension and standardized guarantee schemes
+O_F61	Other investment, Nonlife insurance technical reserves
+O_F62	Other investment, Life insurance and annuities entitlements
+O_F63	Other investment, Pension entitlements
+O_F64	Other investment, Claims of pension funds on sponsors
+O_F65	Other investment, Entitlements to nonpension benefits
+O_F66	Other investment, Provisions for calls under standardized guarantee schemes
+O_F6_D44P	Other investment, Insurance, pension and standardized guarantee schemes, Investment income on income attributable to policy holders (insurance, pension and standardized guarantee schemes)
+O_F6_S121	Other investment, Insurance, pension and standardized guarantee schemes, Central bank
+O_F6_S122	Other investment, Insurance, pension and standardized guarantee schemes, Deposit taking corporations, except the Central Bank
+O_F6_S12R	Other investment, Insurance, pension and standardized guarantee schemes, Other financial corporations
+O_F6_S13	Other investment, Insurance, pension and standardized guarantee schemes, General government
+O_F6_S1V	Other investment, Insurance, pension and standardized guarantee schemes, Non financial corporations, households and NPISH
+O_F6_S1X	Other investment, Insurance, pension and standardized guarantee schemes, Monetary authorities
+O_F6_S1Z	Other investment, Insurance, pension and standardized guarantee schemes, Other Sectors (BPM6)
+O_F81	Other investment, Trade credits and advances
+O_F81_S121	Other investment, Trade credits and advances, Central bank
+O_F81_S121_L	Other investment, Trade credits and advances, Central bank, Long-term
+O_F81_S121_S	Other investment, Trade credits and advances, Central bank, Short-term
+O_F81_S122	Other investment, Trade credits and advances, Deposit taking corporations, except the Central Bank
+O_F81_S122_L	Other investment, Trade credits and advances, Deposit taking corporations, except the Central Bank, Long-term
+O_F81_S122_S	Other investment, Trade credits and advances, Deposit taking corporations, except the Central Bank, Short-term
+O_F81_S12R	Other investment, Trade credits and advances, Other financial corporations
+O_F81_S12R_L	Other investment, Trade credits and advances, Other financial corporations, Long-term
+O_F81_S12R_S	Other investment, Trade credits and advances, Other financial corporations, Short-term
+O_F81_S13	Other investment, Trade credits and advances, General government
+O_F81_S13_L	Other investment, Trade credits and advances, General government, Long-term
+O_F81_S13_S	Other investment, Trade credits and advances, General government, Short-term
+O_F81_S1V	Other investment, Trade credits and advances, Non financial corporations, households and NPISH
+O_F81_S1V_L	Other investment, Trade credits and advances, Non financial corporations, households and NPISH, Long-term
+O_F81_S1V_S	Other investment, Trade credits and advances, Non financial corporations, households and NPISH, Short-term
+O_F81_S1X	Other investment, Trade credits and advances, Monetary authorities
+O_F81_S1X_L	Other investment, Trade credits and advances, Monetary authorities, Long-term
+O_F81_S1X_S	Other investment, Trade credits and advances, Monetary authorities, Short-term
+O_F81_S1Z	Other investment, Trade credits and advances, Other Sectors (BPM6)
+O_F81_S1Z_L	Other investment, Trade credits and advances, Other Sectors (BPM6), Long-term
+O_F81_S1Z_S	Other investment, Trade credits and advances, Other Sectors (BPM6), Short-term
+O_F89	Other investment, Other accounts receivable/payable: excluding trade credits and advances
+O_F8AP	Other investment, Other accounts payable
+O_F8AP_S121	Other investment, Other accounts payable, Central bank
+O_F8AP_S121_L	Other investment, Other accounts payable, Central bank, Long-term
+O_F8AP_S121_S	Other investment, Other accounts payable, Central bank, Short-term
+O_F8AP_S122	Other investment, Other accounts payable, Deposit taking corporations, except the Central Bank
+O_F8AP_S122_L	Other investment, Other accounts payable, Deposit taking corporations, except the Central Bank, Long-term
+O_F8AP_S122_S	Other investment, Other accounts payable, Deposit taking corporations, except the Central Bank, Short-term
+O_F8AP_S12R	Other investment, Other accounts payable, Other financial corporations
+O_F8AP_S12R_L	Other investment, Other accounts payable, Other financial corporations, Long-term
+O_F8AP_S12R_S	Other investment, Other accounts payable, Other financial corporations, Short-term
+O_F8AP_S13	Other investment, Other accounts payable, General government
+O_F8AP_S13_L	Other investment, Other accounts payable, General government, Long-term
+O_F8AP_S13_S	Other investment, Other accounts payable, General government, Short-term
+O_F8AP_S1V	Other investment, Other accounts payable, Non financial corporations, households and NPISH
+O_F8AP_S1V_L	Other investment, Other accounts payable, Non financial corporations, households and NPISH, Long-term
+O_F8AP_S1V_S	Other investment, Other accounts payable, Non financial corporations, households and NPISH, Short-term
+O_F8AP_S1X	Other investment, Other accounts payable, Monetary authorities
+O_F8AP_S1X_L	Other investment, Other accounts payable, Monetary authorities, Long-term
+O_F8AP_S1X_S	Other investment, Other accounts payable, Monetary authorities, Short-term
+O_F8AP_S1Z	Other investment, Other accounts payable, Other Sectors (BPM6)
+O_F8AP_S1Z_L	Other investment, Other accounts payable, Other Sectors (BPM6), Long-term
+O_F8AP_S1Z_S	Other investment, Other accounts payable, Other Sectors (BPM6), Short-term
+O_F8AR	Other investment, Other accounts receivable
+O_F8AR_S121	Other investment, Other accounts receivable, Central bank
+O_F8AR_S121_L	Other investment, Other accounts receivable, Central bank, Long-term
+O_F8AR_S121_S	Other investment, Other accounts receivable, Central bank, Short-term
+O_F8AR_S122	Other investment, Other accounts receivable, Deposit taking corporations, except the Central Bank
+O_F8AR_S122_L	Other investment, Other accounts receivable, Deposit taking corporations, except the Central Bank, Long-term
+O_F8AR_S122_S	Other investment, Other accounts receivable, Deposit taking corporations, except the Central Bank, Short-term
+O_F8AR_S12R	Other investment, Other accounts receivable, Other financial corporations
+O_F8AR_S12R_L	Other investment, Other accounts receivable, Other financial corporations, Long-term
+O_F8AR_S12R_S	Other investment, Other accounts receivable, Other financial corporations, Short-term
+O_F8AR_S13	Other investment, Other accounts receivable, General government
+O_F8AR_S13_L	Other investment, Other accounts receivable, General government, Long-term
+O_F8AR_S13_S	Other investment, Other accounts receivable, General government, Short-term
+O_F8AR_S1V	Other investment, Other accounts receivable, Non financial corporations, households and NPISH
+O_F8AR_S1V_L	Other investment, Other accounts receivable, Non financial corporations, households and NPISH, Long-term
+O_F8AR_S1V_S	Other investment, Other accounts receivable, Non financial corporations, households and NPISH, Short-term
+O_F8AR_S1X	Other investment, Other accounts receivable, Monetary authorities
+O_F8AR_S1X_L	Other investment, Other accounts receivable, Monetary authorities, Long-term
+O_F8AR_S1X_S	Other investment, Other accounts receivable, Monetary authorities, Short-term
+O_F8AR_S1Z	Other investment, Other accounts receivable, Other Sectors (BPM6)
+O_F8AR_S1Z_L	Other investment, Other accounts receivable, Other Sectors (BPM6), Long-term
+O_F8AR_S1Z_S	Other investment, Other accounts receivable, Other Sectors (BPM6), Short-term
+O_FEF5	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing)
+O_FEF51_S121	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Central bank
+O_FEF51_S122	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FEF51_S13	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), General government
+O_FEF51_S1R	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Non financial sectors, except households
+O_FEF51_S1V	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FEF51_S1X	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Monetary authorities
+O_FEF51_S1Z	Other investment, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other Sectors (BPM6)
+O_FEF52_S121	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FEF52_S122	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FEF52_S13	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), General government
+O_FEF52_S1R	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Non financial sectors, except households
+O_FEF52_S1V	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FEF52_S1X	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Monetary authorities
+O_FEF52_S1Z	Other investment, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other Sectors (BPM6)
+O_FEF53_S121	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Central bank
+O_FEF53_S122	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FEF53_S13	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), General government
+O_FEF53_S1R	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Non financial sectors, except households
+O_FEF53_S1V	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FEF53_S1X	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Monetary authorities
+O_FEF53_S1Z	Other investment, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other Sectors (BPM6)
+O_FEF5_S121	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Central bank
+O_FEF5_S122	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FEF5_S13	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), General government
+O_FEF5_S1R	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Non financial sectors, except households
+O_FEF5_S1V	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FEF5_S1X	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Monetary authorities
+O_FEF5_S1Z	Other investment, Accumulation of arrears: total (memo item: o/w exceptional financing), Other Sectors (BPM6)
+O_FL1	Other investment, Debt instruments
+O_FL1XEF	Other investment, Debt instruments (excluding exceptional financing)
+O_FL1_AFR	Other investment, Debt instruments, Adjusted using IMF accounting records
+O_FL1_S121	Other investment, Debt instruments, Central bank
+O_FL1_S122	Other investment, Debt instruments, Deposit taking corporations, except the Central Bank
+O_FL1_S12R	Other investment, Debt instruments, Other financial corporations
+O_FL1_S13	Other investment, Debt instruments, General government
+O_FL1_S1Z	Other investment, Debt instruments, Other Sectors (BPM6)
+O_FL1_S1_Z	Other investment, Debt instruments, Other sectors
+O_FLA1_FEF	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing
+O_FLA1_FEF2_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF2_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF2_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF2_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), General government
+O_FLA1_FEF2_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF2_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF3_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF3_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF3_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF3_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), General government
+O_FLA1_FEF3_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF3_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Prepayment/buyback (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF41_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF41_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF41_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF41_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), General government
+O_FLA1_FEF41_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF41_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF42_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF42_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF42_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF42_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+O_FLA1_FEF42_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF42_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF4_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF4_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF4_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF4_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), General government
+O_FLA1_FEF4_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF4_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF51_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF51_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF51_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF51_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), General government
+O_FLA1_FEF51_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF51_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF52_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF52_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF52_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF52_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), General government
+O_FLA1_FEF52_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF52_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF53_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF53_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF53_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF53_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), General government
+O_FLA1_FEF53_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF53_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF5_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF5_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF5_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF5_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), General government
+O_FLA1_FEF5_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF5_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Accumulation of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF61_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF61_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF61_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF61_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), General government
+O_FLA1_FEF61_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF61_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF62_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF62_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF62_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF62_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+O_FLA1_FEF62_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF62_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF6_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF6_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF6_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF6_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), General government
+O_FLA1_FEF6_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF6_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Repayment of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF71_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF71_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF71_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF71_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), General government
+O_FLA1_FEF71_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF71_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF72_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF72_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF72_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF72_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), General government
+O_FLA1_FEF72_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF72_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF7_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF7_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF7_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF7_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), General government
+O_FLA1_FEF7_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF7_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF81_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF81_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF81_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF81_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), General government
+O_FLA1_FEF81_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF81_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF82_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF82_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF82_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF82_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+O_FLA1_FEF82_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF82_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF8_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), Central bank
+O_FLA1_FEF8_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+O_FLA1_FEF8_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), Other financial corporations
+O_FLA1_FEF8_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), General government
+O_FLA1_FEF8_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+O_FLA1_FEF8_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Cancellation of arrears total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+O_FLA1_FEF_S121	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, Central bank
+O_FLA1_FEF_S122	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, Deposit taking corporations, except the Central Bank
+O_FLA1_FEF_S12R	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, Other financial corporations
+O_FLA1_FEF_S13	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, General government
+O_FLA1_FEF_S1P	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, Other sectors than MFIs and general government
+O_FLA1_FEF_S1V	Other investment, Debt instruments other than SDRs, insurance, pension, and standardised schemes, Total exceptional financing, Non financial corporations, households and NPISH
+O_FLAO_AFR	Other investment, Other debt instruments, Adjusted using IMF accounting records
+O_FLAO_S121_AFR	Other investment, Other debt instruments, Central bank, Adjusted using IMF accounting records
+O_FLAO_S122	Other investment, Other debt instruments, Deposit taking corporations, except the Central Bank
+O_FLAO_S12R	Other investment, Other debt instruments, Other financial corporations
+O_FLAO_S13_AFR	Other investment, Other debt instruments, General government, Adjusted using IMF accounting records
+O_FLAO_S1_Z	Other investment, Other debt instruments, Other sectors
+O_FLA_D41	Other investment, Debt instruments other than insurance, pension, and standardised schemes, Investment income, interest income
+O_F_D4P	Other investment, Total financial assets/liabilities, Investment income on other investment income
+O_F_FEF	Other investment, Total financial assets/liabilities, Total exceptional financing
+O_L	Other investment, Long-term
+O_NILFR_AFR	Other investment, Net incurrence liabilities (adjusted using Fund records), Adjusted using IMF accounting records
+O_NILFR_S121_AFR	Other investment, Net incurrence liabilities (adjusted using Fund records), Central bank, Adjusted using IMF accounting records
+O_NILFR_S13_AFR	Other investment, Net incurrence liabilities (adjusted using Fund records), General government, Adjusted using IMF accounting records
+O_S	Other investment, Short-term
+O_TLIMFOTR_S121	Other investment, Credit and loans with the IMF: other than reserves, Central bank
+O_TLIMFOTR_S121_AFR	Other investment, Credit and loans with the IMF: other than reserves, Central bank, Adjusted using IMF accounting records
+O_TLIMFOTR_S121_NV	Other investment, Credit and loans with the IMF: other than reserves, Central bank
+O_TLIMFOTR_S13	Other investment, Credit and loans with the IMF: other than reserves, General government
+O_TLIMFOTR_S13_AFR	Other investment, Credit and loans with the IMF: other than reserves, General government, Adjusted using IMF accounting records
+O_TLIMFOTR_S13_NV	Other investment, Credit and loans with the IMF: other than reserves, General government
+O_TLIMFOTR_S1X	Other investment, Credit and loans with the IMF: other than reserves, Monetary authorities
+O_TLIMFOTR_S1X_NV	Other investment, Credit and loans with the IMF: other than reserves, Monetary authorities
+P	Portfolio investment
+PXEF	Portfolio investment, excluding exceptional financing
+P_F	Portfolio investment, Total financial assets/liabilities
+P_F3	Portfolio investment, Debt securities
+P_F3XEF	Portfolio investment, Debt securities: excluding exceptional financing
+P_F3_D41	Portfolio investment, Debt securities, Investment income, interest income
+P_F3_D41_L	Portfolio investment, Debt securities, Investment income, interest income, Long-term
+P_F3_D41_S	Portfolio investment, Debt securities, Investment income, interest income, Short-term
+P_F3_FEF	Portfolio investment, Debt securities, Total exceptional financing
+P_F3_FEF2_S121	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Central bank
+P_F3_FEF2_S122	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF2_S12R	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF2_S13	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), General government
+P_F3_FEF2_S1P	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF2_S1V	Portfolio investment, Debt securities, Drawings on new loans/Issues of new securities by authorities or by other sectors on behalf of authorities (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF3_S121	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), Central bank
+P_F3_FEF3_S122	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF3_S12R	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF3_S13	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), General government
+P_F3_FEF3_S1P	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF3_S1V	Portfolio investment, Debt securities, Prepayment/buyback (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF41_S121	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Central bank
+P_F3_FEF41_S122	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF41_S12R	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF41_S13	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), General government
+P_F3_FEF41_S1P	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF41_S1V	Portfolio investment, Debt securities, Rescheduling of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF42_S121	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+P_F3_FEF42_S122	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF42_S12R	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF42_S13	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+P_F3_FEF42_S1P	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF42_S1V	Portfolio investment, Debt securities, Rescheduling of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF4_S121	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), Central bank
+P_F3_FEF4_S122	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF4_S12R	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF4_S13	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), General government
+P_F3_FEF4_S1P	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF4_S1V	Portfolio investment, Debt securities, Rescheduling of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF5	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing)
+P_F3_FEF51_S121	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Central bank
+P_F3_FEF51_S122	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF51_S12R	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF51_S13	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), General government
+P_F3_FEF51_S1P	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF51_S1R	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Non financial sectors, except households
+P_F3_FEF51_S1V	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF51_S1X	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Monetary authorities
+P_F3_FEF51_S1Z	Portfolio investment, Debt securities, Accumulation of arrears on principal (memo item: o/w exceptional financing), Other Sectors (BPM6)
+P_F3_FEF52_S121	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Central bank
+P_F3_FEF52_S122	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF52_S12R	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF52_S13	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), General government
+P_F3_FEF52_S1P	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF52_S1R	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Non financial sectors, except households
+P_F3_FEF52_S1V	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF52_S1X	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Monetary authorities
+P_F3_FEF52_S1Z	Portfolio investment, Debt securities, Accumulation of arrears on original interest/coupon (memo item: o/w exceptional financing), Other Sectors (BPM6)
+P_F3_FEF53_S121	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Central bank
+P_F3_FEF53_S122	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF53_S12R	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF53_S13	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), General government
+P_F3_FEF53_S1P	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF53_S1R	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Non financial sectors, except households
+P_F3_FEF53_S1V	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF53_S1X	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Monetary authorities
+P_F3_FEF53_S1Z	Portfolio investment, Debt securities, Accumulation of arrears on penalty interest (memo item: o/w exceptional financing), Other Sectors (BPM6)
+P_F3_FEF5_S121	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Central bank
+P_F3_FEF5_S122	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF5_S12R	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF5_S13	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), General government
+P_F3_FEF5_S1P	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF5_S1R	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Non financial sectors, except households
+P_F3_FEF5_S1V	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF5_S1X	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Monetary authorities
+P_F3_FEF5_S1Z	Portfolio investment, Debt securities, Accumulation of arrears: total (memo item: o/w exceptional financing), Other Sectors (BPM6)
+P_F3_FEF61_S121	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), Central bank
+P_F3_FEF61_S122	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF61_S12R	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF61_S13	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), General government
+P_F3_FEF61_S1P	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF61_S1V	Portfolio investment, Debt securities, Repayment of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF62_S121	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+P_F3_FEF62_S122	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF62_S12R	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF62_S13	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+P_F3_FEF62_S1P	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF62_S1V	Portfolio investment, Debt securities, Repayment of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF6_S121	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), Central bank
+P_F3_FEF6_S122	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF6_S12R	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF6_S13	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), General government
+P_F3_FEF6_S1P	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF6_S1V	Portfolio investment, Debt securities, Repayment of arrears: total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF71_S121	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Central bank
+P_F3_FEF71_S122	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF71_S12R	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF71_S13	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), General government
+P_F3_FEF71_S1P	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF71_S1V	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF72_S121	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Central bank
+P_F3_FEF72_S122	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF72_S12R	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF72_S13	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), General government
+P_F3_FEF72_S1P	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF72_S1V	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF7_S121	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Central bank
+P_F3_FEF7_S122	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF7_S12R	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF7_S13	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), General government
+P_F3_FEF7_S1P	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF7_S1V	Portfolio investment, Debt securities, Rescheduling of payments due in current reporting period, total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF81_S121	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), Central bank
+P_F3_FEF81_S122	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF81_S12R	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF81_S13	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), General government
+P_F3_FEF81_S1P	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF81_S1V	Portfolio investment, Debt securities, Cancellation of arrears on principal (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF82_S121	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Central bank
+P_F3_FEF82_S122	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF82_S12R	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF82_S13	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), General government
+P_F3_FEF82_S1P	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF82_S1V	Portfolio investment, Debt securities, Cancellation of arrears on interest/coupon (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF8_S121	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), Central bank
+P_F3_FEF8_S122	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F3_FEF8_S12R	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), Other financial corporations
+P_F3_FEF8_S13	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), General government
+P_F3_FEF8_S1P	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F3_FEF8_S1V	Portfolio investment, Debt securities, Cancellation of arrears total (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F3_FEF_S121	Portfolio investment, Debt securities, Total exceptional financing, Central bank
+P_F3_FEF_S122	Portfolio investment, Debt securities, Total exceptional financing, Deposit taking corporations, except the Central Bank
+P_F3_FEF_S12R	Portfolio investment, Debt securities, Total exceptional financing, Other financial corporations
+P_F3_FEF_S13	Portfolio investment, Debt securities, Total exceptional financing, General government
+P_F3_FEF_S1P	Portfolio investment, Debt securities, Total exceptional financing, Other sectors than MFIs and general government
+P_F3_FEF_S1V	Portfolio investment, Debt securities, Total exceptional financing, Non financial corporations, households and NPISH
+P_F3_L	Portfolio investment, Debt securities, Long-term
+P_F3_MV	Portfolio investment, Debt securities
+P_F3_S	Portfolio investment, Debt securities, Short-term
+P_F3_S121	Portfolio investment, Debt securities, Central bank
+P_F3_S121_L	Portfolio investment, Debt securities, Central bank, Long-term
+P_F3_S121_L_MV	Portfolio investment, Debt securities, Central bank, Long-term
+P_F3_S121_MV	Portfolio investment, Debt securities, Central bank
+P_F3_S121_S	Portfolio investment, Debt securities, Central bank, Short-term
+P_F3_S121_S_MV	Portfolio investment, Debt securities, Central bank, Short-term
+P_F3_S122	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank
+P_F3_S122_L	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank, Long-term
+P_F3_S122_L_MV	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank, Long-term
+P_F3_S122_MV	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank
+P_F3_S122_S	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank, Short-term
+P_F3_S122_S_MV	Portfolio investment, Debt securities, Deposit taking corporations, except the Central Bank, Short-term
+P_F3_S12R	Portfolio investment, Debt securities, Other financial corporations
+P_F3_S12R_L	Portfolio investment, Debt securities, Other financial corporations, Long-term
+P_F3_S12R_L_MV	Portfolio investment, Debt securities, Other financial corporations, Long-term
+P_F3_S12R_MV	Portfolio investment, Debt securities, Other financial corporations
+P_F3_S12R_S	Portfolio investment, Debt securities, Other financial corporations, Short-term
+P_F3_S12R_S_MV	Portfolio investment, Debt securities, Other financial corporations, Short-term
+P_F3_S13	Portfolio investment, Debt securities, General government
+P_F3_S13_L	Portfolio investment, Debt securities, General government, Long-term
+P_F3_S13_L_MV	Portfolio investment, Debt securities, General government, Long-term
+P_F3_S13_MV	Portfolio investment, Debt securities, General government
+P_F3_S13_S	Portfolio investment, Debt securities, General government, Short-term
+P_F3_S13_S_MV	Portfolio investment, Debt securities, General government, Short-term
+P_F3_S1V	Portfolio investment, Debt securities, Non financial corporations, households and NPISH
+P_F3_S1V_L	Portfolio investment, Debt securities, Non financial corporations, households and NPISH, Long-term
+P_F3_S1V_L_MV	Portfolio investment, Debt securities, Non financial corporations, households and NPISH, Long-term
+P_F3_S1V_MV	Portfolio investment, Debt securities, Non financial corporations, households and NPISH
+P_F3_S1V_S	Portfolio investment, Debt securities, Non financial corporations, households and NPISH, Short-term
+P_F3_S1V_S_MV	Portfolio investment, Debt securities, Non financial corporations, households and NPISH, Short-term
+P_F3_S1X	Portfolio investment, Debt securities, Monetary authorities
+P_F3_S1X_L	Portfolio investment, Debt securities, Monetary authorities, Long-term
+P_F3_S1X_L_MV	Portfolio investment, Debt securities, Monetary authorities, Long-term
+P_F3_S1X_MV	Portfolio investment, Debt securities, Monetary authorities
+P_F3_S1X_S	Portfolio investment, Debt securities, Monetary authorities, Short-term
+P_F3_S1X_S_MV	Portfolio investment, Debt securities, Monetary authorities, Short-term
+P_F3_S1Z	Portfolio investment, Debt securities, Other Sectors (BPM6)
+P_F3_S1Z_L	Portfolio investment, Debt securities, Other Sectors (BPM6), Long-term
+P_F3_S1Z_L_MV	Portfolio investment, Debt securities, Other Sectors (BPM6), Long-term
+P_F3_S1Z_MV	Portfolio investment, Debt securities, Other Sectors (BPM6)
+P_F3_S1Z_S	Portfolio investment, Debt securities, Other Sectors (BPM6), Short-term
+P_F3_S1Z_S_MV	Portfolio investment, Debt securities, Other Sectors (BPM6), Short-term
+P_F5	Portfolio investment, Equity and investment fund shares
+P_F51	Portfolio investment, Equity
+P_F511	Portfolio investment, Listed shares
+P_F511_MV	Portfolio investment, Listed shares
+P_F512	Portfolio investment, Unlisted shares
+P_F512_MV	Portfolio investment, Unlisted shares
+P_F51XEF	Portfolio investment, Equity securities: excluding exceptional financing
+P_F51_D42	Portfolio investment, Equity, Investment income on dividends and withdrawals from income of quasi corporations (excluding rie and excluding IF)
+P_F51_FEF1	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing)
+P_F51_FEF1_S121	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), Central bank
+P_F51_FEF1_S122	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), Deposit taking corporations, except the Central Bank
+P_F51_FEF1_S12R	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), Other financial corporations
+P_F51_FEF1_S13	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), General government
+P_F51_FEF1_S1P	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), Other sectors than MFIs and general government
+P_F51_FEF1_S1V	Portfolio investment, Equity, Equity investment associated with debt reduction (memo item: o/w exceptional financing), Non financial corporations, households and NPISH
+P_F51_MV	Portfolio investment, Equity
+P_F52	Portfolio investment, Investment fund shares/units
+P_F52B	Portfolio investment, Investment fund shares/units: reinvestment of earnings
+P_F52_D4431	Portfolio investment, Investment fund shares/units, Investment income, income on investment income attributable to investment fund shareholders, dividends (investment income)
+P_F52_D4432	Portfolio investment, Investment fund shares/units, Investment income on reinvested earnings (investment income)
+P_F52_D4S	Portfolio investment, Investment fund shares/units, Investment income on investment income attributable to shareholders, including income on if, including rie
+P_F52_MV	Portfolio investment, Investment fund shares/units
+P_F52_S123	Portfolio investment, Investment fund shares/units, Money market funds
+P_F52_S123_MV	Portfolio investment, Investment fund shares/units, Money market funds
+P_F5_D4S	Portfolio investment, Equity and investment fund shares, Investment income on investment income attributable to shareholders, including income on if, including rie
+P_F5_MV	Portfolio investment, Equity and investment fund shares
+P_F5_S121	Portfolio investment, Equity and investment fund shares, Central bank
+P_F5_S121_MV	Portfolio investment, Equity and investment fund shares, Central bank
+P_F5_S122	Portfolio investment, Equity and investment fund shares, Deposit taking corporations, except the Central Bank
+P_F5_S122_MV	Portfolio investment, Equity and investment fund shares, Deposit taking corporations, except the Central Bank
+P_F5_S12R	Portfolio investment, Equity and investment fund shares, Other financial corporations
+P_F5_S12R_MV	Portfolio investment, Equity and investment fund shares, Other financial corporations
+P_F5_S13	Portfolio investment, Equity and investment fund shares, General government
+P_F5_S13_MV	Portfolio investment, Equity and investment fund shares, General government
+P_F5_S1V	Portfolio investment, Equity and investment fund shares, Non financial corporations, households and NPISH
+P_F5_S1V_MV	Portfolio investment, Equity and investment fund shares, Non financial corporations, households and NPISH
+P_F5_S1X	Portfolio investment, Equity and investment fund shares, Monetary authorities
+P_F5_S1X_MV	Portfolio investment, Equity and investment fund shares, Monetary authorities
+P_F5_S1Z	Portfolio investment, Equity and investment fund shares, Other Sectors (BPM6)
+P_F5_S1Z_MV	Portfolio investment, Equity and investment fund shares, Other Sectors (BPM6)
+P_F_D4P	Portfolio investment, Total financial assets/liabilities, Investment income on other investment income
+P_F_FEF	Portfolio investment, Total financial assets/liabilities, Total exceptional financing
+P_MV	Portfolio investment
+R	Reserve assets
+R1_S1W	Personal remittances (supplementary item), Financial corporations, nonfinancial corporations, households, and NPISHs
+R2	Total remittances (supplementary item)
+R3	Total remittances and transfers (supplementary item)
+R3_S15	Total remittances and transfers (supplementary item), Non profit institutions serving households
+RSDR	Reserve Assets included in SDR basket
+RUE	Reserves and Related items
+R_AFR	Reserve assets, Adjusted using IMF accounting records
+R_F	Reserve assets, Total financial /liabilities
+R_F11	Reserve assets, Monetary gold
+R_F11A	Reserve assets, Monetary gold: gold bullion
+R_F11A_MV	Reserve assets, Monetary gold: gold bullion
+R_F11A_S1N	Reserve assets, Monetary gold: gold bullion, Not sectorised
+R_F11B	Reserve assets, Unallocated gold accounts
+R_F11B_MV	Reserve assets, Unallocated gold accounts
+R_F11B_S12K	Reserve assets, Unallocated gold accounts, Monetary financial institutions (MFI)
+R_F11Z_MV	Reserve assets, Monetary gold: of which gold under swap for cash collateral
+R_F11_MV	Reserve assets, Monetary gold
+R_F12	Reserve assets, Special Drawing Rights (SDRs)
+R_F12_AFR	Reserve assets, Special Drawing Rights (SDRs), Adjusted using IMF accounting records
+R_F12_MV	Reserve assets, Special Drawing Rights (SDRs)
+R_F12_S1N	Reserve assets, Special Drawing Rights (SDRs), Not sectorised
+R_F2	Reserve assets, Currency and deposits
+R_F2CMA_NV	Reserve assets, Currency and deposits, Claims on monetary authorities
+R_F2CMA_S121	Reserve assets, Currency and deposits, Claims on monetary authorities, Central bank
+R_F2COE_NV	Reserve assets, Currency and deposits, Claims on other entities
+R_F2COE_S122	Reserve assets, Currency and deposits, Claims on other entities, Deposit taking corporations, except the Central Bank
+R_F2_NV	Reserve assets, Currency and deposits
+R_F2_S121	Reserve assets, Currency and deposits, Central bank
+R_F2_S122	Reserve assets, Currency and deposits, Deposit taking corporations, except the Central Bank
+R_F3	Reserve assets, Debt securities
+R_F3_L	Reserve assets, Debt securities, Long-term
+R_F3_L_MV	Reserve assets, Debt securities, Long-term
+R_F3_MV	Reserve assets, Debt securities
+R_F3_S	Reserve assets, Debt securities, Short-term
+R_F3_S_MV	Reserve assets, Debt securities, Short-term
+R_F5	Reserve assets, Equity and investment fund shares
+R_F5_D4S	Reserve assets, Equity and investment fund shares, Investment income on investment income attributable to shareholders, including income on if, including rie
+R_F5_MV	Reserve assets, Equity and investment fund shares
+R_F71	Reserve assets, Financial derivatives
+R_F71_T	Reserve assets, Financial derivatives
+R_FK	Reserve assets, Reserve position in the IMF
+R_FK_AFR	Reserve assets, Reserve position in the IMF, Adjusted using IMF accounting records
+R_FK_MV	Reserve assets, Reserve position in the IMF
+R_FK_S121	Reserve assets, Reserve position in the IMF, Central bank
+R_FR1	Reserve assets, Securities (equity, investment fund shares/units and debt securities)
+R_FR1Z_MV	Reserve assets, Securities under repo for cash collateral
+R_FR1_MV	Reserve assets, Securities (equity, investment fund shares/units and debt securities)
+R_FR2	Reserve assets, Other reserve  (currency, deposits, securities, financial derivatives and other claims)
+R_FR41	Reserve assets, Other claims (other reserve )
+R_F_D41	Reserve assets, Total financial /liabilities, Investment income, interest income
+R_F_D41G	Reserve assets, Total financial /liabilities, Investment income on interest before FISIM
+R_F_D4P	Reserve assets, Total financial /liabilities, Investment income on other investment income
+S	Services
+SA	Manufacturing services on physical inputs owned by others
+SAY	Goods for processing in reporting economy
+SAZ	Goods for processing abroad
+SB	Maintenance and repair services n.i.e.
+SC	Transport
+SC1	Sea transport
+SC11	Sea transport; passenger
+SC11Z	Sea transport; Passenger; Of which: Payable by border, seasonal, and other short-term workers
+SC12	Sea transport; freight
+SC13	Sea transport; other than passenger and freight
+SC1Z	Transport, Passenger, Of which: Payable by Border, Seasonal, and Other S-T Workers
+SC2	Air transport
+SC21	Air transport; passenger
+SC21Z	Air transport; Passenger; Of which: Payable by border, seasonal, and other short-term workers
+SC22	Air transport; freight
+SC23	Air transport; other than passenger and freight
+SC3	Other modes of transport
+SC31	Other modes of transport; passenger
+SC31Z	Other modes of transport; passenger; payable by border, seasonal, and other short-term workers
+SC32	Other modes of transport; freight
+SC33	Other modes of transport; other than passenger and freight
+SC4	Postal and courier services
+SCA	All modes of transport; passenger
+SCB	All modes of transport; freight
+SCC	All modes of transport; other than passenger and freight
+SCC2	All modes of transport; other than passenger and freight; including postal and courier services
+SD	Travel
+SD1	Travel services; goods
+SD2	Travel; local transport services
+SD3	Travel; accommodation services
+SD4	Travel; food-serving services
+SD5BT	Travel services, Both Business and Personal Travel, Other Services
+SD5Y	Travel services, Both Business and Personal Travel, Other Services, of which education services
+SD5Z	Travel services, Both Business and Personal Travel, Other Services, of which health services
+SDA	Travel; business
+SDA1	Travel; business; acquisition of goods and services by border, seasonal, and other short-term workers
+SDA2	Travel; business; other
+SDB	Travel; personal
+SDB1	Travel; personal; health-related
+SDB2	Travel; personal; education-related
+SDB3	Travel; personal; other
+SDZ	Tourism-related services in travel and passenger transport
+SE	Construction
+SE1	Construction abroad
+SE2	Construction in the reporting economy
+SF	Insurance and pension services
+SF1	Direct insurance
+SF2	Reinsurance
+SF3	Auxiliary insurance services
+SF4	Pension and standardized guarantee services
+SG	Financial services
+SG1	Financial services explicitly charged and other financial services
+SG2	Financial intermediation services indirectly measured (FISIM)
+SH	Charges for the use of intellectual property n.i.e.
+SI	Telecommunications, computer, and information services
+SI1	Telecommunications services
+SI2	Computer services
+SI3	Information services
+SJ	Other business services
+SJ1	Research and development services
+SJ2	Professional and management consulting services
+SJ3	Technical, trade-related, and other business services
+SK	Personal, cultural, and recreational services
+SK1	Audiovisual and related services
+SK2	Personal, cultural, and recreational services other than audiovisual and related services
+SL	Government goods and services n.i.e.
+SPX	Other services
+TA_AFR	Total assets, Adjusted using IMF accounting records
+TCAKA	Total current and capital account balances (credit less debit)
+TCAKAFA	Total current, capital (credit less debit) and financial account balances (assets less liabilities)
+TCDCA	Total current account credit/revenue
+TCDKA	Total capital account credit/revenue
+TDBCA	Total current account debit/expenditure
+TDBKA	Total capital account debit/expenditure
+TL_AFR	Total liabilities, Adjusted using IMF accounting records
+U1_F3	Direct investment between fellow enterprises if ultimate controlling parent is resident, Debt securities
+U1_F5	Direct investment between fellow enterprises if ultimate controlling parent is resident, Equity and investment fund shares
+U1_F5A	Direct investment between fellow enterprises if ultimate controlling parent is resident, Equity and investment fund shares/units: other than reinvestment of earnings
+U1_F5_D42S	Direct investment between fellow enterprises if ultimate controlling parent is resident, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+U1_FL	Direct investment between fellow enterprises if ultimate controlling parent is resident, Debt instruments
+U1_FL_D4Q	Direct investment between fellow enterprises if ultimate controlling parent is resident, Debt instruments, Investment income on interest and income attributable to policy holders
+U2_F3	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Debt securities
+U2_F5	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Equity and investment fund shares
+U2_F5A	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Equity and investment fund shares/units: other than reinvestment of earnings
+U2_F5_D42S	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+U2_FL	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Debt instruments
+U2_FL_D4Q	Direct investment between fellow enterprises if ultimate controlling parent is nonresident, Debt instruments, Investment income on interest and income attributable to policy holders
+U3_F3	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Debt securities
+U3_F5	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Equity and investment fund shares
+U3_F5A	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Equity and investment fund shares/units: other than reinvestment of earnings
+U3_F5_D42S	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Equity and investment fund shares, Investment income on dividends and withdrawals from income of quasi corporations and income distributed to investment fund shareholders (excluding RIE)
+U3_FL	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Debt instruments
+U3_FL_D4Q	Direct investment between fellow enterprises if ultimate controlling parent is unknown, Debt instruments, Investment income on interest and income attributable to policy holders
+_T	Total
+_T_F	All functional categories, Total financial assets/liabilities
+_T_F_D4P	All functional categories, Total financial assets/liabilities, Investment income on other investment income

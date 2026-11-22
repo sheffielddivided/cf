@@ -1,0 +1,11 @@
+# imf_dip: struktur
+
+| Pos | Dimensjon | Kodeliste | Antall koder |
+| --- | --- | --- | --- |
+| 0 | `COUNTRY` | `IMF.STA:CL_DIP_COUNTRY` | 356 |
+| 1 | `DV_TYPE` | `IMF.STA:CL_DIP_DV_TYPE` | 2 |
+| 2 | `INDICATOR` | `IMF.STA:CL_DIP_INDICATOR` | 20 |
+| 3 | `COUNTERPART_COUNTRY` | `IMF.STA:CL_DIP_COUNTRY` | 356 |
+| 4 | `FREQUENCY` | `None` | 0 |
+
+Attributter: `SCALE`, `PRECISION`, `DECIMALS_DISPLAYED`, `DI_DIRECTION`, `FUNCTIONAL_CAT`, `INSTR_ASSET`, `DI_ENTITY`, `ACCOUNTING_ENTRY`, `UNIT`, `DERIVATION_TYPE`, `OVERLAP`, `STATUS`, `COMMENTS`, `GROUP_FLAG`

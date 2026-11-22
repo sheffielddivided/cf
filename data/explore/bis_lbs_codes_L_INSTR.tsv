@@ -1,0 +1,24 @@
+code	name
+A	All instruments
+B	Credit (loans & debt securities)
+D	Debt securities
+E	Risk-weighted assets
+G	Loans and deposits
+H	Residual loans and deposits
+I	Derivatives and Other instruments
+J	Residual other instruments
+K	Other instruments excluding derivatives
+L	Debt securities, long-term
+M	Debt securities, short-term
+N	Repo/Rev.Repo
+O	Other instruments and unallocated
+P	Residual derivatives & other instruments
+R	Tier 1 capital
+S	Tier 2 capital
+T	Off-balance sheet trustee position
+U	Unallocated by instrument
+V	Derivatives
+W	Allowances for credit losses
+X	Equity instruments
+Y	Residual instrument
+Z	Debt securities, unallocated maturity

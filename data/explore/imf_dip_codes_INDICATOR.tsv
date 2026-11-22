@@ -1,0 +1,21 @@
+code	name
+INWD_D_AG_FALL_FE	Inward Direct investment, Assets (gross), All financial instruments, Fellow enterprises
+INWD_D_AG_FL_ALL	Inward Direct investment, Assets (gross), Debt instruments, All entities
+INWD_D_LG_FALL_FE	Inward Direct investment, Liabilities (gross), All financial instruments, Fellow enterprises
+INWD_D_LG_FL_ALL	Inward Direct investment, Liabilities (gross), Debt instruments, All entities
+INWD_D_NETLA_F51_ALL	Inward Direct investment, Net (liabilities less assets), Equity, All entities
+INWD_D_NETLA_FALL_ALL	Inward Direct investment, Net (liabilities less assets), All financial instruments, All entities
+INWD_D_NETLA_FALL_FE	Inward Direct investment, Net (liabilities less assets), All financial instruments, Fellow enterprises
+INWD_D_NETLA_FL_ALL	Inward Direct investment, Net (liabilities less assets), Debt instruments, All entities
+INWD_D_NETLA_FL_REXFI	Inward Direct investment, Net (liabilities less assets), Debt instruments, Resident enterprises that are not financial intermediaries
+INWD_D_NETLA_FL_RFI	Inward Direct investment, Net (liabilities less assets), Debt instruments, Resident financial intermediaries
+OTWD_D_AG_FALL_FE	Outward Direct investment, Assets (gross), All financial instruments, Fellow enterprises
+OTWD_D_AG_FL_ALL	Outward Direct investment, Assets (gross), Debt instruments, All entities
+OTWD_D_LG_FALL_FE	Outward Direct investment, Liabilities (gross), All financial instruments, Fellow enterprises
+OTWD_D_LG_FL_ALL	Outward Direct investment, Liabilities (gross), Debt instruments, All entities
+OTWD_D_NETAL_F51_ALL	Outward Direct investment, Net (assets less liabilities), Equity, All entities
+OTWD_D_NETAL_FALL_ALL	Outward Direct investment, Net (assets less liabilities), All financial instruments, All entities
+OTWD_D_NETAL_FALL_FE	Outward Direct investment, Net (assets less liabilities), All financial instruments, Fellow enterprises
+OTWD_D_NETAL_FL_ALL	Outward Direct investment, Net (assets less liabilities), Debt instruments, All entities
+OTWD_D_NETAL_FL_REXFI	Outward Direct investment, Net (assets less liabilities), Debt instruments, Resident enterprises that are not financial intermediaries
+OTWD_D_NETAL_FL_RFI	Outward Direct investment, Net (assets less liabilities), Debt instruments, Resident financial intermediaries

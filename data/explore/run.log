@@ -1,0 +1,27 @@
+2026-11-22 16:52:03,224 INFO    httpx: HTTP Request: GET https://www.norges-bank.no/tema/statistikk/valutatransaksjoner-daglig/ "HTTP/1.1 200 OK"
+2026-11-22 16:52:03,246 INFO    pipeline.explore: nb_fx_page                       200    52406 B  text/html; charset=utf-8
+2026-11-22 16:52:03,733 INFO    httpx: HTTP Request: GET https://data.norges-bank.no/api/dataflow/all/all/latest "HTTP/1.1 406 Not Acceptable"
+2026-11-22 16:52:03,734 INFO    pipeline.explore: nb_dataflows                     406      476 B  application/xml;charset=UTF-8
+2026-11-22 16:52:04,043 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/structure/dataflow/*/*/+ "HTTP/1.1 200 OK"
+2026-11-22 16:52:04,160 INFO    pipeline.explore: imf3_dataflows_p3                200   402812 B  application/vnd.sdmx.structure+json;version=2.0.0
+2026-11-22 16:52:04,163 INFO    pipeline.explore: IMF position dataflows: [('IMF.STA', 'PIP', 'Portfolio Investment Positions by Counterpart Economy (formerly CPIS)'), ('IMF.STA', 'DIP', 'Direct Investment Positions by Counterpart Economy (formerly CDIS)'), ('IMF.STA', 'IIP', 'International Investment Position (IIP)')]
+2026-11-22 16:52:04,275 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/PIP/+?references=all "HTTP/1.1 200 OK"
+2026-11-22 16:52:04,410 INFO    pipeline.explore: imf3_pip_structure               200  2882834 B  application/vnd.sdmx.structure+json;version=2.0.0
+2026-11-22 16:52:04,634 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/USA.*.*.*.*.*.A?c%5BTIME_PERIOD%5D=ge%3A2023 "HTTP/1.1 200 OK"
+2026-11-22 16:52:11,996 INFO    pipeline.explore: imf3_pip_usa_a_csv               200 39570996 B  application/vnd.sdmx.data+csv;version=2.0.0
+2026-11-22 16:52:12,275 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/USA.*.*.*.*.*.S?c%5BTIME_PERIOD%5D=ge%3A2023 "HTTP/1.1 200 OK"
+2026-11-22 16:52:22,190 INFO    pipeline.explore: imf3_pip_usa_s_csv               200 75979576 B  application/vnd.sdmx.data+csv;version=2.0.0
+2026-11-22 16:52:22,294 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/DIP/+?references=all "HTTP/1.1 200 OK"
+2026-11-22 16:52:22,529 INFO    pipeline.explore: imf3_dip_structure               200  2716481 B  application/vnd.sdmx.structure+json;version=2.0.0
+2026-11-22 16:52:22,850 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/DIP/+/USA.*.*.*.A?c%5BTIME_PERIOD%5D=ge%3A2023 "HTTP/1.1 200 OK"
+2026-11-22 16:52:24,438 INFO    pipeline.explore: imf3_dip_usa_a_csv               200  8451721 B  application/vnd.sdmx.data+csv;version=2.0.0
+2026-11-22 16:52:24,623 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/DIP/+/USA.*.*.*.S?c%5BTIME_PERIOD%5D=ge%3A2023 "HTTP/1.1 200 OK"
+2026-11-22 16:52:24,624 INFO    pipeline.explore: imf3_dip_usa_s_csv               200     2085 B  application/vnd.sdmx.data+csv;version=2.0.0
+2026-11-22 16:52:24,773 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/IIP/+?references=all "HTTP/1.1 200 OK"
+2026-11-22 16:52:24,938 INFO    pipeline.explore: imf3_iip_structure               200  3820556 B  application/vnd.sdmx.structure+json;version=2.0.0
+2026-11-22 16:52:25,401 INFO    httpx: HTTP Request: GET https://stats.bis.org/api/v2/structure/dataflow/BIS/WS_LBS_D_PUB/+?references=all "HTTP/1.1 200 "
+2026-11-22 16:52:25,525 INFO    pipeline.explore: bis_lbs_structure                200   522223 B  application/json;charset=UTF-8
+2026-11-22 16:52:25,528 INFO    pipeline.explore: BIS LBS dims: ['FREQ', 'L_MEASURE', 'L_POSITION', 'L_INSTR', 'L_DENOM', 'L_CURR_TYPE', 'L_PARENT_CTY', 'L_REP_BANK_TYPE', 'L_REP_CTY', 'L_CP_SECTOR', 'L_CP_COUNTRY', 'L_POS_TYPE']
+2026-11-22 16:52:26,553 INFO    httpx: HTTP Request: GET https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/+/Q.*.*.*.*.*.*.*.US.*.*.*?c%5BTIME_PERIOD%5D=ge%3A2025-Q1 "HTTP/1.1 200 "
+2026-11-22 16:52:26,847 INFO    pipeline.explore: bis_lbs_us_csv                   200  2029586 B  text/csv;charset=UTF-8
+manifest: data/explore/manifest.json

@@ -1,0 +1,288 @@
+code	name
+1000HA	1000 hectares
+AED	UAE dirham
+AFN	Afghan afghani
+ALL	Albanian lek
+AMD	Armenian dram
+ANG	Netherlands Antillean guilder
+AOR	Angolan kwanza
+ARS	Argentine peso
+ATS	Austrian schilling
+AUD	Australian dollar
+AWG	Aruban florin
+AZN	Azerbaijani manat
+BBD	Barbadian dollar
+BBL	Barrel
+BBL_DY	Barrels per day
+BDT	Bangladeshi taka
+BEF	Belgian franc
+BG99	Battery Grade, 99%
+BGN	Bulgarian lev
+BHD	Bahraini dinar
+BIF	Burundian franc
+BMD	Bermudian dollar
+BND	Brunei dollar
+BOB	Boliviano
+BP	Basis points
+BRL	Brazilian real
+BSD	Bahamian dollar
+BTN	Bhutanese ngultrum
+BWP	Botswana pula
+BYN	Belarusian ruble
+BZD	Belize dollar
+CAD	Canadian dollar
+CAR	Carat
+CAT_V	Categorical value
+CBM	Cubic meter
+CDF	Congolese franc
+CHF	Swiss franc
+CIF_NWE	Cost, insurance, and freight Northwest Europe
+CLF	Unidades de Fomento
+CLP	Chilean peso
+CM	Centimeter
+CNY	Yuan renminbi
+CO2PUP1	CO₂ emissions per unit of output
+COP	Colombian peso
+CP992	Coarse particle, 99.2%
+CRC	Costa Rican colón
+CUP	Cuban peso
+CVE	Cape Verdean escudo
+CZK	Czech koruna
+DC	Degrees Celsius
+DEM	Deutsche mark
+DJF	Djiboutian franc
+DKK	Danish krone
+DOP	Dominican peso
+DY	Days
+DZD	Algerian dinar
+ECU	ECU
+EEK	Estonian kroon
+EGP	Egyptian pound
+ERN	Eritrean nakfa
+ESP	Spanish peseta
+ETB	Ethiopian birr
+EUR	Euro
+EURPK	Euro per kilogram
+EUR_BBL	Euro per barrel
+EUR_TCO2	Euros per tonne of CO2
+EUR_TCO2E	Euros per tonne of CO2-equivalent
+FC	Foreign Currency
+FIM	Finnish markka
+FJD	Fijian dollar
+FKP	Falkland Islands pound
+FRF	French franc
+FTO	Fine troy ounces
+FTOGB	Fine troy ounces of gold bullion
+FTOUG	Fine troy ounces of unallocated gold holdings
+GAL	Gallon
+GBP	Pound sterling
+GEL	Georgian lari
+GHS	Ghanaian cedi
+GIP	Gibraltar pound
+GMD	Gambian dalasi
+GNF	Guinean franc
+GRD	Greek drachma
+GTQ	Guatemalan quetzal
+GWH	Gigawatt hours
+GYD	Guyanese dollar
+HA	Hectare
+HKD	Hong Kong dollar
+HNL	Honduran lempira
+HR	Hours
+HRK	Croatian kuna
+HTG	Haitian gourde
+HUF	Hungarian forint
+IDR	Indonesian rupiah
+IEP	Irish pound
+ILS	Israeli new shekel
+INR	Indian rupee
+INRPK	Indian rupee per 100 kilograms
+INR_KG	Indian rupee per kilogram
+IQD	Iraqi dinar 
+IRR	Iranian rial
+ISK	Icelandic króna
+ITL	Italian lira
+IX	Index
+JMD	Jamaican dollar
+JOD	Jordanian dinar
+JPY	Japanese yen
+KES	Kenyan shilling
+KG	Kilogram
+KGS	Kyrgyzstani som
+KHR	Cambodian riel
+KM	Kilometer
+KM2	Square kilometer
+KMF	Comorian franc
+KPW	North Korean won
+KRW	South Korean won
+KTCO2E	Kiloton of CO₂ equivalent
+KT_CO2	Kilotonnes of CO2
+KT_CO2E	Kilotonnes of CO2-equivalent
+KWD	Kuwaiti dinar
+KWH	Kilowatt hour
+KYD	Cayman Islands dollar
+KZT	Kazakhstani tenge
+LAK	Lao kip
+LB	Pound
+LBP	Lebanese pound
+LKR	Sri Lankan rupee
+LRD	Liberian dollar
+LSL	Lesotho loti
+LT	Liter
+LTL	Lithuanian litas
+LTN	Long ton
+LUF	Luxembourg franc
+LVL	Latvian lats
+LYD	Libyan dinar
+M	Meter
+M2	Square meter
+MAD	Moroccan dirham
+MCF	Thousand cubic feet
+MD	Unitless
+MDL	Moldovan leu
+MGA	Malagasy ariary
+MH	Months
+MIL_BBL	Millions of barrels per day
+MIL_BBLE	Millions of barrels per day equivalent
+MKD	Macedonian denar
+MM	Millimeter
+MMK	Myanmar kyat
+MNS	Minutes
+MNT	Mongolian tögrög  
+MOL_M2	Moles per square meter
+MOP	Macanese pataca
+MRO	Mauritanian ouguiya
+MTCO2	Metric ton of CO₂
+MTCO2E	Metric ton of CO₂ equivalent
+MTL	Maltese lira
+MTN	Millions of metric tonnes
+MUR	Mauritian rupee
+MVR	Maldivian rufiyaa
+MW	Megawatt
+MWK	Malawian kwacha
+MXN	Mexican peso
+MXV	Mexican unidad de inversion
+MYR	Malaysian ringgit
+MZN	Mozambican metical
+NAD	Namibian dollar
+NGN	Nigerian naira
+NIO	Córdoba oro
+NLG	Dutch guilder
+NOK	Norwegian krone
+NPR	Nepalese rupee
+NUM	Number
+NUMIX	Number for countries / Index for country groups
+NW_CM2_SR	Nanowatts per square centimeter per steradian
+NZD	New Zealand dollar
+OMR	Omani rial
+PAB	Panamanian balboa
+PD	Percentage points
+PE	Persons
+PEIX	Persons for countries / Index for country groups
+PEN	Peruvian sol
+PGK	Papua New Guinean kina
+PHP	Philippine peso
+PKR	Pakistani rupee
+PLN	Polish złoty
+PPM	Parts per million
+PT	Percent
+PTE	Portuguese escudo
+PUSD	Per US dollar
+PYG	Paraguayan guaraní
+QAR	Qatari riyal
+REC	Rare earth carbonate REO 42-45 Dom
+RON	Romanian leu
+RSD	Serbian dinar
+RUB	Russian ruble
+RUR	Russian ruble (RUR)
+RWF	Rwandan franc
+S70PKG	70 shrimp spot price per kilogram
+SAR	Saudi riyal
+SBD	Solomon Islands dollar
+SCR	Seychellois rupee
+SDG	Sudanese pound
+SEK	Swedish krona
+SGD	Singapore dollar
+SHP	Saint Helena pound
+SLL	Sierra Leonean leone
+SOS	Somali shilling
+SRD	Surinamese dollar
+STD	São Tomé and Príncipe dobra
+STN	Short ton
+SVC	Salvadoran colón
+SYP	Syrian pound
+SZL	Swazi lilangeni
+TCM	Thousand cubic meters
+THB	Thai baht
+TJS	Tajikistani somoni
+TMT	Turkmenistan new manat
+TN	Metric ton
+TND	Tunisian dinar
+TOP	Tongan paʻanga
+TOU_N	Number of tourist nights
+TRY	Turkish lira
+TTD	Trinidad and Tobago dollar
+TWD	New Taiwan dollar
+TZS	Tanzanian shilling
+UAH	Ukrainian hryvnia
+UGX	Ugandan shilling
+UG_M3	Micrograms per cubic meter
+USCCWT	US cents per hundredweight (cwt)
+USCPL	US cents per kilogram
+USCPP	US cents per pound
+USC_GAL	US cents per gallon
+USD	US dollar
+USDB	US dollar (billions)
+USDBTU	US dollar per million metric British thermal units of gas
+USDCWT	US dollar per hundredweight
+USDPK	US dollar per kilogram
+USDPMT	US dollar per metric tonne
+USDPP	US dollar per pound
+USD_BBL	US dollar per barrel
+USD_BUSH	US dollar per bushel
+USD_IX	US dollar index
+USD_OZG	US dollar per ounce of gold
+USD_PCM	US dollar per cubic meter
+USD_PTO	US dollar per troy ounce
+USD_ST	US dollar per short ton
+USD_STN	US dollars per short ton
+USD_TCO2	US dollar per tonne of CO2
+USD_TCO2E	US dollar per tonne of CO2-equivalent
+UYU	Uruguayan peso
+UZS	Uzbekistani soʻm
+VEB	Venezuelan bolivar
+VED	Bolívar digital
+VEF	Venezuelan bolívar fuerte
+VES	Venezuelan bolívar soberano
+VI	Visitors
+VND	Vietnamese đồng
+VUV	Vanuatu vatu
+WK	Weeks
+WST	Samoan tālā
+XAF	CFA franc BEAC
+XAG	Silver (ounce)
+XAU	Gold (ounce)
+XCD	East Caribbean dollar
+XDC	Domestic currency
+XDCB	Domestic currency (billions)
+XDC_TCO2	National currency per tonne of CO2
+XDC_TCO2E	National currency per tonne of CO2-equivalent
+XDR	SDR
+XDRB	Currencies in SDR basket
+XDR_OZG	SDRs per ounce of gold
+XFO	Gold franc
+XFU	UIC franc
+XOF	CFA franc BCEAO
+XPD	Palladium (ounce)
+XPF	CFP franc
+XPT	Platinum (ounce)
+XXDR	Currencies not in SDR basket
+YER	Yemeni rial
+YR	Years
+ZAR	South African rand
+ZMK	Zambian kwacha
+ZMW	Zambian Kwacha
+ZWG	Zimbabwe Gold (ZiG)
+ZWL	Zimbabwean dollar
+_T	All currencies
+_Z	Not applicable

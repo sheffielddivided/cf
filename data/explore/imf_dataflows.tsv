@@ -1,0 +1,237 @@
+agency	id	version	name
+IMF.STA	FAS	9.0.0	Financial Access Survey (FAS)
+IMF.STA	CCI	4.0.1	Climate Change Indicators
+IMF.STA	MFS_ODC_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Depository Corporations 2026 January
+IMF.STA	CPI_2026_MAY_VINTAGE	1.0.0	Consumer Price Index (CPI) 2026 May
+IMF.STA	PIP	5.0.0	Portfolio Investment Positions by Counterpart Economy (formerly CPIS)
+IMF.STA	NDGAIN	1.0.1	IMF-Adapted ND-GAIN Index (NDGAIN)
+IMF.STA	BOP_AGG	9.0.1	Balance of Payments and International Investment Position Statistics (BOP/IIP), World and Country Group Aggregates
+IMF.STA	IIPCC_2026_JAN_VINTAGE	1.0.0	Currency Composition of the International Investment Position (IIPCC) 2026 January 
+IMF.RES	PCPS	9.0.0	Primary Commodity Price System (PCPS)
+IMF.STA	LS_2026_JAN_VINTAGE	1.0.0	Labor Statistics (LS) 2026 January
+IMF.SPR	GPT	3.0.0	IMF Global Policy Tracker: How Countries are Responding to the Economic Impact of the War in the Middle East
+IMF.STA	MFS_FC_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Corporations 2026 May
+IMF.STA	ANEA_2026_JAN_VINTAGE	1.0.0	National Economic Accounts (NEA), Annual Data 2026 January
+IMF.STA	ER_2026_FEB_VINTAGE	2.0.0	Exchange Rates (ER) 2026 February
+IMF.STA	QGDP_WCA_2026_JAN_VINTAGE	1.0.0	Quarterly Gross Domestic Product (GDP), World and Country Aggregates 2026 January
+IMF.WHD	WHDREO	5.0.0	Western Hemisphere Regional Economic Outlook (WHDREO)
+IMF.STA	IL_2026_FEB_VINTAGE	1.0.0	International Liquidity (IL) 2026 February
+IMF.STA	ER_2026_MAY_VINTAGE	1.0.0	Exchange Rates (ER) 2026 May
+IMF.STA	FFS	1.0.2	Fossil Fuel Subsidies
+IMF.STA	MFS_OFC_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Financial Corporations 2026 May
+IMF.STA	ITG_2026_APR_VINTAGE	1.0.0	International Trade in Goods (ITG) 2026 April
+IMF.STA	CPI_2026_FEB_VINTAGE	2.0.0	Consumer Price Index (CPI) 2026 February
+IMF.STA	MFS_FMP_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 February
+IMF.STA	BOP	21.0.0	Balance of Payments (BOP)
+IMF.STA	ESG_FINANCE	2.0.3	Sustainable Bonds
+IMF.MCD	MCDREO	8.0.0	Middle East and Central Asia Regional Economic Outlook (MCDREO) 
+IMF.STA	IIP_2026_MAY_VINTAGE	1.0.0	International Investment Position (IIP) 2026 May
+IMF.STA	IMTS_2025_DEC_VINTAGE	1.0.0	International Trade in Goods (by partner country) (IMTS) 2025 December
+IMF.STA	PI_2026_APR_VINTAGE	1.0.0	Production Indexes (PI) 2026 April
+IMF.STA	MFS_MA_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Monetary Aggregates 2026 February
+IMF.WHD	WHDREO_2025_OCT_VINTAGE	1.0.0	Western Hemisphere Regional Economic Outlook (WHDREO) 2025 October
+IMF.STA	FA_2026_FEB_VINTAGE	1.0.0	Fund Accounts (FA) 2026 February
+IMF.STA	MFS_IR_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Interest Rate 2026 May
+IMF.STA	MFS_FC	9.0.0	Monetary and Financial Statistics (MFS), Financial Corporations
+IMF.RES	CTOT	5.0.1	Commodity Terms of Trade (CTOT)
+IMF.STA	DIP	12.0.1	Direct Investment Positions by Counterpart Economy (formerly CDIS)
+IMF.STA	MFS_DC_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Depository Corporations 2026 January
+IMF.STA	MFS_IR_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Interest Rate 2026 January
+IMF.STA	FLTRI	2.0.1	Forward Looking Transition Risk Indicators
+IMF.STA	BOP_2026_APR_VINTAGE	1.0.0	Balance of Payments (BOP) 2026 April
+IMF.SPR	CSR	3.0.0	Comprehensive Surveillance Review (CSR)
+IMF.STA	PI_WCA_2026_MAY_VINTAGE	1.0.0	Production Indexes, World and Country Group Aggregates 2026 May
+IMF.STA	BOP_2026_FEB_VINTAGE	1.0.0	Balance of Payments (BOP) 2026 February
+IMF.STA	ITG_WCA_2026_FEB_VINTAGE	1.0.0	International Trade in Goods, World and Country Aggregates 2026 February 
+IMF.STA	IMTS_2026_APR_VINTAGE	1.0.0	International Trade in Goods (by partner country) (IMTS) 2026 April
+IMF.STA	CPI	5.0.0	Consumer Price Index (CPI)
+IMF.STA	IL_2026_APR_VINTAGE	1.0.0	International Liquidity (IL) 2026 April
+IMF.STA	PI_2026_FEB_VINTAGE	1.0.0	Production Indexes (PI) 2026 February
+IMF.STA	ER_2026_JAN_VINTAGE	1.0.0	Exchange Rates (ER) 2026 January
+IMF.FAD	FM_2025_OCT_VINTAGE	1.0.0	Fiscal Monitor (FM) 2025 October
+IMF.STA	IIP_2026_JAN_VINTAGE	1.0.0	International Investment Position (IIP) 2026 January
+IMF.STA	ITG_2026_FEB_VINTAGE	1.0.0	International Trade in Goods (ITG) 2026 February
+IMF.STA	FSIC	13.0.1	Financial Soundness Indicators (FSI), Core and Additional Indicators
+IMF.AFR	AFRREO	7.0.0	Sub-Saharan Africa Regional Economic Outlook (AFRREO)
+IMF.STA	COFER_2025_OCT_VINTAGE	1.0.0	Currency Composition of Official Foreign Exchange Reserves (COFER) 2025 October
+IMF.STA	EER_2026_APR_VINTAGE	1.0.0	Effective Exchange Rates (ER) 2026 April
+IMF.STA	GENENVPROEXP	1.0.2	Government Environmental Protection Expenditures
+IMF.STA	CPI_WCA_2026_FEB_VINTAGE	1.0.0	Consumer Price Index (CPI), World and Country Aggregates (CPI_WCA) 2026 February 
+IMF.STA	ESG_FINANCE_CURRENCY	3.0.3	Sustainable Bonds by Type of Currency
+IMF.STA	MFS_FMP_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 April
+IMF.STA	MFS_MA_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Monetary Aggregates 2026 April
+IMF.STA	LS	9.0.0	Labor Statistics (LS)
+IMF.STA	MFS_DC_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Depository Corporations 2026 May
+IMF.STA	QGDP_WCA_2026_MAY_VINTAGE	1.0.0	Quarterly Gross Domestic Product (GDP), World and Country Aggregates 2026 May 
+IMF.STA	IMTS	1.0.0	International Trade in Goods (by partner country) (IMTS)
+IMF.STA	QNEA_2026_APR_VINTAGE	1.0.0	National Economic Accounts (NEA), Quarterly Data 2026 April
+IMF.STA	BOP_2026_JAN_VINTAGE	1.0.0	Balance of Payments (BOP) 2026 January
+IMF.STA	MFS_OFC	7.0.0	Monetary and Financial Statistics (MFS), Other Financial Corporations
+IMF.STA	CPI_WCA_2026_MAY_VINTAGE	1.0.0	Consumer Price Index (CPI), World and Country Aggregates (CPI_WCA) 2026 May
+IMF.STA	SDG	2.0.1	IMF Reported SDG Data
+IMF.STA	GFS_SOEF	11.0.0	GFS Statement of Other Economic Flows
+IMF.STA	PI_WCA	1.0.0	Production Indexes, World and Country Group Aggregates
+IMF.RES	ITS	3.0.1	International Trade in Services (ITS)
+IMF.WHD	RSUI	1.0.0	Reported Social Unrest Index (RSUI)
+IMF.STA	QNEA_2026_MAY_VINTAGE	1.0.0	National Economic Accounts (NEA), Quarterly Data 2026 May
+IMF.STA	AI_HUB_AI_JOBS	3.0.0	Jobs and Productivity
+IMF.STA	QGFS_2026_FEB_VINTAGE	1.0.0	Quarterly Government Finance Statistics (QGFS) 2026 February
+IMF.STA	MFS_FC_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Corporations 2026 January
+IMF.STA	ANEA_2026_MAY_VINTAGE	1.0.0	National Economic Accounts (NEA), Annual Data 2026 May
+IMF.STA	GS_ED	3.0.0	Gender Statistics (GS) Education
+IMF.STA	MFS_CBS_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Central Bank Data 2026 February
+IMF.APD	APDREO_2025_OCT_VINTAGE	1.0.0	Asia and Pacific Regional Economic Outlook (APDREO) 2025 October
+IMF.STA	GS_LI	1.0.0	Gender Statistics (GS) Labor and Income 
+IMF.STA	PI	2.0.0	Production Indexes (PI)
+IMF.STA	ANEA_2026_APR_VINTAGE	1.0.0	National Economic Accounts (NEA), Annual Data 2026 April
+IMF.FAD	WORLD	3.0.1	World Revenue Longitudinal Database (WoRLD)
+IMF.APD	APDREO	6.0.0	Asia and Pacific Regional Economic Outlook (APDREO)
+IMF.STA	PPI	3.0.0	Producer Price Index (PPI)
+IMF.STA	GS_LEPM	2.0.0	Gender Statistics (GS) Leadership and empowerment (LEPM)
+IMF.STA	LS_2026_MAY_VINTAGE	1.0.0	Labor Statistics (LS) 2026 May
+IMF.STA	CO2EEIEM	2.0.2	Carbon Emission Per Unit of Output (CO2EEIEM)
+IMF.STA	CFBL	1.0.3	Carbon Footprint of Bank Loans
+IMF.STA	QNEA_2026_JAN_VINTAGE	1.0.0	National Economic Accounts (NEA), Quarterly Data 2026 January
+IMF.STA	GS_LGRGHTS	1.0.1	Gender Statistics (GS) Legal Rights
+IMF.STA	SPE_2026_FEB_VINTAGE	1.0.0	Special Purpose Entities (SPEs) 2026 February
+IMF.STA	CPI_WCA_2026_APR_VINTAGE	1.0.0	Consumer Price Index (CPI), World and Country Aggregates (CPI_WCA) 2026 April
+IMF.STA	MFS_ODC	10.0.0	Monetary and Financial Statistics (MFS), Other Depository Corporations
+IMF.STA	GFS_BS	12.0.0	GFS Balance Sheet
+IMF.STA	ITG	4.0.0	International Trade in Goods (ITG)
+IMF.RES	SRD	1.0.0	Structural Reform Database (SRD)
+IMF.STA	CPI_WCA_2026_JAN_VINTAGE	1.0.0	Consumer Price Index (CPI), World and Country Aggregates (CPI_WCA) 2026 January
+IMF.STA	QGDP_WCA	4.0.0	Quarterly Gross Domestic Product (GDP), World and Country Aggregates
+IMF.STA	FSIBSIS	18.0.0	Financial Soundness Indicators (FSI), Balance Sheet, Income Statement and Memorandum Series
+IMF.RES	EQ	2.0.0	Export Quality (EQ)
+IMF.STA	EER	6.0.0	Effective Exchange Rate (EER)
+IMF.STA	MFS_ODC_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Depository Corporations 2026 February
+IMF.STA	MFS_FMP_2026_SEPTEMBER_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 September
+IMF.STA	CPI_2026_JAN_VINTAGE	1.0.0	Consumer Price Index (CPI) 2026 January
+IMF.STA	MFS_CBS	24.0.0	Monetary and Financial Statistics (MFS), Central Bank Data
+IMF.STA	MFS_IR_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Interest Rate 2026 February
+IMF.STA	IIPCC_2026_FEB_VINTAGE	1.0.0	Currency Composition of the International Investment Position (IIPCC) 2026 February
+IMF.RES	WEO	9.0.0	World Economic Outlook (WEO)
+IMF.STA	MFS_MA_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Monetary Aggregates 2026 May
+IMF.STA	IL	13.0.1	International Liquidity (IL)
+IMF.STA	ENVTX	1.0.2	Environmental Taxes
+IMF.RES	WEO_2025_OCT_VINTAGE	1.0.0	World Economic Outlook (WEO) 2025 October
+IMF.STA	PI_2026_MAY_VINTAGE	1.0.0	Production Indexes (PI) 2026 May
+IMF.STA	WPCPER	6.0.0	Crypto-based Parallel Exchange Rates (Working Paper dataset WP-CPER)
+IMF.STA	MFS_OFC_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Financial Corporations 2026 February
+IMF.STA	MFS_DC_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Depository Corporations 2026 February
+IMF.STA	ER	4.0.1	Exchange Rates (ER)
+IMF.STA	MFS_DC_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Depository Corporations 2026 April
+IMF.STA	GS_CGI	3.0.0	Gender Statistics (GS) Composite Gender Indices (CGI)
+IMF.STA	FA_2026_JAN_VINTAGE	1.0.0	Fund Accounts (FA) 2026 January
+IMF.RES	MPFT	7.0.1	Monetary Policy Frameworks Toolkit (MPFT)
+IMF.STA	MFS_FMP_2026_MAR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 March
+IMF.STA	IL_2026_MAY_VINTAGE	1.0.0	International Liquidity (IL) 2026 May
+IMF.STA	TEG	3.0.2	Trade in Low Carbon Technology Goods (TEG)
+IMF.STA	ITG_2026_MAY_VINTAGE	1.0.0	International Trade in Goods (ITG) 2026 May
+IMF.STA	NSDP	7.0.0	National Summary Data Page (NSDP)
+IMF.STA	CPI_2026_APR_VINTAGE	1.0.0	Consumer Price Index (CPI) 2026 April
+IMF.STA	IIP	13.0.0	International Investment Position (IIP)
+IMF.STA	IIP_2026_APR_VINTAGE	1.0.0	International Investment Position (IIP) 2026 April
+IMF.STA	IIPCC_2026_APR_VINTAGE	1.0.0	Currency Composition of the International Investment Position (IIPCC) 2026 April
+IMF.STA	MFS_IR_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Interest Rate 2026 April
+ISORA	ISORA_LATEST_DATA_PUB	5.0.0	ISORA Latest Data
+IMF.STA	EER_INPUTS_2026_APR_VINTAGE	1.0.0	Effective Exchange Rates (EER), Inputs 2026 April
+IMF.STA	PPI_2026_FEB_VINTAGE	1.0.0	Producer Price Index (PPI) 2026 February
+IMF.STA	CO2E	2.0.1	CO2 emissions embodied in domestic final demand, production, and trade (CO2E)
+IMF.STA	MFS_FC_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Corporations 2026 April
+IMF.STA	MFS_OFC_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Financial Corporations 2026 April
+IMF.STA	MFS_FMP_2026_JUNE_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 June
+IMF.STA	IMTS_2026_MAY_VINTAGE	1.0.0	International Trade in Goods (by partner country) (IMTS) 2026 May
+IMF.STA	AEA	7.0.0	Air Emissions Accounts (AEA)
+IMF.FAD	FM	5.0.0	Fiscal Monitor (FM)
+IMF.STA	LS_2026_APR_VINTAGE	1.0.0	Labor Statistics (LS) 2026 April
+IMF.FAD	GDD	2.0.0	Global Debt Database (GDD)
+IMF.STA	IRFCL	12.0.0	International Reserves and Foreign Currency Liquidity (IRFCL)
+IMF.RES	WEO_2026_APR_VINTAGE	1.0.0	World Economic Outlook (WEO) 2026 April
+IMF.STA	PI_WCA_2026_APR_VINTAGE	1.0.0	Production Indexes, World and Country Group Aggregates 2026 April
+IMF.STA	QGFS_2026_JAN_VINTAGE	1.0.0	Quarterly Government Finance Statistics (QGFS) 2026 January
+IMF.STA	MFS_MA_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Monetary Aggregates 2026 January 
+IMF.STA	EER_2026_MAY_VINTAGE	1.0.0	Effective Exchange Rates (ER) 2026 May
+IMF.STA	INFORMRISK	1.0.4	Climate-Driven INFORM Risk Indicator
+IMF.STA	BOP_2026_MAY_VINTAGE	1.0.0	Balance of Payments (BOP) 2026 May
+IMF.STA	QGDP_WCA_2026_FEB_VINTAGE	1.0.0	Quarterly Gross Domestic Product (GDP), World and Country Aggregates 2026 February 
+IMF.STA	WPFXI	1.0.2	Working Paper Foreign Exchange Intervention (WPFXI) A Dataset of Public Data and Proxies
+IMF.STA	ER_2026_APR_VINTAGE	1.0.0	Exchange Rates (ER) 2026 April
+IMF.STA	MFS_FMP_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 May
+IMF.STA	CPI_WCA	3.0.0	Consumer Price Index (CPI), World and Country Aggregates (CPI_WCA)
+IMF.STA	GFS_SSUC	10.0.0	GFS Statement of Sources and Uses of Cash
+IMF.STA	MFS_FMP_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 January 
+IMF.STA	GFS_COFOG	11.0.0	GFS Government Expenditures by Function
+IMF.STA	AI_HUB_AI_ADOPTION	15.0.0	Adoption and Usage
+IMF.STA	RE	2.0.1	Renewable Energy
+IMF.STA	WPAIAX	2.0.0	AI Adoption Index (AIAX)
+IMF.STA	QGDP_WCA_2026_APR_VINTAGE	1.0.0	Quarterly Gross Domestic Product (GDP), World and Country Aggregates 2026 April
+IMF.STA	FD	6.0.0	Fiscal Decentralization (FD)
+IMF.STA	IL_2026_JAN_VINTAGE	1.0.0	International Liquidity (IL) 2026 January
+IMF.STA	FSICDM	7.0.0	Financial Soundness Indicators (FSI), Concentration and Distribution Measures
+IMF.STA	AI_HUB_AI_INVESTMENT	4.0.0	Financing and Investing
+IMF.STA	ANEA	6.0.1	National Economic Accounts (NEA), Annual Data
+IMF.STA	FSI_COUNTRY_METADATA_TABLE_2	1.0.0	Financial Soundness Indicators (FSI), Country Metadata Table 2
+IMF.STA	MFS_FMP_2026_JULY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 July
+IMF.RES	ED	1.0.0	Export Diversification (ED)
+IMF.STA	PI_WCA_2026_JAN_VINTAGE	1.0.0	Production Indexes, World and Country Group Aggregates 2026 January
+IMF.STA	UNFCCC	3.0.0	Greenhouse Gas Emissions (UNFCCC)
+IMF.STA	GS_HEALTH	5.0.0	Gender Statistics (GS) Health
+IMF.STA	QGFS_2026_APR_VINTAGE	1.0.0	Quarterly Government Finance Statistics (QGFS) 2026 April 
+IMF.STA	QNEA_2026_FEB_VINTAGE	1.0.0	National Economic Accounts (NEA), Quarterly Data 2026 February
+IMF.STA	GFS_SOO	12.0.0	GFS Statement of Operations 
+IMF.STA	MFS_FMP	3.0.0	Monetary and Financial Statistics (MFS): Financial Market Prices
+IMF.STA	CRBRATE	2.0.2	Carbon Rates
+IMF.STA	MFS_NSRF	1.0.3	Monetary and Financial Statistics (MFS),  Non-Standard Data
+IMF.STA	EER_2026_JAN_VINTAGE	1.0.0	Effective Exchange Rates (ER) 2026 January
+IMF.STA	QNEA	7.0.0	National Economic Accounts (NEA), Quarterly Data
+IMF.STA	EER_2026_FEB_VINTAGE	1.0.0	Effective Exchange Rates (ER) 2026 February
+IMF.AFR	AFRREO_2025_OCT_VINTAGE	1.0.0	Sub-Saharan Africa Regional Economic Outlook (AFRREO) 2025 October
+IMF.STA	MFS_IR	9.0.0	Monetary and Financial Statistics (MFS), Interest Rate
+IMF.STA	MFS_CBS_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Central Bank Data 2026 January
+IMF.STA	MFS_MA	10.0.1	Monetary and Financial Statistics (MFS), Monetary Aggregates
+IMF.STA	IIPCC	13.0.0	Currency Composition of the International Investment Position (IIPCC)
+IMF.STA	PI_WCA_2026_FEB_VINTAGE	1.0.0	Production Indexes, World and Country Group Aggregates 2026 February
+IMF.STA	SPE	13.0.0	Special Purpose Entities (SPEs)
+IMF.STA	BOP_AGG_2025_NOVEMBER_VINTAGE	1.0.0	Balance of Payments and International Investment Position Statistics (BOP/IIP), World and Country Group Aggregates 2025 November
+IMF.FAD	TAXFIT	3.0.1	Tax and Benefits Analysis Tool (TAXFIT)
+IMF.STA	QGFS_2026_MAY_VINTAGE	1.0.0	Quarterly Government Finance Statistics (QGFS) 2026 May
+IMF.STA	IIPCC_2026_MAY_VINTAGE	1.0.0	Currency Composition of the International Investment Position (IIPCC) 2026 May
+IMF.FAD	ICSD	1.0.0	Investment and Capital Stock Dataset (ICSD)
+IMF.STA	FA_2026_MAY_VINTAGE	1.0.0	Fund Accounts (FA) 2026 May
+IMF.STA	GS_SDO	1.0.0	Gender Statistics (GS) Social, demographic and other
+IMF.FAD	PSBS	2.0.0	Public Sector Balance Sheet (PSBS)
+IMF.STA	ITG_2026_JAN_VINTAGE	1.0.0	International Trade in Goods (ITG) 2026 January
+IMF.STA	MFS_FC_2026_FEB_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Corporations 2026 February
+IMF.STA	MFS_ODC_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Depository Corporations 2026 April
+IMF.STA	NA_MAIN	1.0.0	National Accounts Main Aggregates (SDMX)
+IMF.STA	LS_2026_FEB_VINTAGE	1.0.0	Labor Statistics (LS) 2026 February
+IMF.STA	MFS_OFC_2026_JAN_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Financial Corporations 2026 January
+IMF.STA	GFS_SFCP	10.0.0	GFS Stocks and Flows by Counterparty
+IMF.STA	PPI_2026_MAY_VINTAGE	1.0.0	Producer Price Index (PPI) 2026 May
+IMF.STA	PI_2026_JAN_VINTAGE	1.0.0	Production Indexes (PI) 2026 January
+IMF.STA	SPE_2026_JAN_VINTAGE	1.0.0	Special Purpose Entities (SPEs) 2026 January
+ISORA	ISORA_2016_DATA_PUB	2.0.0	ISORA 2016 Data
+IMF.STA	ESG_FINANCE_ISSUER	2.0.3	Sustainable Bonds by Type of Issuer
+IMF.STA	IIP_2026_FEB_VINTAGE	1.0.0	International Investment Position (IIP) 2026 February
+IMF.STA	SPE_2026_MAY_VINTAGE	1.0.0	Special Purpose Entities (SPEs) 2026 May 
+IMF.STA	MFS_CBS_2026_APR_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Central Bank Data 2026 April 
+IMF.STA	FA_2026_APR_VINTAGE	1.0.0	Fund Accounts (FA) 2026 April
+IMF.STA	GS_ATF	1.0.0	Gender Statistics (GS) Access to Finance (ATF)
+IMF.STA	PPI_2026_JAN_VINTAGE	1.0.0	Producer Price Index (PPI) 2026 January
+IMF.STA	FA	8.0.0	Fund Accounts (FA)
+IMF.MCM	FDI	1.0.0	Financial Development Index (FDI)
+IMF.STA	AI_HUB_AI_INFRASTRUCTURE	8.0.0	Capability and Infrastructure
+ISORA	ISORA_2018_DATA_PUB	2.0.0	ISORA 2018 Data
+IMF.STA	PPI_2026_APR_VINTAGE	1.0.0	Producer Price Index (PPI) 2026 April
+IMF.RES	ECFIE	2.0.3	Earnings-Calls-based Firm Inflation Expectations (ECFIE)
+IMF.STA	MFS_DC	8.0.0	Monetary and Financial Statistics (MFS), Depository Corporations
+IMF.STA	MFS_ODC_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Other Depository Corporations 2026 May
+IMF.STA	ANEA_2026_FEB_VINTAGE	1.0.0	National Economic Accounts (NEA), Annual Data 2026 February
+IMF.STA	MFS_FMP_2026_AUGUST_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Financial Market Prices 2026 August
+IMF.STA	COFER	7.0.1	Currency Composition of Official Foreign Exchange Reserves (COFER)
+IMF.STA	QGFS	12.0.0	Quarterly Government Finance Statistics (QGFS)
+IMF.STA	SPE_2026_APR_VINTAGE	1.0.0	Special Purpose Entities (SPEs) 2026 April
+IMF.STA	MFS_CBS_2026_MAY_VINTAGE	1.0.0	Monetary and Financial Statistics (MFS), Central Bank Data 2026 May
+IMF.AFR	AFRREO_2026_APR_VINTAGE	1.0.0	Sub-Saharan Africa Regional Economic Outlook (AFRREO) 2026 APRIL
+IMF.FAD	HPD	1.0.0	Historical Public Debt (HPD)

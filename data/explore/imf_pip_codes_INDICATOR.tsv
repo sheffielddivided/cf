@@ -1,0 +1,61 @@
+code	name
+P_F3SNP_L_P_USD	Portfolio investment, Debt securities: short or negative positions, Long-term, Positions
+P_F3SNP_P_USD	Portfolio investment, Debt securities: short or negative positions, Positions
+P_F3SNP_S_P_USD	Portfolio investment, Debt securities: short or negative positions, Short-term, Positions
+P_F3_DIC_AUD_P_USD	Portfolio investment, Debt securities, Denominated in Australian dollar, Positions
+P_F3_DIC_CAD_P_USD	Portfolio investment, Debt securities, Denominated in Canadian dollar, Positions
+P_F3_DIC_CHF_P_USD	Portfolio investment, Debt securities, Denominated in Swiss franc, Positions
+P_F3_DIC_CNY_P_USD	Portfolio investment, Debt securities, Denominated in Chinese yuan renminbi, Positions
+P_F3_DIC_EUR_P_USD	Portfolio investment, Debt securities, Denominated in Euro, Positions
+P_F3_DIC_GBP_P_USD	Portfolio investment, Debt securities, Denominated in Pound sterling, Positions
+P_F3_DIC_JPY_P_USD	Portfolio investment, Debt securities, Denominated in Japanese yen, Positions
+P_F3_DIC_OTHC_P_USD	Portfolio investment, Debt securities, Denominated in Other currencies, Positions
+P_F3_DIC_USD_P_USD	Portfolio investment, Debt securities, Denominated in US dollar, Positions
+P_F3_L_DIC_AUD_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Australian dollar, Positions
+P_F3_L_DIC_CAD_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Canadian dollar, Positions
+P_F3_L_DIC_CHF_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Swiss franc, Positions
+P_F3_L_DIC_CNY_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Chinese yuan renminbi, Positions
+P_F3_L_DIC_EUR_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Euro, Positions
+P_F3_L_DIC_GBP_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Pound sterling, Positions
+P_F3_L_DIC_JPY_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Japanese yen, Positions
+P_F3_L_DIC_OTHC_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in Other currencies, Positions
+P_F3_L_DIC_USD_P_USD	Portfolio investment, Debt securities, Long-term, Denominated in US dollar, Positions
+P_F3_L_P_SCC_USD	Portfolio investment, Debt securities, Long-term, Positions, Derived using counterparty information
+P_F3_L_P_USD	Portfolio investment, Debt securities, Long-term, Positions
+P_F3_P_SCC_USD	Portfolio investment, Debt securities, Positions, Derived using counterparty information
+P_F3_P_USD	Portfolio investment, Debt securities, Positions
+P_F3_S_DIC_AUD_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Australian dollar, Positions
+P_F3_S_DIC_CAD_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Canadian dollar, Positions
+P_F3_S_DIC_CHF_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Swiss franc, Positions
+P_F3_S_DIC_CNY_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Chinese yuan renminbi, Positions
+P_F3_S_DIC_EUR_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Euro, Positions
+P_F3_S_DIC_GBP_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Pound sterling, Positions
+P_F3_S_DIC_JPY_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Japanese yen, Positions
+P_F3_S_DIC_OTHC_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in Other currencies, Positions
+P_F3_S_DIC_USD_P_USD	Portfolio investment, Debt securities, Short-term, Denominated in US dollar, Positions
+P_F3_S_P_SCC_USD	Portfolio investment, Debt securities, Short-term, Positions, Derived using counterparty information
+P_F3_S_P_USD	Portfolio investment, Debt securities, Short-term, Positions
+P_F51_DIC_AUD_P_USD	Portfolio investment, Equity, Denominated in Australian dollar, Positions
+P_F51_DIC_CAD_P_USD	Portfolio investment, Equity, Denominated in Canadian dollar, Positions
+P_F51_DIC_CHF_P_USD	Portfolio investment, Equity, Denominated in Swiss franc, Positions
+P_F51_DIC_CNY_P_USD	Portfolio investment, Equity, Denominated in Chinese yuan renminbi, Positions
+P_F51_DIC_EUR_P_USD	Portfolio investment, Equity, Denominated in Euro, Positions
+P_F51_DIC_GBP_P_USD	Portfolio investment, Equity, Denominated in Pound sterling, Positions
+P_F51_DIC_JPY_P_USD	Portfolio investment, Equity, Denominated in Japanese yen, Positions
+P_F51_DIC_OTHC_P_USD	Portfolio investment, Equity, Denominated in Other currencies, Positions
+P_F51_DIC_USD_P_USD	Portfolio investment, Equity, Denominated in US dollar, Positions
+P_F51_P_SCC_USD	Portfolio investment, Equity, Positions, Derived using counterparty information
+P_F51_P_USD	Portfolio investment, Equity, Positions
+P_F5SNP_P_USD	Portfolio investment, Equity: short or negative positions, Positions
+P_TOTINV_DIC_AUD_P_USD	Portfolio investment, Total investment, Denominated in Australian dollar, Positions
+P_TOTINV_DIC_CAD_P_USD	Portfolio investment, Total investment, Denominated in Canadian dollar, Positions
+P_TOTINV_DIC_CHF_P_USD	Portfolio investment, Total investment, Denominated in Swiss franc, Positions
+P_TOTINV_DIC_CNY_P_USD	Portfolio investment, Total investment, Denominated in Chinese yuan renminbi, Positions
+P_TOTINV_DIC_EUR_P_USD	Portfolio investment, Total investment, Denominated in Euro, Positions
+P_TOTINV_DIC_GBP_P_USD	Portfolio investment, Total investment, Denominated in Pound sterling, Positions
+P_TOTINV_DIC_JPY_P_USD	Portfolio investment, Total investment, Denominated in Japanese yen, Positions
+P_TOTINV_DIC_OTHC_P_USD	Portfolio investment, Total investment, Denominated in Other currencies, Positions
+P_TOTINV_DIC_USD_P_USD	Portfolio investment, Total investment, Denominated in US dollar, Positions
+P_TOTINV_P_SCC_USD	Portfolio investment, Total investment, Positions, Derived using counterparty information
+P_TOTINV_P_USD	Portfolio investment, Total investment, Positions
+P_TSNP_P_USD	Portfolio investment, Total, short or negative positions, Positions

@@ -1,0 +1,433 @@
+code	name
+00	Others
+11	Technical residual (Non-residents / Cross-border)
+1A	US banks in offshore centres
+1B	International banking facilities
+1C	International organisations
+1D	Official monetary authorities
+1E	Residents/Local
+1F	Cross-border financial centres
+1G	Consortium banks
+1H	Certificates of deposit
+1J	Estimated CDs held for offshore institutions
+1K	Cross-border banking centres
+1L	Holdings of long-term securities res.
+1M	United States excl. IBFs
+1N	Offshore centres
+1O	Caribbean offshore
+1P	Asian offshore
+1Q	Non-reporting offshore centres
+1R	European offshore
+1T	Other offshore
+1U	Botswana/Lesotho
+1W	Unallocated British Overseas Territories
+1X	European Central Bank
+1Z	West Indies UK
+2A	Other developing Europe
+2B	Unallocated emerging Europe
+2C	Former Serbia and Montenegro
+2D	Former Netherlands Antilles
+2E	Residual Eastern Europe
+2F	Unallocated non-reporting emerging Latin America and Caribbean
+2G	Other developing Latin America and Caribbean
+2H	Unallocated emerging Latin America and Caribbean
+2J	Unallocated non-reporting emerging Africa and Middle East
+2K	Unallocated non-reporting offshore centres
+2L	Unallocated non-reporting advanced economies
+2M	Other offshore centres
+2N	Unallocated offshore centres
+2O	Unallocated emerging Asia and Pacific
+2P	Other developing Asia and Pacific
+2Q	Other advanced
+2R	Unallocated advanced economies
+2S	Former Yugoslavia
+2T	Former Soviet Union
+2U	Former Czechoslovakia
+2V	Other developing Africa and Middle East
+2W	Unallocated emerging Africa and Middle East
+2X	Unallocated non-reporting emerging Asia and Pacific
+2Y	Unallocated non-reporting emerging Europe
+2Z	Unallocated West Indies UK
+3A	Non-European developed countries
+3C	Emerging Europe
+3E	Eastern Europe
+3P	All countries excluding residents
+3T	BIS IBS - LEGACY LEAF LEVEL
+3W	Non-reporting emerging Africa and Middle East
+3X	Non-reporting emerging Asia and Pacific
+3Y	Non-reporting emerging Europe
+3Z	Non-reporting emerging Latin America and Caribbean
+4A	G10 countries
+4B	Domestic banks
+4C	Inside-area foreign banks consolidated by their parent
+4D	Outside area foreign banks
+4E	Inside-area foreign banks not consolidated by their parent
+4F	OPEC countries
+4G	Oil exporters
+4H	Middle East oil exporters
+4I	Other oil exporters
+4J	Other Europe advanced
+4K	Non-opec ldcs
+4L	Other advanced
+4M	All banks (=4B +4C + 4D +4E)
+4N	All including 4C banks, excl. domestic positions (=4O + 4C)
+4O	All excluding 4C banks, excl. domestic positions (= 4R + 4Q +4V)
+4P	Large banking groups
+4Q	Outside area foreign banks(4D), excl. domestic positions
+4R	Domestic banks(4B), excl. domestic positions
+4S	BRIC countries
+4T	Emerging market and developing economies
+4U	Emerging Latin America and Caribbean
+4V	Inside area foreign banks not consol.by parents (4E), excl. domestic positions
+4W	Emerging Africa and Middle East
+4Y	Emerging Asia and Pacific
+4Z	Residual bank
+5A	All reporting countries
+5B	European Union
+5C	Euro area
+5D	Ultimate risk data reporting countries
+5E	European reporting countries
+5F	Other Asian countries
+5G	Non-European countries
+5H	Unallocated BIS reporting countries
+5I	Unallocated - Euro area intergovernmental organizations and agencies
+5J	All countries
+5K	Advanced Europe
+5L	BIS reporting countries
+5M	Unallocated location
+5N	Non-reporting advanced economies
+5P	All other countries
+5Q	Countries with non-public data
+5R	Advanced economies
+5S	Joint BIS-OECD-IMF-Worldbank statistics on external debt
+5T	IBLR currency reporting countries
+5U	Latin America
+5V	IBLN currency reporting countries
+5W	Unallocated non-BIS reporting countries
+5X	Non-BIS reporting countries
+5Y	Unclassified non-residents
+5Z	Non-residents/Cross-border
+6A	European Union 6 - 1958
+6B	European Union 9 - 1973
+6C	European Union 10 - 1981
+6D	European Union 12 - 1986
+6E	EU developing countries
+6F	EU developed countries
+6G	European Union 15 - 1995
+6H	European Union 25 - 2004
+6I	US banks in Cayman Islands
+6J	US banks in Bahamas
+6K	European Union 27 - 2007
+6L	US banks in Panama
+6O	Non-US banks in Bahamas
+6P	Non-US banks in Cayman Islands
+6T	BIS IBS - LEGACY AGGREGATES
+7A	Euro area 11 - 1999
+7B	Euro area 12 - 2001
+7C	Euro area 13 - 2007
+7D	Euro area 15 - 2008
+7E	Euro area 16 - 2009
+7F	Euro area 17 - 2011
+7G	Euro area 18 - 2014
+7H	Japan offshore market
+7I	Japan non-offshore market
+7J	Japan offshore market residents
+7L	Euro area 20 - 2023
+8A	All exchanges
+8B	North American exchanges
+8C	European exchanges
+8E	Asian/Pacific exchanges
+8F	Asian exchanges
+8G	Australia/New Zealand exchanges
+8H	Non-US exchanges
+8K	Other exchanges
+9T	BIS IBS - LEGACY DISCONTINUED
+9Z	Unallocated counterparty country
+AD	Andorra
+AE	United Arab Emirates
+AF	Afghanistan
+AG	Antigua and Barbuda
+AI	Anguilla
+AL	Albania
+AM	Armenia
+AN	Netherlands Antilles
+AO	Angola
+AQ	Antarctica
+AR	Argentina
+AS	American Samoa
+AT	Austria
+AU	Australia
+AW	Aruba
+AX	Aland Islands
+AZ	Azerbaijan
+BA	Bosnia and Herzegovina
+BB	Barbados
+BD	Bangladesh
+BE	Belgium
+BF	Burkina Faso
+BG	Bulgaria
+BH	Bahrain
+BI	Burundi
+BJ	Benin
+BL	Saint Barthelemy
+BM	Bermuda
+BN	Brunei
+BO	Bolivia
+BQ	Bonaire, Sint Eustatius and Saba
+BR	Brazil
+BS	The Bahamas
+BT	Bhutan
+BU	Burma
+BV	Bouvet Island
+BW	Botswana
+BY	Belarus
+BZ	Belize
+C1	Switzerland Trustee positions
+C2	Switzerland excl. Trustee positions
+C9	Czechoslovakia
+CA	Canada
+CC	Cocos (Keeling) Islands
+CD	Democratic Republic of the Congo
+CF	Central African Republic
+CG	Republic of Congo
+CH	Switzerland
+CI	Côte d'Ivoire
+CK	Cook Islands
+CL	Chile
+CM	Cameroon
+CN	China
+CO	Colombia
+CR	Costa Rica
+CS	Serbia and Montenegro
+CT	Canton and Enderbury Islands
+CU	Cuba
+CV	Cabo Verde
+CW	Curaçao
+CX	Christmas Island
+CY	Cyprus
+CZ	Czechia
+DD	German Democratic Republic
+DE	Germany
+DJ	Djibouti
+DK	Denmark
+DM	Dominica
+DO	Dominican Republic
+DY	Dahomey
+DZ	Algeria
+EC	Ecuador
+EE	Estonia
+EG	Egypt
+EH	Western Sahara
+ER	Eritrea
+ES	Spain
+ET	Ethiopia
+EU	European Union
+FI	Finland
+FJ	Fiji
+FK	Falkland Islands
+FM	Micronesia
+FO	Faeroe Islands
+FQ	French Southern and Antarctic Territories
+FR	France
+FX	France, Metropolitan
+G1	United Kingdom incl. Channel Islands
+GA	Gabon
+GB	United Kingdom
+GD	Grenada
+GE	Georgia
+GF	French Guiana
+GG	Guernsey
+GH	Ghana
+GI	Gibraltar
+GL	Greenland
+GM	The Gambia
+GN	Guinea
+GP	Guadeloupe
+GQ	Equatorial Guinea
+GR	Greece
+GS	South Georgia and the South Sandwich Islands
+GT	Guatemala
+GU	Guam
+GW	Guinea-Bissau
+GY	Guyana
+HK	Hong Kong SAR
+HM	Heard Island and McDonald Islands
+HN	Honduras
+HR	Croatia
+HT	Haiti
+HU	Hungary
+HV	Upper Volta
+ID	Indonesia
+IE	Ireland
+IL	Israel
+IM	Isle of Man
+IN	India
+IO	British Indian Ocean Territory
+IQ	Iraq
+IR	Iran
+IS	Iceland
+IT	Italy
+J1	Japan Trustee positions
+J2	Japan excl. Trustee positions
+JE	Jersey
+JM	Jamaica
+JO	Jordan
+JP	Japan
+JT	Johnston Island
+KE	Kenya
+KG	Kyrgyz Republic
+KH	Cambodia
+KI	Kiribati
+KM	Comoros
+KN	St Kitts and Nevis
+KP	North Korea
+KR	Korea
+KW	Kuwait
+KY	Cayman Islands
+KZ	Kazakhstan
+LA	Laos
+LB	Lebanon
+LC	St Lucia
+LI	Liechtenstein
+LK	Sri Lanka
+LR	Liberia
+LS	Lesotho
+LT	Lithuania
+LU	Luxembourg
+LV	Latvia
+LY	Libya
+MA	Morocco
+MC	Monaco
+MD	Moldova
+ME	Montenegro
+MF	Saint Martin (French part)
+MG	Madagascar
+MH	Marshall Islands
+MI	Midway Islands
+MK	North Macedonia
+ML	Mali
+MM	Myanmar
+MN	Mongolia
+MO	Macao SAR
+MP	Northern Marianas islands
+MQ	Martinique
+MR	Mauritania
+MS	Montserrat
+MT	Malta
+MU	Mauritius
+MV	Maldives
+MW	Malawi
+MX	Mexico
+MY	Malaysia
+MZ	Mozambique
+NA	Namibia
+NC	New Caledonia
+NE	Niger
+NF	Norfolk Island
+NG	Nigeria
+NH	New Hebrides
+NI	Nicaragua
+NL	Netherlands
+NO	Norway
+NP	Nepal
+NQ	Dronning Maud Land
+NR	Nauru
+NT	Neutral Zone
+NU	Niue
+NZ	New Zealand
+OM	Oman
+PA	Panama
+PC	Pacific Islands, Trust Territory of the
+PE	Peru
+PF	French Polynesia
+PG	Papua New Guinea
+PH	Philippines
+PK	Pakistan
+PL	Poland
+PM	Saint Pierre and Miquelon
+PN	Pitcairn
+PR	Puerto Rico
+PS	Palestinian Territory
+PT	Portugal
+PU	U.S. Miscellaneous Pacific Islands
+PW	Palau
+PY	Paraguay
+PZ	Panama Canal Zone
+QA	Qatar
+RE	Reunion
+RH	Southern Rhodesia
+RO	Romania
+RS	Serbia
+RU	Russia
+RW	Rwanda
+SA	Saudi Arabia
+SB	Solomon Islands
+SC	Seychelles
+SD	Sudan
+SE	Sweden
+SG	Singapore
+SH	St Helena, Ascension and Tristan da Cunha
+SI	Slovenia
+SJ	Svalbard and Jan Mayen
+SK	Slovakia
+SL	Sierra Leone
+SM	San Marino
+SN	Senegal
+SO	Somalia
+SR	Suriname
+SS	South Sudan
+ST	São Tomé and Príncipe
+SU	USSR (Soviet Union)
+SV	El Salvador
+SX	Sint Maarten
+SY	Syria
+SZ	Eswatini
+TC	Turks and Caicos Islands
+TD	Chad
+TF	French Southern Territories
+TG	Togo
+TH	Thailand
+TJ	Tajikistan
+TK	Tokelau
+TL	East Timor
+TM	Turkmenistan
+TN	Tunisia
+TO	Tonga
+TP	East Timor
+TR	Türkiye
+TT	Trinidad and Tobago
+TV	Tuvalu
+TW	Chinese Taipei
+TZ	Tanzania
+U2	Euro area (Member States and Institutions of the Euro Area) changing composition
+UA	Ukraine
+UG	Uganda
+UM	United States Minor Outlying Islands
+US	United States
+UY	Uruguay
+UZ	Uzbekistan
+VA	Vatican City State
+VC	St Vincent and the Grenadines
+VD	Viet-Nam, Democratic Republic of
+VE	Venezuela
+VG	British Virgin Islands
+VI	Virgin Islands (U.S.)
+VN	Viet Nam
+VU	Vanuatu
+WA	Waemu
+WF	Wallis and Futuna Islands
+WK	Wake Island
+WS	Samoa
+XM	Euro area
+XW	World
+YD	Yemen, Democratic
+YE	Yemen
+YT	Mayotte
+YU	Yugoslavia
+Z2	OECD
+Z4	Legacy countries
+ZA	South Africa
+ZM	Zambia
+ZR	Zaire
+ZW	Zimbabwe
+_Z	Not applicable

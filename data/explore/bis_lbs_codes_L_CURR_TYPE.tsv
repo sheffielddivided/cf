@@ -1,0 +1,5 @@
+code	name
+A	All currencies (=D+F+U)
+D	Domestic currency (ie currency of bank location country)
+F	Foreign currency (ie currencies foreign to bank location country)
+U	Unclassified currency

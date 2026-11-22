@@ -1,0 +1,9 @@
+code	name
+A	Annual
+B	Daily - business week (not supported)
+D	Daily
+E	Event (not supported)
+H	Half-yearly
+M	Monthly
+Q	Quarterly
+W	Weekly
