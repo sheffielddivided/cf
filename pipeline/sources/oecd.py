@@ -19,12 +19,13 @@ URL = "https://data-explorer.oecd.org/"
 
 # our measure -> OECD MEASURE (accounting entry N = net, transactions, quarterly, USD)
 MEASURES = {"fa_total": "FA", "fdi": "FA_D_F", "portfolio": "FA_P_F", "other_inv": "FA_O_F"}
-# IMF country code -> OECD REF_AREA, where they differ
-AREA = {"G163": "EA20"}
+# IMF country code -> OECD REF_AREA codes to try, where they differ (first with data wins)
+AREA = {"G163": ["EA20", "EA"]}
+BACK = {code: imf for imf, codes in AREA.items() for code in codes}
 
 
 def oecd_key(areas: Iterable[str]) -> str:
-    codes = "+".join(AREA.get(a, a) for a in areas)
+    codes = "+".join(code for a in areas for code in AREA.get(a, [a]))
     return f"{codes}.WXD.{'+'.join(MEASURES.values())}.N.T.Q.USD_EXC.N"
 
 
@@ -36,8 +37,9 @@ def fetch_csv(client: SdmxClient, areas: list[str], start: str) -> tuple[int, st
 
 def values(text: str) -> dict[tuple[str, str, str], float]:
     """(IMF country code, our measure, period) -> USD bn, BPM6 sign."""
-    back = {v: k for k, v in AREA.items()}
     measure = {v: k for k, v in MEASURES.items()}
+    rank = {code: i for codes in AREA.values() for i, code in enumerate(codes)}
+    chosen: dict[tuple[str, str, str], int] = {}
     out: dict[tuple[str, str, str], float] = {}
     for r in csv.DictReader(io.StringIO(text)):
         if r.get("ACCOUNTING_ENTRY") != "N" or r.get("UNIT_MEASURE") != "USD_EXC":
@@ -48,7 +50,10 @@ def values(text: str) -> dict[tuple[str, str, str], float]:
         if not v:
             continue
         mult = int(r.get("UNIT_MULT") or 6)
-        out[(back.get(r["REF_AREA"], r["REF_AREA"]), measure[r["MEASURE"]], r["TIME_PERIOD"])] = (
-            float(v) * 10 ** (mult - 9)
-        )
+        key = (BACK.get(r["REF_AREA"], r["REF_AREA"]), measure[r["MEASURE"]], r["TIME_PERIOD"])
+        prio = rank.get(r["REF_AREA"], 0)
+        if key in chosen and chosen[key] <= prio:
+            continue  # an earlier-listed OECD code already gave this value
+        chosen[key] = prio
+        out[key] = float(v) * 10 ** (mult - 9)
     return out

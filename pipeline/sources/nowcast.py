@@ -42,8 +42,12 @@ def _tic_grand_total(text: str, column: str) -> dict[str, float]:
     reader = csv.DictReader(io.StringIO("\n".join(lines[start:])), delimiter="\t")
     out = {}
     for r in reader:
-        if (r.get("country_code") or "").strip() == "99996" and (r.get(column) or "").strip():
-            out[r["date"].strip()] = float(r[column]) / 1000  # millions -> bn
+        if (r.get("country_code") or "").strip() != "99996":
+            continue
+        try:
+            out[r["date"].strip()] = float((r.get(column) or "").replace(",", "")) / 1000
+        except ValueError:  # "n.a." and blanks: not reported, never zero
+            continue
     return out
 
 

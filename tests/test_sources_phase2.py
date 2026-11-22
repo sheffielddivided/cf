@@ -44,13 +44,25 @@ def test_mof_week_labels(label, end):
 
 
 def test_oecd_key_and_values():
-    assert oecd.oecd_key(["USA", "G163"]).startswith("USA+EA20.WXD.FA+FA_D_F+FA_P_F+FA_O_F.N.T.Q")
+    key = oecd.oecd_key(["USA", "G163"])
+    assert key.startswith("USA+EA20+EA.WXD.FA+FA_D_F+FA_P_F+FA_O_F.N.T.Q")
     text = (
         "REF_AREA,MEASURE,ACCOUNTING_ENTRY,UNIT_MEASURE,ADJUSTMENT,TIME_PERIOD,OBS_VALUE,UNIT_MULT\n"
         "USA,FA,N,USD_EXC,N,2026-Q2,-371772,6\n"
         "USA,FA,N,XDC,N,2026-Q2,-1,6\n"
+        "EA,FA_P_F,N,USD_EXC,N,2026-Q2,9999,6\n"
         "EA20,FA_P_F,N,USD_EXC,N,2026-Q2,1500,6\n"
     )
     v = oecd.values(text)
     assert v == {("USA", "fa_total", "2026-Q2"): pytest.approx(-371.772),
                  ("G163", "portfolio", "2026-Q2"): pytest.approx(1.5)}
+
+
+def test_tic_skips_not_available():
+    t1 = (FX / "slt_table1.txt").read_text().replace(
+        "Grand Total\t99996\t2026-09\t39751546\t186707", "Grand Total\t99996\t2026-09\t39751546\tn.a."
+    )
+    s = nowcast.parse_tic(t1, (FX / "slt_table2.txt").read_text())
+    i = s["periods"].index("2026-09")
+    assert s["nonres"][i] is None and s["net"][i] is None
+    assert s["res"][i] == pytest.approx(31.389)
