@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, t } from "../lib/i18n";
+import { optionalData } from "../lib/optional-data";
+import { num } from "../lib/format";
+import { periodLabel } from "../lib/nowcast-chart";
+import type { Lang, Nowcast } from "../lib/types";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const nb = lang === "nb";
+const data = optionalData<Nowcast>("nowcast");
+const unit = (cur: string) => (nb ? `mrd. ${cur}` : `${cur} bn`);
+
+const texts: Record<string, { h: string; lede: string; nonres: string; res: string; avg: number; avgLbl: string }> = nb
+  ? {
+      US_TIC: { h: "USA: kjøp og salg av langsiktige verdipapirer", lede: "Utlendingers netto kjøp av amerikanske langsiktige verdipapirer minus amerikaneres netto kjøp av utenlandske. Bare portefølje, ikke direkteinvesteringer eller banklån. Månedlig, fra US Treasury (TIC).", nonres: "Utlendinger kjøper amerikanske verdipapirer", res: "Amerikanere kjøper utenlandske verdipapirer", avg: 3, avgLbl: "Glidende snitt, 3 måneder" },
+      EA_ECB: { h: "Euroområdet: månedlig betalingsbalanse", lede: "Netto finansregnskap ekskl. reserver (direkte, portefølje, annen investering og derivater) for euroområdet, månedlig fra ECB. Fortegnet er snudd: positivt er netto innstrømning.", nonres: "Utlendinger investerer i euroområdet", res: "Euroområdet investerer ute", avg: 3, avgLbl: "Glidende snitt, 3 måneder" },
+      JP_MOF: { h: "Japan: ukentlige verdipapirkjøp", lede: "Utlendingers netto kjøp av japanske aksjer og langsiktige obligasjoner minus japanske investorers netto kjøp av utenlandske. Bare store rapporterende investorer. Ukentlig, fra det japanske finansdepartementet.", nonres: "Utlendinger kjøper japanske verdipapirer", res: "Japanske investorer kjøper utenlandske", avg: 4, avgLbl: "Glidende snitt, 4 uker" },
+    }
+  : {
+      US_TIC: { h: "United States: purchases of long-term securities", lede: "Foreigners’ net purchases of US long-term securities minus US residents’ net purchases of foreign ones. Portfolio only, no direct investment or bank lending. Monthly, from the US Treasury (TIC).", nonres: "Foreigners buy US securities", res: "US residents buy foreign securities", avg: 3, avgLbl: "3-month moving average" },
+      EA_ECB: { h: "Euro area: monthly balance of payments", lede: "Net financial account excluding reserves (direct, portfolio, other investment and derivatives) for the euro area, monthly from the ECB. The sign is flipped: positive is net inflow.", nonres: "Non-residents invest in the euro area", res: "Euro area residents invest abroad", avg: 3, avgLbl: "3-month moving average" },
+      JP_MOF: { h: "Japan: weekly securities purchases", lede: "Foreigners’ net purchases of Japanese equities and long-term bonds minus Japanese investors’ net purchases of foreign ones. Large reporting investors only. Weekly, from Japan’s Ministry of Finance.", nonres: "Foreigners buy Japanese securities", res: "Japanese investors buy foreign", avg: 4, avgLbl: "4-week moving average" },
+    };
+const order = ["US_TIC", "EA_ECB", "JP_MOF"];
+---
+<Base lang={lang} title={d.navNowcast} current="nowcast" alternateHref={alternate(lang, "nowcast")}>
+  <h1>{nb ? "Nåkast: ferskere, men smalere tall" : "Nowcast: fresher but narrower data"}</h1>
+  <p class="muted">
+    {nb
+      ? "Månedlige og ukentlige indikatorer fra nasjonale kilder. De kommer måneder før betalingsbalansen, men dekker bare deler av kapitalstrømmene og bruker egne definisjoner og valutaer. De er derfor aldri med i rangeringen."
+      : "Monthly and weekly indicators from national sources. They arrive months before the balance of payments, but cover only part of capital flows and use their own definitions and currencies. They are therefore never part of the ranking."}
+  </p>
+  {!data && <p>{d.notReported}</p>}
+  <div id="nowcast" data-lang={lang}>
+    {data && order.filter((id) => data.sources[id]).map((id) => {
+      const s = data.sources[id];
+      const tx = texts[id];
+      const i = s.net.length - 1;
+      return (
+        <section class="panel" style="margin-bottom:1.5rem" data-source={id} data-avg={tx.avg} data-unit={unit(s.currency)}>
+          <div class="chart-head">
+            <h2 style="margin-top:0">{tx.h}</h2>
+            <button type="button" class="toggle" data-toggle>{d.showTable}</button>
+          </div>
+          <div class="badges">
+            <span class="badge">{nb ? "Foreløpig og delvis dekning – ikke sammenlignbar med hovedrangeringen" : "Preliminary, partial coverage – not comparable with the main ranking"}</span>
+            {s.stale && <span class="badge">{nb ? "Ikke oppdatert ved siste kjøring" : "Not updated in the latest run"}</span>}
+          </div>
+          <p class="muted small">{tx.lede}</p>
+          <p><strong>{periodLabel(s.periods[i], lang)}:</strong> {(s.net[i] ?? 0) >= 0 ? d.inflow.toLowerCase() : d.outflow.toLowerCase()} {num(s.net[i], lang)} {unit(s.currency)}</p>
+          <div class="legend" aria-hidden="true">
+            <span><span class="key" style="background:var(--inflow)"></span>{d.inflow}</span>
+            <span><span class="key" style="background:var(--outflow)"></span>{d.outflow}</span>
+            <span><span class="key line" style="background:var(--ink)"></span>{tx.avgLbl}</span>
+          </div>
+          <div class="chart nowcast-chart" style="min-height:224px" data-name={tx.h}></div>
+          <div class="table-scroll nowcast-table" hidden>
+            <table class="data">
+              <thead><tr><th scope="col">{d.periodCol}</th><th scope="col" class="num">{tx.nonres}</th><th scope="col" class="num">{tx.res}</th><th scope="col" class="num">{d.inflow}</th></tr></thead>
+              <tbody>
+                {s.periods.map((p, k) => ({ p, k })).reverse().map(({ p, k }) => (
+                  <tr><th scope="row">{periodLabel(p, lang)}</th><td class="num">{num(s.nonres[k], lang)}</td><td class="num">{num(s.res[k], lang)}</td><td class="num">{num(s.net[k], lang)}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="cite" style="margin-top:0.75rem">{s.citation}, <a href={s.url}>{s.url.replace(/^https:\/\//, "")}</a> · {unit(s.currency)}</p>
+        </section>
+      );
+    })}
+  </div>
+  <script type="application/json" id="nowcast-data" set:html={JSON.stringify(data ?? { sources: {} })} />
+</Base>
+
+<script>
+  import { initNowcast } from "../lib/nowcast";
+  const root = document.getElementById("nowcast");
+  if (root) initNowcast(root);
+</script>

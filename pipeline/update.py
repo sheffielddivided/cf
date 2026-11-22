@@ -151,7 +151,12 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
 
     # ------------------------------------------------------------------ phase 2 (never fatal)
     site = root / "site/public/data"
-    cross = phase2.crosscheck(df, countries, last_common, warnings, transport=transport)
+    # Aggregates are left out: IMF's and OECD's euro area differ systematically (composition
+    # and compilation), so a difference there says nothing about revisions.
+    cross = phase2.crosscheck(df, [c for c in countries if c not in aggregates], last_common,
+                              warnings, transport=transport)
+    if cross is not None:
+        cross["excluded"] = [{"country": c, "reason": "aggregate"} for c in aggregates]
     prev_nowcast = _read_json(site / "nowcast.json")
     now = phase2.nowcast_data(prev_nowcast, warnings, transport=transport)
     summary_md = (

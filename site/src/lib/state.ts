@@ -5,8 +5,10 @@ export type Unit = "usd" | "pct";
 export type CapType = "total" | "fdi" | "portfolio" | "other";
 export type Reserves = "ex" | "in";
 export type Sel = "top20" | "all";
+export type View = "ranking" | "map";
 
 export interface ViewState {
+  view: View;
   period: WindowKey;
   unit: Unit;
   type: CapType;
@@ -14,8 +16,9 @@ export interface ViewState {
   sel: Sel;
 }
 
-// Design default: last four quarters, excluding reserves, USD bn.
+// Design default: last four quarters, excluding reserves, USD bn (the map defaults to % of GDP).
 export const DEFAULTS: ViewState = {
+  view: "ranking",
   period: "4q",
   unit: "usd",
   type: "total",
@@ -24,6 +27,7 @@ export const DEFAULTS: ViewState = {
 };
 
 const ALLOWED: { [K in keyof ViewState]: readonly ViewState[K][] } = {
+  view: ["ranking", "map"],
   period: ["q", "4q", "year", "latest"],
   unit: ["usd", "pct"],
   type: ["total", "fdi", "portfolio", "other"],
@@ -38,14 +42,18 @@ export function parseState(search: string): ViewState {
     const v = params.get(key);
     if (v !== null && (ALLOWED[key] as readonly string[]).includes(v)) out[key] = v;
   }
+  if (out.view === "map" && params.get("unit") === null) out.unit = "pct";
   return out as ViewState;
 }
+
+const defaultUnit = (s: ViewState): Unit => (s.view === "map" ? "pct" : "usd");
 
 /** Only non-default values go into the URL, so the default view has a clean link. */
 export function serializeState(s: ViewState): string {
   const params = new URLSearchParams();
   for (const key of Object.keys(ALLOWED) as (keyof ViewState)[]) {
-    if (s[key] !== DEFAULTS[key]) params.set(key, s[key]);
+    const def = key === "unit" ? defaultUnit(s) : DEFAULTS[key];
+    if (s[key] !== def) params.set(key, s[key]);
   }
   const q = params.toString();
   return q ? `?${q}` : "";

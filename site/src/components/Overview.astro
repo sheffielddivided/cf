@@ -11,6 +11,7 @@ const { lang } = Astro.props;
 const d = t[lang];
 const m = meta as Meta;
 const r = routes(lang);
+const geoUrl = import.meta.env.BASE_URL + "geo/countries-110m.json";
 ---
 <Base lang={lang} title={d.navOverview} current="home" alternateHref={alternate(lang, "home")}>
   <h1>{d.siteTagline}</h1>
@@ -19,8 +20,14 @@ const r = routes(lang);
     {d.source}: IMF Balance of Payments · <a href={r.method}>{d.readMethod}</a>
   </p>
 
-  <section class="panel" id="overview" data-lang={lang}>
+  <section class="panel" id="overview" data-lang={lang} data-geo={geoUrl}>
     <form class="controls" aria-label={lang === "nb" ? "Visningsvalg" : "View options"} onsubmit="return false">
+      <label class="control">{d.view}
+        <select name="view">
+          <option value="ranking">{d.viewRanking}</option>
+          <option value="map">{d.viewMap}</option>
+        </select>
+      </label>
       <label class="control">{d.period}
         <select name="period">
           <option value="4q">{d.period4q}</option>
@@ -62,16 +69,21 @@ const r = routes(lang);
       <h2 id="ranking-title" style="margin-top:0;min-height:1.5em"></h2>
       <button type="button" class="toggle" id="table-toggle" aria-pressed="false">{d.showTable}</button>
     </div>
-    <div class="legend" aria-hidden="true">
+    <div class="legend" id="ranking-legend" aria-hidden="true">
       <span><span class="key" style="background:var(--inflow)"></span>{d.inflow}</span>
       <span><span class="key" style="background:var(--outflow)"></span>{d.outflow}</span>
     </div>
     <p class="hint" id="latest-hint" hidden>{d.lessComparable}</p>
     <div class="chart" id="ranking-chart" style={`min-height:${26 + m.top20.length * 28 + 8}px`}></div>
+    <div id="map-wrap" hidden>
+      <div id="map-legend" style="min-height:34px"></div>
+      <div class="chart" id="map-chart" style="min-height:240px"></div>
+      <p class="hint">{d.mapNote}</p>
+    </div>
     <div class="table-scroll" id="ranking-table" hidden></div>
     <div class="footnotes">
       <p id="fn-derived" hidden>{d.footnoteDerived}</p>
-      <p>{d.footnoteMissing}</p>
+      <p id="fn-missing">{d.footnoteMissing}</p>
     </div>
     <noscript><p>{lang === "nb" ? "Grafen krever JavaScript. Dataene kan lastes ned fra landsidene." : "The chart needs JavaScript. Data can be downloaded from the country pages."}</p></noscript>
   </section>

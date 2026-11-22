@@ -4,7 +4,8 @@ Les `docs/DESIGN.md` først. Den er fasit for definisjoner, datamodell og regler
 Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI-tekst på norsk (bokmål) med engelsk som andrespråk.
 
 ## Status
-- Fase 0 og fase 1 (pipeline + nettside) er levert. Neste er fase 2 (OECD-kryssjekk, kart, nåkast), se `docs/DESIGN.md`.
+- Fase 0, 1 og 2 er levert (pipeline, nettside, OECD-kryssjekk, kart, nåkast, revisjoner). Neste er fase 3, se `docs/DESIGN.md`.
+- Nåkast og kryssjekk (`pipeline/phase2.py`) skal aldri stoppe hovedpipelinen: feil blir advarsler.
 - Nettsiden ligger i `site/` (Astro). Den leser bare filene i `site/public/data/`, som pipelinen skriver. Endre aldri disse for hånd.
 - Grafer: følg dataviz-reglene (blå = innstrømning, oransje = utstrømning, tabellvisning for hver graf, ingen dobbel y-akse).
 
@@ -14,6 +15,7 @@ Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI
 - Hvis miljøet ditt ikke når `api.imf.org` / `sdmx.oecd.org` (f.eks. en sandkasse med nettverks-allowlist), kjør hentingen i GitHub Actions: `phase0.yml` kjører ved push som endrer `pipeline/` eller `config/`, og legger alt den hentet (råsvar, manifest, logg) på grenen `bot/phase0`. Hent med `git fetch origin bot/phase0`.
 
 ## Data
+- Kilder i fase 2: OECD `sdmx.oecd.org` (DSD_BOP@DF_BOP), ECB `data-api.ecb.europa.eu` (BPS), US Treasury SLT-tabell 1–2, MOF `week.csv` (Shift-JIS). Utforsk nye kilder med `pipeline explore --nowcast` på en `explore/**`-gren.
 - IMF API: `https://api.imf.org/external/sdmx/3.0` (SDMX 3.0) og `https://api.imf.org/external/sdmx/2.1`. Ingen innlogging. Dataflow `IMF.STA:BOP`.
 - IKKE bruk `dataservices.imf.org`. Den ble lagt ned i november 2025, og mange eksempler på nettet er utdaterte.
 - Sett beskrivende User-Agent, bruk retry med backoff, og cache råsvar.

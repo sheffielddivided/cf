@@ -2,6 +2,8 @@ import { countryName, routes, t } from "./i18n";
 import { num, quarter, windowLabel } from "./format";
 import { rankingBars, windowPeriods } from "./ranking";
 import { renderRanking } from "./ranking-chart";
+import { renderMap } from "./map-chart";
+import { onThemeChange } from "./colors";
 import { parseState, serializeState, type ViewState } from "./state";
 import type { Lang, Meta, Ranking } from "./types";
 import { esc } from "./tooltip";
@@ -58,9 +60,20 @@ export function initOverview(root: HTMLElement): void {
     (form.elements.namedItem("reserves") as HTMLSelectElement).disabled = state.type !== "total";
     root.querySelector<HTMLElement>("#fn-derived")!.hidden = !bars.some((b) => b.status === "derived");
 
-    renderRanking(chart, {
-      bars, countries, lang, unit: state.unit, title: h, href: routes(lang).country,
-    });
+    const isMap = state.view === "map";
+    if (isMap) {
+      // the map leaves out aggregates; bars keep them for the table
+      renderMap(root.querySelector<HTMLElement>("#map-chart")!, root.querySelector<HTMLElement>("#map-legend")!, {
+        geoUrl: root.dataset.geo!, bars: bars.filter((b) => !b.aggregate), countries, lang,
+        unit: state.unit, href: routes(lang).country, title: h,
+      }).catch(() => {
+        root.querySelector<HTMLElement>("#map-chart")!.textContent = d.notReported;
+      });
+    } else {
+      renderRanking(chart, {
+        bars, countries, lang, unit: state.unit, title: h, href: routes(lang).country,
+      });
+    }
 
     const periodCol = state.period === "latest";
     table.innerHTML = `<table class="data"><caption class="visually-hidden">${esc(h)}</caption>
@@ -79,14 +92,22 @@ export function initOverview(root: HTMLElement): void {
             <td>${esc(status)}</td></tr>`;
         })
         .join("")}</tbody></table>`;
-    chart.hidden = showTable;
+    chart.hidden = showTable || isMap;
     table.hidden = !showTable;
-    root.querySelector<HTMLElement>(".legend")!.hidden = showTable;
+    root.querySelector<HTMLElement>("#ranking-legend")!.hidden = showTable || isMap;
+    root.querySelector<HTMLElement>("#map-wrap")!.hidden = showTable || !isMap;
+    root.querySelector<HTMLElement>("#fn-missing")!.hidden = isMap && !showTable;
   }
 
   form.addEventListener("change", (e) => {
     const target = e.target as HTMLSelectElement;
+    const before = state.view;
     state = { ...state, [target.name]: target.value } as ViewState;
+    // switching to the map without having chosen a unit: the map defaults to % of GDP
+    if (target.name === "view" && before !== state.view && !location.search.includes("unit=")) {
+      state.unit = state.view === "map" ? "pct" : "usd";
+      (form.elements.namedItem("unit") as HTMLSelectElement).value = state.unit;
+    }
     history.replaceState(null, "", `${location.pathname}${serializeState(state)}`);
     render();
   });
@@ -96,12 +117,13 @@ export function initOverview(root: HTMLElement): void {
     toggle.textContent = showTable ? d.showChart : d.showTable;
     render();
   });
-  let w = chart.clientWidth;
+  let w = root.clientWidth;
   new ResizeObserver(() => {
-    if (Math.abs(chart.clientWidth - w) > 4 && !showTable) {
-      w = chart.clientWidth;
+    if (Math.abs(root.clientWidth - w) > 4 && !showTable) {
+      w = root.clientWidth;
       render();
     }
-  }).observe(chart);
+  }).observe(root);
+  onThemeChange(render);
   render();
 }

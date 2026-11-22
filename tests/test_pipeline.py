@@ -155,6 +155,8 @@ def test_update_end_to_end(repo: Path):
     # Phase 2: OECD cross-check, nowcast, revisions, map codes
     cross = json.loads((site / "crosscheck.json").read_text())
     assert [(f["country"], f["period"]) for f in cross["flagged"]] == [("CHN", "2026-Q2")]
+    assert cross["excluded"] == [{"country": "G163", "reason": "aggregate"}]
+    assert all(c["country"] != "G163" for c in cross["countries"])
     usa = next(c for c in cross["countries"] if c["country"] == "USA")
     assert usa["flagged"] == 0 and usa["compared"] == 8
     now = json.loads((site / "nowcast.json").read_text())

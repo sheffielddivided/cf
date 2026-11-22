@@ -16,6 +16,18 @@ Brukes etter IMFs *Special Terms for Statistical Data* (https://www.imf.org/en/a
 
 Siteres som: `OECD (år), Balance of payments (DSD_BOP@DF_BOP), https://data-explorer.oecd.org/ (lest <dato>)`.
 
-## Andre kilder
+## US Treasury (TIC)
 
-Legges til her når de tas i bruk (US Treasury TIC, ECB, Japans finansdepartement, BIS).
+Offentlige data fra U.S. Department of the Treasury, Treasury International Capital (TIC) System (SLT-tabell 1 og 2). Siteres som: `Source: U.S. Department of the Treasury, Treasury International Capital (TIC) System`.
+
+## ECB
+
+Data fra ECB Data Portal (BPS). Gjenbruk er tillatt med kildeangivelse: `Source: European Central Bank, Balance of Payments (BPS)`.
+
+## Japans finansdepartement
+
+`Source: Ministry of Finance Japan, International Transactions in Securities (weekly, designated major investors)`. Brukes etter departementets vilkår for nettstedet (kildeangivelse påkrevd).
+
+## Kart
+
+Landgrenser fra Natural Earth (offentlig eiendom) via pakken world-atlas (ISC-lisens, se `site/public/geo/LICENSE-world-atlas.txt`).

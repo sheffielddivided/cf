@@ -149,6 +149,9 @@ IMF BOP er primærkilden. OECD er kontroll og utfylling. Resten er separate modu
 - `country/<ISO3>.json`: alle serier for ett land, under 100 kB.
 - `heatmap.json`: land × kvartal for hovedmålet.
 - `download/*.csv`: det samme som CSV for nedlasting.
+- `crosscheck.json`: IMF mot OECD (fase 2).
+- `nowcast.json`: TIC, ECB og MOF, i kildens valuta (fase 2).
+- `revisions.json`: endringer ved siste oppdatering og historikk (fase 2).
 
 ## Arkitektur og GitHub-oppsett
 
@@ -332,14 +335,14 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 - [x] Alle tilstander ligger i URL-en, og hver graf har en tabellversjon.
 - [x] Lighthouse: ytelse ≥ 90 og tilgjengelighet ≥ 95 på mobil. *(Målt 22.11.2026: ytelse 97–100, tilgjengelighet 100.)*
 - [x] Enhetstester for fortegn, % av BNP, siste felles kvartal og håndtering av manglende data.
-- [ ] Siden er publisert på GitHub Pages med kildeangivelse på hver side. *(Klar; krever at Pages er slått på med kilde «GitHub Actions».)*
+- [x] Siden er publisert på GitHub Pages med kildeangivelse på hver side.
 
 **Fase 2: Kontroll og nåkast**
 
-- [ ] OECD som kryssjekk med avviksrapport.
-- [ ] Kartvisning.
-- [ ] Egen nåkast-fane: TIC (USA), ECB (euroområdet) og MOF (Japan).
-- [ ] Oversikt over revisjoner: hva endret seg ved siste oppdatering.
+- [x] OECD som kryssjekk med avviksrapport. *(Siste 8 kvartaler; flagg ved > 5 % og > 0,5 mrd. USD. Aggregater sammenlignes ikke: IMF og OECD setter sammen euroområdet ulikt, med systematiske avvik på opptil ~80 mrd. USD.)*
+- [x] Kartvisning. *(Valg på oversikten; % av BNP som standard; Equal Earth; Natural Earth 110m via world-atlas.)*
+- [x] Egen nåkast-fane: TIC (USA, SLT-tabell 1–2, månedlig fra 2020), ECB (euroområdet, BPS, månedlig) og MOF (Japan, ukentlig). Hver kilde kan feile uten å stoppe hovedtallene; da vises forrige tall merket som ikke oppdatert.
+- [x] Oversikt over revisjoner: hva endret seg ved siste oppdatering (`revisions.json`, side «Datakvalitet»).
 
 **Fase 3: Beholdninger og analyse**
 
