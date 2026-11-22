@@ -165,7 +165,7 @@ def _site(tmp: Path) -> Path:
 
 def test_summary_draft_nb(tmp_path):
     md = quarterly.draft(_site(tmp_path), "nb", "2026-11-22")
-    assert md.startswith("# Kapitalstrømmer: oppsummering for 2. kvartal 2026")
+    assert md.startswith("## Kapitalstrømmer: oppsummering for 2. kvartal 2026")
     assert "Norge hadde størst netto innstrømning" not in md  # lead names the top inflow
     assert "hadde Norge størst netto innstrømning, +50,0 mrd. USD" in md
     assert "USA hadde størst netto utstrømning, −1 000,0 mrd. USD" in md

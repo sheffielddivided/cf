@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { alternate, countryName, dataUrl, routes, t } from "../lib/i18n";
 import { num, pct, quarter, usd, windowLabel } from "../lib/format";
+import { optionalData } from "../lib/optional-data";
 import type { CountryData, Lang, Meta, Ranking } from "../lib/types";
 import meta from "../../public/data/meta.json";
 import ranking from "../../public/data/ranking.json";
@@ -59,6 +60,26 @@ const noteText: Record<string, string> = nb
       no_derivatives: "Derivatives are not reported separately.",
       large_errors_omissions: "Errors and omissions have exceeded 1% of GDP over the last four quarters.",
     };
+const epAll = optionalData("episodes");
+const ep = epAll?.countries[data.country];
+const epType: Record<string, string> = nb
+  ? { inflow_surge: "Kraftig økning i innstrømning", inflow_stop: "Brå stopp i innstrømning", outflow_surge: "Kraftig økning i utstrømning", outflow_retrenchment: "Brå nedgang i utstrømning" }
+  : { inflow_surge: "Inflow surge", inflow_stop: "Inflow stop", outflow_surge: "Outflow surge", outflow_retrenchment: "Outflow retrenchment" };
+const E = {
+  h: nb ? "Uvanlige bevegelser i brutto strømmer" : "Unusual movements in gross flows",
+  lede: nb
+    ? "Metode etter Forbes og Warnock (2012), på direkte-, portefølje- og annen investering. Linjen er endringen i brutto strømmer over fire kvartaler, sammenlignet med de fire kvartalene året før. Det grå båndet er snittet de siste fem årene ± ett (mørkt) og to (lyst) standardavvik. Skraverte perioder er episoder: linjen går utenfor ett standardavvik, når to minst én gang og blir der i minst to kvartaler. Figuren beskriver hva som har skjedd, og er ikke en prognose."
+    : "Method after Forbes and Warnock (2012), on direct, portfolio and other investment. The line is the change in gross flows over four quarters, compared with the four quarters a year earlier. The grey band is the five-year mean ± one (dark) and two (light) standard deviations. Shaded periods are episodes: the line leaves one standard deviation, reaches two at least once and stays out for at least two quarters. The figure describes what happened and is not a forecast.",
+  inflows: nb ? "Utlendingers investeringer i landet (brutto innstrømning)" : "Non-residents’ investment in the country (gross inflows)",
+  outflows: nb ? "Innenlandske aktørers investeringer i utlandet (brutto utstrømning)" : "Residents’ investment abroad (gross outflows)",
+  dC: nb ? "Endring over fire kvartaler" : "Four-quarter change",
+  band: nb ? "Snitt ± 1 og 2 standardavvik" : "Mean ± 1 and 2 standard deviations",
+  episode: nb ? "Episode" : "Episode",
+  none: nb ? "Ingen episoder i perioden." : "No episodes in the period.",
+  ongoing: nb ? "pågår" : "ongoing",
+  short: nb ? "For kort tidsserie til å beregne episoder." : "Series too short to compute episodes.",
+};
+const epList = (k: "inflows" | "outflows") => (ep?.[k]?.episodes ?? []).filter((e) => e.end >= (ep?.[k]?.periods[0] ?? "")).reverse();
 const gdpRef = data.gdp_usd_bn[String(rk.reference_year)];
 const ctrlPeriods = data.periods.slice(-8).reverse();
 const idx = (p: string) => data.periods.indexOf(p);
@@ -129,6 +150,32 @@ const imfKey = (meas: string) => data.series_keys[meas]?.net;
     <div class="table-scroll" id="table-sides" hidden></div>
   </section>
 
+  {epAll && (
+    <section id="episodes" data-lang={lang}>
+      <h2>{E.h}</h2>
+      <p class="muted small">{E.lede}</p>
+      {!ep && <p>{E.short}</p>}
+      {ep && (["inflows", "outflows"] as const).filter((k) => ep[k]).map((k) => (
+        <div class="episode-block">
+          <div class="chart-head"><h3>{E[k]}</h3><button type="button" class="toggle" data-ep-table={k}>{d.showTable}</button></div>
+          <div class="legend" aria-hidden="true">
+            <span><span class="key line" style={`background:var(--${k === "inflows" ? "inflow" : "outflow"})`}></span>{E.dC}</span>
+            <span><span class="key" style="background:var(--axis)"></span>{E.band}</span>
+            <span><span class="key" style="background:var(--ink);opacity:0.15"></span>{E.episode}</span>
+          </div>
+          <div class="chart" id={`chart-ep-${k}`} style="min-height:220px" data-name={E[k]}></div>
+          <div class="table-scroll" id={`table-ep-${k}`} hidden></div>
+          <ul class="notes small">
+            {epList(k).length === 0 && <li>{E.none}</li>}
+            {epList(k).map((e) => (
+              <li>{epType[e.type]}: {quarter(e.start, lang)} – {quarter(e.end, lang)}{e.end === rk.last_common_quarter ? ` (${E.ongoing})` : ""}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+  )}
+
   <section>
     <h2>{L.ctrlH}</h2>
     <p class="muted small">{L.ctrlLede}</p>
@@ -166,11 +213,13 @@ const imfKey = (meas: string) => data.series_keys[meas]?.net;
     </ul>
   </section>
 
-  <script type="application/json" id="country-data" set:html={JSON.stringify({ data, labels: { ...L, components } })} />
+  <script type="application/json" id="country-data" set:html={JSON.stringify({ data, episodes: ep ?? null, labels: { ...L, components, ep: { ...E, types: epType } } })} />
 </Base>
 
 <script>
-  import { initCountry } from "../lib/country";
+  import { initCountry, initEpisodes } from "../lib/country";
   const root = document.getElementById("country");
   if (root) initCountry(root);
+  const eps = document.getElementById("episodes");
+  if (eps) initEpisodes(eps);
 </script>

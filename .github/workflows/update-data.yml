@@ -78,7 +78,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           q=$(python3 -c "import json;print(json.load(open('site/public/data/meta.json'))['last_common_quarter'])")
-          dir=site/src/content/summaries
+          dir=site/src/summaries
           if [ -f "$dir/$q.nb.md" ]; then echo "Oppsummering for $q finnes."; exit 0; fi
           if [ ! -f run/new_quarter.txt ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
             echo "Ikke nytt kvartal."; exit 0

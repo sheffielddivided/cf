@@ -177,7 +177,7 @@ def test_update_end_to_end(repo: Path):
     assert "G163" not in held["countries"]  # aggregates are not looked up as countries
     eps = json.loads((site / "episodes.json").read_text())
     assert eps["method"]["window_quarters"] == 20
-    assert (repo / "run/summary_nb.md").read_text().startswith("# Kapitalstrømmer")
+    assert (repo / "run/summary_nb.md").read_text().startswith("## Kapitalstrømmer")
     assert (repo / "run/summary_en.md").exists()
     assert now["sources"]["US_TIC"]["net"][-1] == pytest.approx(155.318)
     assert not now["sources"]["JP_MOF"]["stale"]

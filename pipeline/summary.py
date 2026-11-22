@@ -1,5 +1,6 @@
 # ruff: noqa: E501  (prose templates)
-"""Phase 3: data-driven quarterly summary (draft). Generated from the exported site files,
+"""Phase 3: data-driven quarterly summary (draft). Generated from the exported site files
+(headings start at level 2: the site embeds them under its own page title),
 descriptive only (no interpretation, no "capital flight"), reviewed by a human in a PR."""
 
 from __future__ import annotations
@@ -61,6 +62,13 @@ T = {
 }
 
 
+THE = {"United States", "United Kingdom", "Netherlands", "Euro area"}
+
+
+def _cap(s: str) -> str:
+    return s[:1].upper() + s[1:]
+
+
 def _q(p: str, lang: str) -> str:
     y, q = p.split("-Q")
     return f"{q}. kvartal {y}" if lang == "nb" else f"Q{q} {y}"
@@ -71,8 +79,8 @@ def _n(v: float | None, lang: str, digits: int = 1, sign: bool = True) -> str:
         return "–"
     s = f"{v:+,.{digits}f}" if sign else f"{v:,.{digits}f}"
     if lang == "nb":
-        s = s.replace(",", " ").replace(".", ",").replace("-", "−")
-    return s
+        s = s.replace(",", " ").replace(".", ",")
+    return s.replace("-", "−")  # typographic minus
 
 
 def _usd(v: float, lang: str) -> str:
@@ -92,7 +100,10 @@ def draft(site: Path, lang: str, today: str) -> str:
     t = T[lang]
     meta, ranking = _load(site, "meta.json"), _load(site, "ranking.json")
     episodes, cross, rev = _load(site, "episodes.json"), _load(site, "crosscheck.json"), _load(site, "revisions.json")
-    names = {c["iso3"]: c[f"name_{lang}"] for c in meta["countries"]}
+    plain = {c["iso3"]: c[f"name_{lang}"] for c in meta["countries"]}
+    names = dict(plain)  # in running text
+    if lang == "en":
+        names = {k: f"the {v}" if v in THE else v for k, v in plain.items()}
     q = ranking["last_common_quarter"]
     w = ranking["windows"]["4q"]
     window = f"{_q(w[0], lang)} – {_q(w[-1], lang)}"
@@ -100,17 +111,17 @@ def draft(site: Path, lang: str, today: str) -> str:
     rows = [r for r in ranking["rows"] if r["in_top20"]]
     vals = [(r["country"], r["values"][MAIN]["4q"]["usd"], r["values"][MAIN]["4q"]["pct"]) for r in rows]
     present = sorted([v for v in vals if v[1] is not None], key=lambda v: -v[1])
-    missing = [names.get(c, c) for c, v, _ in vals if v is None]
+    missing = [plain.get(c, c) for c, v, _ in vals if v is None]
     top, bot = present[0], present[-1]
 
-    out = [f"# {t['title'].format(q=_q(q, lang))}", "", t["draft"].format(date=today), "",
+    out = [f"## {t['title'].format(q=_q(q, lang))}", "", t["draft"].format(date=today), "",
            t["lead_in"].format(w=window, top=names[top[0]], v=_usd(top[1], lang), p=_pct(top[2], lang))
-           + " " + t["lead_out"].format(bot=names[bot[0]], v=_usd(bot[1], lang), p=_pct(bot[2], lang)), ""]
+           + " " + t["lead_out"].format(bot=_cap(names[bot[0]]), v=_usd(bot[1], lang), p=_pct(bot[2], lang)), ""]
 
     def table(title: str, items: list[tuple[str, float, float | None]]) -> None:
         a, b, c = t["col"]
-        out.extend([f"## {title}", "", f"| {a} | {b} | {c} |", "| --- | ---: | ---: |"])
-        out.extend(f"| {names[k]} | {_n(v, lang)} | {_n(p, lang)} |" for k, v, p in items)
+        out.extend([f"### {title}", "", f"| {a} | {b} | {c} |", "| --- | ---: | ---: |"])
+        out.extend(f"| {plain[k]} | {_n(v, lang)} | {_n(p, lang)} |" for k, v, p in items)
         out.append("")
 
     table(t["h_in"], [v for v in present if v[1] > 0][:5])
@@ -132,28 +143,28 @@ def draft(site: Path, lang: str, today: str) -> str:
     changes.sort(key=lambda x: -abs(x[3]))
     if changes:
         a, b, c2, dlt = t["col_change"]
-        out.extend([f"## {t['h_change']}", "", t["change_intro"], "",
+        out.extend([f"### {t['h_change']}", "", t["change_intro"], "",
                     f"| {a} | {b} | {c2} | {dlt} |", "| --- | ---: | ---: | ---: |"])
-        out.extend(f"| {names[k]} | {_n(b4, lang)} | {_n(n, lang)} | {_n(ch, lang)} |"
+        out.extend(f"| {plain[k]} | {_n(b4, lang)} | {_n(n, lang)} | {_n(ch, lang)} |"
                    for k, b4, n, ch in changes[:5])
         out.append("")
 
-    out.extend([f"## {t['h_ep']}", ""])
+    out.extend([f"### {t['h_ep']}", ""])
     active = (episodes or {}).get("active", [])
     if active:
         out.extend([t["ep_intro"], ""])
-        out.extend(f"- {names.get(e['country'], e['country'])}: {t['ep'][e['type']]} "
+        out.extend(f"- {plain.get(e['country'], e['country'])}: {t['ep'][e['type']]} "
                    f"({t['since']} {_q(e['start'], lang)})" for e in active)
     else:
         out.append(t["ep_none"].format(q=_q(q, lang)))
     out.append("")
 
-    out.extend([f"## {t['h_quality']}", ""])
+    out.extend([f"### {t['h_quality']}", ""])
     if missing:
         out.append(f"- {t['missing'].format(c=', '.join(missing))}")
     if cross:
         out.append(f"- {t['cross'].format(n=len(cross.get('flagged', [])))}")
-    if rev:
+    if rev and any(rev["latest"].get(k) for k in ("new", "revised", "removed")):
         lt = rev["latest"]
         out.append(f"- {t['rev'].format(new=lt['new'], rev=lt['revised'], rem=lt['removed'])}")
     out.extend(["", t["src"], ""])

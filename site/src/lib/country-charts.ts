@@ -2,7 +2,7 @@
 import * as Plot from "@observablehq/plot";
 import { themeColors } from "./colors";
 import { num, quarter } from "./format";
-import type { CountryData, Lang } from "./types";
+import type { CountryData, EpisodeSeries, Lang } from "./types";
 
 export const COMPONENTS = ["fdi", "portfolio", "other_inv", "derivatives", "reserves"] as const;
 
@@ -143,3 +143,66 @@ export function sidesChart(c: CountryData, lang: Lang, width: number, names: { l
   };
 }
 
+
+// ---------------------------------------------------------------- episodes (phase 3)
+
+/** Middle of a quarter as a UTC date, for a continuous time axis. */
+export const qDate = (p: string) => {
+  const y = Number(p.slice(0, 4));
+  const q = Number(p.slice(-1));
+  return new Date(Date.UTC(y, (q - 1) * 3 + 1, 15));
+};
+
+export interface EpisodeRow { period: string; date: Date; dC: number | null; lo1: number | null; hi1: number | null; lo2: number | null; hi2: number | null }
+
+export function episodeRows(s: EpisodeSeries): EpisodeRow[] {
+  return s.periods.map((p, i) => {
+    const mu = s.mu[i];
+    const sd = s.sd[i];
+    const band = (k: number) => (mu === null || sd === null ? null : mu + k * sd);
+    return { period: p, date: qDate(p), dC: s.dC[i], lo1: band(-1), hi1: band(1), lo2: band(-2), hi2: band(2) };
+  });
+}
+
+export function episodeChart(
+  s: EpisodeSeries, lang: Lang, width: number, stroke: "inflow" | "outflow",
+  typeName: Record<string, string>, label: string,
+) {
+  const col = themeColors();
+  const rows = episodeRows(s);
+  const banded = rows.filter((r) => r.lo2 !== null);
+  const line = rows.filter((r) => r.dC !== null);
+  const first = rows[0]?.period;
+  const eps = s.episodes
+    .filter((e) => first && e.end >= first)
+    .map((e) => ({
+      ...e,
+      x1: new Date(qDate(e.start < first! ? first! : e.start).getTime() - 45 * 864e5),
+      x2: new Date(qDate(e.end).getTime() + 45 * 864e5),
+      name: typeName[e.type],
+    }));
+  const ys = rows.flatMap((r) => [r.dC, r.lo2, r.hi2]).filter((v): v is number => v !== null);
+  const [ymin, ymax] = [Math.min(0, ...ys), Math.max(0, ...ys)];
+  return Plot.plot({
+    ...base(width),
+    height: width < 560 ? 220 : 260,
+    x: { type: "utc", label: null, tickSize: 0, ticks: width < 560 ? 5 : 10 },
+    y: yAxis(lang),
+    marks: [
+      Plot.rect(eps, { x1: "x1", x2: "x2", y1: () => ymin, y2: () => ymax, fill: col.ink, fillOpacity: 0.08 }),
+      Plot.areaY(banded, { x: "date", y1: "lo2", y2: "hi2", fill: col.grid, fillOpacity: 0.6 }),
+      Plot.areaY(banded, { x: "date", y1: "lo1", y2: "hi1", fill: col.axis, fillOpacity: 0.45 }),
+      Plot.ruleY([0], { stroke: col.axis }),
+      Plot.lineY(line, { x: "date", y: "dC", stroke: col[stroke], strokeWidth: 2 }),
+      Plot.tip(line, Plot.pointerX({
+        x: "date", y: "dC",
+        title: (r: EpisodeRow) => {
+          const e = eps.find((x) => x.start <= r.period && r.period <= x.end);
+          return `${quarter(r.period, lang)}\n${label}: ${num(r.dC, lang)}` +
+            (r.lo2 !== null ? `\n±2 sd: ${num(r.lo2, lang)} – ${num(r.hi2, lang)}` : "") +
+            (e ? `\n${e.name}` : "");
+        },
+      })),
+    ],
+  });
+}

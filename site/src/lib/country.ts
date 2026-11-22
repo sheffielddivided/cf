@@ -1,8 +1,8 @@
-import { componentsChart, COMPONENTS, mainChart, movingAverage, points, sidesChart } from "./country-charts";
+import { componentsChart, COMPONENTS, episodeChart, episodeRows, mainChart, movingAverage, points, sidesChart } from "./country-charts";
 import { onThemeChange } from "./colors";
 import { num, quarter } from "./format";
 import { t } from "./i18n";
-import type { CountryData, Lang } from "./types";
+import type { CountryData, Episodes, Lang } from "./types";
 import { esc } from "./tooltip";
 
 interface Labels {
@@ -96,6 +96,59 @@ export function initCountry(root: HTMLElement): void {
   new ResizeObserver(() => {
     const nw = el("chart-main").clientWidth;
     if (Math.abs(nw - w) > 4) { w = nw; render(); }
+  }).observe(root);
+  render();
+}
+
+interface EpLabels { dC: string; episode: string; types: Record<string, string> }
+
+/** Episodes of unusual gross flows (phase 3): two charts with table views. */
+export function initEpisodes(root: HTMLElement): void {
+  const lang = (root.dataset.lang ?? "nb") as Lang;
+  const d = t[lang];
+  const { episodes, labels } = JSON.parse(document.getElementById("country-data")!.textContent!) as {
+    episodes: Episodes["countries"][string] | null; labels: { ep: EpLabels };
+  };
+  if (!episodes) return;
+  const L = labels.ep;
+  const kinds = (["inflows", "outflows"] as const).filter((k) => episodes[k]);
+  const showTable: Record<string, boolean> = {};
+  const el = (id: string) => root.querySelector<HTMLElement>(`#${id}`)!;
+
+  function render() {
+    for (const k of kinds) {
+      const s = episodes![k]!;
+      const chart = el(`chart-ep-${k}`);
+      const table = el(`table-ep-${k}`);
+      chart.hidden = !!showTable[k];
+      table.hidden = !showTable[k];
+      if (showTable[k]) {
+        const rows = episodeRows(s).filter((r) => r.dC !== null).reverse();
+        const ep = (p: string) => s.episodes.find((e) => e.start <= p && p <= e.end);
+        table.innerHTML = `<table class="data"><thead><tr><th scope="col">${esc(d.periodCol)}</th><th scope="col" class="num">${esc(L.dC)}</th><th scope="col" class="num">−2 sd</th><th scope="col" class="num">+2 sd</th><th scope="col">${esc(L.episode)}</th></tr></thead><tbody>${rows
+          .map((r) => `<tr><th scope="row">${esc(quarter(r.period, lang))}</th><td class="num">${num(r.dC, lang)}</td><td class="num">${num(r.lo2, lang)}</td><td class="num">${num(r.hi2, lang)}</td><td>${esc(ep(r.period) ? L.types[ep(r.period)!.type] : "")}</td></tr>`)
+          .join("")}</tbody></table>`;
+        continue;
+      }
+      const svg = episodeChart(s, lang, chart.clientWidth || 900, k === "inflows" ? "inflow" : "outflow", L.types, L.dC);
+      chart.replaceChildren(asImage(svg, chart.dataset.name ?? ""));
+    }
+  }
+
+  root.querySelectorAll<HTMLButtonElement>("button[data-ep-table]").forEach((b) => {
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => {
+      const k = b.dataset.epTable!;
+      showTable[k] = !showTable[k];
+      b.setAttribute("aria-pressed", String(showTable[k]));
+      b.textContent = showTable[k] ? d.showChart : d.showTable;
+      render();
+    });
+  });
+  onThemeChange(render);
+  let w = root.clientWidth;
+  new ResizeObserver(() => {
+    if (Math.abs(root.clientWidth - w) > 4) { w = root.clientWidth; render(); }
   }).observe(root);
   render();
 }

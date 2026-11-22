@@ -12,6 +12,16 @@ Brukes etter IMFs *Special Terms for Statistical Data* (https://www.imf.org/en/a
 - Ved mulig kommersiell gjenbruk: kontakt copyright@imf.org først.
 - IMFs logo, navn og kjennetegn brukes ikke uten tillatelse.
 
+### IMF PIP og DIP (fase 3)
+
+Samme vilkår. Siteres som
+`Source: International Monetary Fund, Portfolio Investment Positions by Counterpart Economy (PIP), https://data.imf.org/en/datasets/IMF.STA:PIP` og
+`Source: International Monetary Fund, Direct Investment Positions by Counterpart Economy (DIP), https://data.imf.org/en/datasets/IMF.STA:DIP`.
+
+## BIS
+
+Locational Banking Statistics (WS_LBS_D_PUB) fra `stats.bis.org`. BIS tillater gjengivelse med kildeangivelse (https://www.bis.org/terms_conditions.htm): `Source: Bank for International Settlements, Locational Banking Statistics`.
+
 ## OECD
 
 Siteres som: `OECD (år), Balance of payments (DSD_BOP@DF_BOP), https://data-explorer.oecd.org/ (lest <dato>)`.
