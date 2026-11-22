@@ -167,3 +167,20 @@ def compare_revisions(
         for r in big.itertuples()
     ]
     return stats, lines
+
+
+def revision_details(old: pd.DataFrame | None, new: pd.DataFrame, limit: int = 150) -> list[dict]:
+    """Revised net values (site sign, USD bn), largest absolute change first."""
+    if old is None or old.empty:
+        return []
+    key = ["country", "measure", "side", "period"]
+    m = old[key + ["value"]].merge(new[key + ["value"]], on=key, suffixes=("_old", "_new"))
+    m = m[m.value_old.notna() & m.value_new.notna() & (m.side == "net")]
+    m = m.assign(diff=m.value_new - m.value_old)
+    m = m[m["diff"].abs() > 0.05]
+    m = m.reindex(m["diff"].abs().sort_values(ascending=False).index).head(limit)
+    return [
+        {"country": r.country, "measure": r.measure, "period": r.period,
+         "old": round(r.value_old, 2), "new": round(r.value_new, 2), "diff": round(r.diff, 2)}
+        for r in m.itertuples(index=False)
+    ]

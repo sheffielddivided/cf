@@ -353,7 +353,7 @@ def explore_mof(rec: Recorder) -> None:
 def explore_nowcast(out: Path) -> Path:
     out.mkdir(parents=True, exist_ok=True)
     rec = Recorder(out)
-    for step in (explore_tic_files,):
+    for step in (explore_ecb, explore_tic, explore_tic_files, explore_mof):
         try:
             step(rec)
         except Exception:  # noqa: BLE001

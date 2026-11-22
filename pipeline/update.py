@@ -15,7 +15,7 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
-from . import checks
+from . import checks, phase2
 from .coverage import last_common_quarter
 from .export import export_all
 from .model import derive_main, frame, latest_period, reference_year, window
@@ -28,6 +28,15 @@ log = logging.getLogger(__name__)
 
 class SourceError(RuntimeError):
     pass
+
+
+def _read_json(path: Path) -> dict | None:
+    return json.loads(path.read_text()) if path.exists() else None
+
+
+def _write_json(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "\n")
 
 
 def _gz(text: str) -> bytes:
@@ -139,20 +148,49 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
     if big:
         warnings.append(f"revisjon: {len(big)} store revisjoner (> 10 %), se REVISIONS.md")
     data_changed = old is None or any(stats.values()) or selection_changed
+
+    # ------------------------------------------------------------------ phase 2 (never fatal)
+    site = root / "site/public/data"
+    cross = phase2.crosscheck(df, countries, last_common, warnings, transport=transport)
+    prev_nowcast = _read_json(site / "nowcast.json")
+    now = phase2.nowcast_data(prev_nowcast, warnings, transport=transport)
     summary_md = (
         f"{stats['new']} nye observasjoner, {stats['revised']} reviderte, "
         f"{stats['removed']} fjernet. Siste felles kvartal {last_common}, "
         f"referanseår {sel.reference_year}."
     )
     (run_dir / "commit_message.txt").write_text(
-        f"data: IMF BOP update ({last_common})\n\n{summary_md}\n"
+        f"data: weekly update ({last_common})\n\n{summary_md}\n"
         + ("".join(f"- {b}\n" for b in big[:20]))
     )
     summary("ok", changed=data_changed, stats=stats, last_common_quarter=last_common,
             reference_year=sel.reference_year, big_revisions=big)
     log.info("%s", summary_md)
+
+    # Site files are always re-exported (deterministic: git sees no change when nothing
+    # changed). The "updated" date only moves when IMF data changed.
+    prev_meta = _read_json(site / "meta.json") or {}
+    updated = today.isoformat() if data_changed else prev_meta.get("data_updated_at",
+                                                                     today.isoformat())
+    if cross is not None:
+        _write_json(site / "crosscheck.json", cross)
+    _write_json(site / "nowcast.json", now)
+    revisions = _read_json(site / "revisions.json")
+    if data_changed or revisions is None:
+        entry = {"date": today.isoformat(), "last_common_quarter": last_common, **stats}
+        history = [entry] + [h for h in (revisions or {}).get("history", [])
+                             if h.get("date") != entry["date"]]
+        _write_json(site / "revisions.json", {
+            "latest": {**entry, "changes": checks.revision_details(old, df)},
+            "history": history[:52],
+        })
+    export_all(
+        site, df, gdp=gdp, countries=countries, names=names,
+        top=sel.countries, last_common=last_common, ref_year=sel.reference_year,
+        latest=all_latest, data_updated_at=updated, warnings=sorted(warnings),
+    )
     if not data_changed:
-        log.info("no data changes; nothing written")
+        log.info("no IMF data changes; raw/processed files not rewritten")
         return 0
 
     # ------------------------------------------------------------------ write
@@ -168,11 +206,6 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
         head = rev.read_text() if rev.exists() else "# Store revisjoner\n\n"
         rev.write_text(head + f"## {today.isoformat()}\n\n" + "".join(f"- {b}\n" for b in big)
                        + "\n")
-    export_all(
-        root / "site/public/data", df, gdp=gdp, countries=countries, names=names,
-        top=sel.countries, last_common=last_common, ref_year=sel.reference_year,
-        latest=all_latest, data_updated_at=today.isoformat(), warnings=sorted(warnings),
-    )
     log.info("wrote data for %d countries, latest common quarter %s", len(countries),
              last_common)
     return 0

@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
   push:
     # main: kjør på nytt når pipeline-kode eller konfigurasjon endres (f.eks. ved merge)
-    branches: [main, "phase1/**"]
+    branches: [main, "phase1/**", "phase2/**"]
     paths:
       - "pipeline/**"
       - "config/**"

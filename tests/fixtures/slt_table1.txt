@@ -1,0 +1,19 @@
+Table 1: U.S. Long-Term Securities Held by Foreign Residents																	
+All Countries and International and Regional Organizations																	
+A positive number for net U.S. sales to foreigners denotes an increase in a foreign position																	
+Millions of dollars																	
+Link: https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt																	
+																	
+			Total U.S. Securities	Total U.S. Securities	Total U.S. Securities	U.S. Treasuries	U.S. Treasuries	U.S. Treasuries	U.S. Agency Bonds	U.S. Agency Bonds	U.S. Agency Bonds	U.S. Corp. & Other Bonds	U.S. Corp. & Other Bonds	U.S. Corp. & Other Bonds	U.S. Corp. Equity	U.S. Corp. Equity	U.S. Corp. Equity
+Country	Country Code	Date	Holdings	Net U.S. Sales	Valuation Change	Holdings	Net U.S. Sales	Valuation Change	Holdings	Net U.S. Sales	Valuation Change	Holdings	Net U.S. Sales	Valuation Change	Holdings	Net U.S. Sales	Valuation Change
+country	country_code	date	for_lt_total_pos	for_lt_total_net	for_lt_total_valchg	for_lt_treas_pos	for_lt_treas_net	for_lt_treas_valchg	for_lt_agcy_pos	for_lt_agcy_net	for_lt_agcy_valchg	for_lt_corp_pos	for_lt_corp_net	for_lt_corp_valchg	for_lt_eqty_pos	for_lt_eqty_net	for_lt_eqty_valchg
+Austria	10189	2026-09	53407	232	-358	3870	93	-70	4	0	0	2744	147	-69	46788	-8	-219
+Grand Total	99996	2026-09	39751546	186707	-503721	7820405	80766	-180181	1386544	12120	-47632	5327067	27031	-151005	25217530	66790	-124903
+Grand Total	99996	2026-08	39905701	307038	720813	7899378	108603	-4436	1423279	-3746	9805	5395122	52253	-4666	25187922	149928	720110
+Grand Total	99996	2026-07	38864863	40616	-527893	7783259	-3560	-101562	1423305	13551	-29503	5316962	26920	-92493	24341337	3705	-304335
+Grand Total	99996	2026-06	39195788	210958	-220186	7872325	6161	-39245	1439298	-18312	1042	5377600	40235	-26520	24506565	182874	-155463
+Grand Total	99996	2026-05	39159498	262845	1224782	7913368	56581	-22621	1449651	19120	14044	5321342	52524	8183	24475137	134620	1225176
+Grand Total	99996	2026-04	37740100	207432	1974686	7851534	50564	-38981	1416275	26567	-4028	5247862	20704	34116	23224429	109597	1983579
+Grand Total	99996	2026-03	35633319	94886	-1306276	7833811	13120	-142293	1402187	-4301	-22070	5198398	76229	-122518	21198923	9838	-1019395
+Grand Total	99996	2026-02	36855735	100375	-92039	7956034	2631	74913	1425315	21080	13714	5259373	53937	17558	22215013	22727	-198224
+Grand Total	99996	2026-01	36807683	61202	249159	7849689	48461	-15166	1393329	9926	-10921	5185087	11924	18222	22379578	-9109	257024
