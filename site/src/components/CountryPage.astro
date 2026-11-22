@@ -1,0 +1,176 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, countryName, dataUrl, routes, t } from "../lib/i18n";
+import { num, pct, quarter, usd, windowLabel } from "../lib/format";
+import type { CountryData, Lang, Meta, Ranking } from "../lib/types";
+import meta from "../../public/data/meta.json";
+import ranking from "../../public/data/ranking.json";
+
+interface Props { lang: Lang; data: CountryData }
+const { lang, data } = Astro.props;
+const d = t[lang];
+const m = meta as Meta;
+const rk = ranking as Ranking;
+const c = m.countries.find((x) => x.iso3 === data.country)!;
+const name = countryName(c, lang);
+const row = rk.rows.find((r) => r.country === data.country);
+const main = row?.values.fa_ex_reserves;
+const nb = lang === "nb";
+
+const L = {
+  title: nb ? `${name}: netto kapitalstrømmer` : `${name}: net capital flows`,
+  tile4q: nb ? `Netto kapitalstrøm ekskl. reserver, ${windowLabel(rk.windows["4q"], lang)}` : `Net capital flow excl. reserves, ${windowLabel(rk.windows["4q"], lang)}`,
+  tileLatest: nb ? "Nyeste kvartal" : "Latest quarter",
+  tileGdp: nb ? `BNP ${rk.reference_year}` : `GDP ${rk.reference_year}`,
+  mainH: nb ? "Netto kapitalstrøm ekskl. reserver per kvartal" : "Net capital flow excl. reserves by quarter",
+  mainLede: nb ? "Stolper viser hvert kvartal. Linjen er glidende snitt over fire kvartaler." : "Bars show each quarter. The line is a four-quarter moving average.",
+  quarterLbl: nb ? "Kvartal" : "Quarter",
+  avgLbl: nb ? "Glidende snitt, 4 kvartaler" : "4-quarter moving average",
+  compH: nb ? "Hva består nettoen av?" : "What makes up the net flow?",
+  compLede: nb ? "Bidrag per kapitaltype, siste ti år. Positivt er netto innstrømning." : "Contribution by capital type, last ten years. Positive is net inflow.",
+  sidesH: nb ? "De to sidene av nettoen" : "The two sides of the net flow",
+  sidesLede: nb
+    ? "Utlendingers netto investeringer i landet mot innenlandske aktørers netto investeringer i utlandet (direkte, portefølje og annen investering), glidende snitt over fire kvartaler. Netto innstrømning er avstanden mellom linjene."
+    : "Non-residents’ net investment in the country versus residents’ net investment abroad (direct, portfolio and other investment), four-quarter moving average. Net inflow is the gap between the lines.",
+  liab: nb ? "Utlendinger investerer i landet" : "Non-residents invest in the country",
+  assets: nb ? "Innenlandske aktører investerer ute" : "Residents invest abroad",
+  ctrlH: nb ? "Kontroll mot driftsbalansen" : "Check against the current account",
+  ctrlLede: nb
+    ? "Driftsbalanse + kapitalkonto + feil og utelatelser = − netto innstrømning (inkl. reserver). Store feil og utelatelser gjør tallene mer usikre."
+    : "Current account + capital account + errors and omissions = − net inflow (incl. reserves). Large errors and omissions make the figures less certain.",
+  srcH: nb ? "Kilde og nedlasting" : "Source and download",
+  csv: nb ? `Last ned alle serier for ${name} (CSV)` : `Download all series for ${name} (CSV)`,
+  seriesKey: nb ? "IMF-seriekode" : "IMF series key",
+  notesH: nb ? "Merknader" : "Notes",
+};
+const components: Record<string, string> = nb
+  ? { fdi: "Direkteinvesteringer", portfolio: "Portefølje", other_inv: "Annen investering", derivatives: "Derivater", reserves: "Reserver" }
+  : { fdi: "Direct investment", portfolio: "Portfolio", other_inv: "Other investment", derivatives: "Derivatives", reserves: "Reserves" };
+const noteText: Record<string, string> = nb
+  ? {
+      financial_centre: "Finanssenter: gjennomstrømning via spesialforetak kan blåse opp direkteinvesteringer i begge retninger.",
+      derived_main: `Fra ${quarter(data.derived_periods[0], lang)} publiserer ikke IMF tallet ekskl. reserver. Det er beregnet som finansregnskapet minus reserver (merket † og vist lysere).`,
+      no_derivatives: "Derivater rapporteres ikke separat.",
+      large_errors_omissions: "Feil og utelatelser har vært over 1 % av BNP de siste fire kvartalene.",
+    }
+  : {
+      financial_centre: "Financial centre: pass-through via special purpose entities can inflate direct investment in both directions.",
+      derived_main: `From ${quarter(data.derived_periods[0], lang)} the IMF does not publish the figure excluding reserves. It is derived as the financial account minus reserves (marked † and shown lighter).`,
+      no_derivatives: "Derivatives are not reported separately.",
+      large_errors_omissions: "Errors and omissions have exceeded 1% of GDP over the last four quarters.",
+    };
+const gdpRef = data.gdp_usd_bn[String(rk.reference_year)];
+const ctrlPeriods = data.periods.slice(-8).reverse();
+const idx = (p: string) => data.periods.indexOf(p);
+const s = (meas: string, p: string) => data.series[meas]?.net?.[idx(p)] ?? null;
+const imfKey = (meas: string) => data.series_keys[meas]?.net;
+---
+<Base lang={lang} title={name} current="country" alternateHref={alternate(lang, { country: data.country })}
+  description={L.title}>
+  <p class="small"><a href={routes(lang).home}>← {d.navOverview}</a></p>
+  <h1>{L.title}</h1>
+  <div class="badges">
+    {data.in_top20 && <span class="badge">{d.selTop20}</span>}
+    {c.aggregate && <span class="badge">{d.aggregate}</span>}
+    {c.financial_centre && <span class="badge">{nb ? "Finanssenter" : "Financial centre"}</span>}
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="label">{L.tile4q}</div>
+      <div class="value">{main?.["4q"].usd === null || main === undefined ? d.notReported : usd(main["4q"].usd, lang)}</div>
+      <div class="sub">{main && main["4q"].pct !== null ? pct(main["4q"].pct, lang) : ""}</div>
+    </div>
+    <div class="tile">
+      <div class="label">{L.tileLatest}: {quarter(main?.latest.period, lang)}</div>
+      <div class="value">{usd(main?.latest.usd ?? null, lang)}</div>
+      <div class="sub">{main?.latest.pct !== null && main?.latest.pct !== undefined ? `${pct(main.latest.pct, lang)} ${nb ? "(annualisert)" : "(annualised)"}` : ""}</div>
+    </div>
+    <div class="tile">
+      <div class="label">{L.tileGdp}</div>
+      <div class="value">{gdpRef ? usd(gdpRef, lang).replace(/^\+/, "").replace("+", "") : "–"}</div>
+      <div class="sub">IMF WEO</div>
+    </div>
+  </div>
+
+  {data.notes.length > 0 && (
+    <section>
+      <h2>{L.notesH}</h2>
+      <ul class="notes">{data.notes.map((n) => noteText[n] && <li>{noteText[n]}</li>)}</ul>
+    </section>
+  )}
+
+  <section id="country" data-lang={lang}>
+    <div class="chart-head"><h2>{L.mainH}</h2><button type="button" class="toggle" data-table="main">{d.showTable}</button></div>
+    <p class="muted small">{L.mainLede}</p>
+    <div class="legend" aria-hidden="true">
+      <span><span class="key" style="background:var(--inflow)"></span>{d.inflow}</span>
+      <span><span class="key" style="background:var(--outflow)"></span>{d.outflow}</span>
+      <span><span class="key line" style="background:var(--ink)"></span>{L.avgLbl}</span>
+    </div>
+    <div class="chart" id="chart-main" data-name={L.mainH}></div>
+    <div class="table-scroll" id="table-main" hidden></div>
+
+    <div class="chart-head"><h2>{L.compH}</h2><button type="button" class="toggle" data-table="comp">{d.showTable}</button></div>
+    <p class="muted small">{L.compLede}</p>
+    <div class="legend" aria-hidden="true">
+      {Object.values(components).map((n, i) => <span><span class="key" style={`background:var(--s${i + 1})`}></span>{n}</span>)}
+    </div>
+    <div class="chart" id="chart-comp" data-name={L.compH}></div>
+    <div class="table-scroll" id="table-comp" hidden></div>
+
+    <div class="chart-head"><h2>{L.sidesH}</h2><button type="button" class="toggle" data-table="sides">{d.showTable}</button></div>
+    <p class="muted small">{L.sidesLede}</p>
+    <div class="legend" aria-hidden="true">
+      <span><span class="key line" style="background:var(--inflow)"></span>{L.liab}</span>
+      <span><span class="key line" style="background:var(--outflow)"></span>{L.assets}</span>
+    </div>
+    <div class="chart" id="chart-sides" data-name={L.sidesH}></div>
+    <div class="table-scroll" id="table-sides" hidden></div>
+  </section>
+
+  <section>
+    <h2>{L.ctrlH}</h2>
+    <p class="muted small">{L.ctrlLede}</p>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr>
+          <th scope="col">{d.periodCol}</th>
+          <th scope="col" class="num">{nb ? "Driftsbalanse" : "Current account"}</th>
+          <th scope="col" class="num">{nb ? "Kapitalkonto" : "Capital account"}</th>
+          <th scope="col" class="num">{nb ? "Feil og utelatelser" : "Errors and omissions"}</th>
+          <th scope="col" class="num">{nb ? "Netto innstrømning inkl. reserver" : "Net inflow incl. reserves"}</th>
+        </tr></thead>
+        <tbody>
+          {ctrlPeriods.map((p) => (
+            <tr>
+              <th scope="row">{quarter(p, lang)}</th>
+              <td class="num">{num(s("current_account", p), lang)}</td>
+              <td class="num">{num(s("capital_account", p), lang)}</td>
+              <td class="num">{num(s("errors_omissions", p), lang)}</td>
+              <td class="num">{num(s("fa_total", p), lang)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted">{nb ? "Mrd. USD." : "USD bn."}</p>
+  </section>
+
+  <section>
+    <h2>{L.srcH}</h2>
+    <ul class="notes">
+      <li><a href={dataUrl(`download/${data.country}.csv`)} download>{L.csv}</a></li>
+      <li>Source: International Monetary Fund, Balance of Payments (BOP), <a href="https://data.imf.org/en/datasets/IMF.STA:BOP">https://data.imf.org/en/datasets/IMF.STA:BOP</a></li>
+      {imfKey("fa_ex_reserves") && <li>{L.seriesKey}: <code>{imfKey("fa_ex_reserves")}</code></li>}
+    </ul>
+  </section>
+
+  <script type="application/json" id="country-data" set:html={JSON.stringify({ data, labels: { ...L, components } })} />
+</Base>
+
+<script>
+  import { initCountry } from "../lib/country";
+  const root = document.getElementById("country");
+  if (root) initCountry(root);
+</script>

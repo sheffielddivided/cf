@@ -1,0 +1,85 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, routes, t } from "../lib/i18n";
+import { date, quarter } from "../lib/format";
+import type { Lang, Meta } from "../lib/types";
+import meta from "../../public/data/meta.json";
+import ranking from "../../public/data/ranking.json";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const m = meta as Meta;
+const r = routes(lang);
+---
+<Base lang={lang} title={d.navOverview} current="home" alternateHref={alternate(lang, "home")}>
+  <h1>{d.siteTagline}</h1>
+  <p class="statusline">
+    {d.dataThrough} {quarter(m.last_common_quarter, lang)} · {d.updated} {date(m.data_updated_at, lang)} ·
+    {d.source}: IMF Balance of Payments · <a href={r.method}>{d.readMethod}</a>
+  </p>
+
+  <section class="panel" id="overview" data-lang={lang}>
+    <form class="controls" aria-label={lang === "nb" ? "Visningsvalg" : "View options"} onsubmit="return false">
+      <label class="control">{d.period}
+        <select name="period">
+          <option value="4q">{d.period4q}</option>
+          <option value="q">{d.periodQ}</option>
+          <option value="year">{d.periodYear} {m.reference_year}</option>
+          <option value="latest">{d.periodLatest}</option>
+        </select>
+      </label>
+      <label class="control">{d.unit}
+        <select name="unit">
+          <option value="usd">{d.unitUsd}</option>
+          <option value="pct">{d.unitPct}</option>
+        </select>
+      </label>
+      <label class="control">{d.type}
+        <select name="type">
+          <option value="total">{d.typeTotal}</option>
+          <option value="fdi">{d.typeFdi}</option>
+          <option value="portfolio">{d.typePortfolio}</option>
+          <option value="other">{d.typeOther}</option>
+        </select>
+      </label>
+      <label class="control">{d.reserves}
+        <select name="reserves" aria-describedby="reserves-hint">
+          <option value="ex">{d.reservesEx}</option>
+          <option value="in">{d.reservesIn}</option>
+        </select>
+      </label>
+      <label class="control">{d.selection}
+        <select name="sel">
+          <option value="top20">{d.selTop20}</option>
+          <option value="all">{d.selAll}</option>
+        </select>
+      </label>
+    </form>
+    <p class="hint" id="reserves-hint" hidden>{d.reservesOnlyTotal}</p>
+
+    <div class="chart-head">
+      <h2 id="ranking-title" style="margin-top:0;min-height:1.5em"></h2>
+      <button type="button" class="toggle" id="table-toggle" aria-pressed="false">{d.showTable}</button>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <span><span class="key" style="background:var(--inflow)"></span>{d.inflow}</span>
+      <span><span class="key" style="background:var(--outflow)"></span>{d.outflow}</span>
+    </div>
+    <p class="hint" id="latest-hint" hidden>{d.lessComparable}</p>
+    <div class="chart" id="ranking-chart" style={`min-height:${26 + m.top20.length * 28 + 8}px`}></div>
+    <div class="table-scroll" id="ranking-table" hidden></div>
+    <div class="footnotes">
+      <p id="fn-derived" hidden>{d.footnoteDerived}</p>
+      <p>{d.footnoteMissing}</p>
+    </div>
+    <noscript><p>{lang === "nb" ? "Grafen krever JavaScript. Dataene kan lastes ned fra landsidene." : "The chart needs JavaScript. Data can be downloaded from the country pages."}</p></noscript>
+  </section>
+  <script type="application/json" id="overview-data" set:html={JSON.stringify({ meta: m, ranking })} />
+</Base>
+
+<script>
+  import { initOverview } from "../lib/overview";
+  const root = document.getElementById("overview");
+  if (root) initOverview(root);
+</script>
