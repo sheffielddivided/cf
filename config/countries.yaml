@@ -1,8 +1,8 @@
-# Kandidatliste for landutvalget. Topp 20 etter nominelt BNP (USD) i referanseåret
-# beregnes fra IMF-data i fase 0, og `in_top20` settes da. Ikke rediger for hånd uten grunn.
-reference_year: null   # settes i fase 0
+# Navn og flagg for land. Selve utvalget (topp 20 etter BNP i referanseåret) beregnes og
+# låses av pipelinen i data/processed/selection.json; land som kommer inn i topp 20 uten å
+# stå her, får en advarsel og vises med landkode til navnet legges til.
 extra: [NOR]           # valgbare ekstraland
-aggregates: [EA]       # euroområdet; summeres aldri med medlemslandene
+aggregates: [EA]       # euroområdet (IMF-kode G163); summeres aldri med medlemslandene
 
 countries:
   - {iso3: USA, iso2: US, name_nb: USA, name_en: United States}

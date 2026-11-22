@@ -11,3 +11,5 @@ node_modules/
 site/dist/
 # Fase 0-utforskning lagres på grenen bot/phase0, ikke på main
 data/explore/
+# Pipeline run summaries (read by the workflow, not committed)
+run/

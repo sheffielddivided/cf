@@ -1,14 +1,72 @@
 # Våre måltall (measure × side) mot kildens SDMX-koder.
-# Fylles i fase 0 fra strukturfilene som phase0.yml henter. Ikke gjett koder.
-# measure: fa_total | fa_ex_reserves | fdi | portfolio | portfolio_equity | portfolio_debt |
-#          other_inv | derivatives | reserves | current_account | capital_account |
-#          errors_omissions | gdp_usd
-# side:    net | assets | liabilities
+# Kodene er hentet fra IMF-strukturen (IMF.STA:BOP v21.0.0, CL_BOP_INDICATOR og
+# CL_BOP_ACCOUNTING_ENTRY) i fase 0, 22.11.2026, og verifisert mot USA-data:
+# D_F + P_F + F_F7 + O_F + R_F = FAB eksakt for 2023-K1–2026-K2.
+#
+# Verdier i OBS_VALUE er i hele enheter av UNIT (USD); attributtet SCALE er kun visning.
+#
+# side: net | assets | liabilities
+#   net         = NNAFANIL_T (netto erverv av fordringer − netto pådrag av gjeld), BPM6-fortegn
+#   assets      = A_NFA_T   (netto erverv av finansielle fordringer)
+#   liabilities = L_NIL_T   (netto pådrag av forpliktelser)
 
 imf_bop:
-  dataflow: IMF.STA:BOP
-  measures: {}
+  agency: IMF.STA
+  dataflow: BOP
+  unit: USD
+  measures:
+    fa_total:
+      net: {indicator: FAB, entry: NNAFANIL_T}
+    fa_ex_reserves:
+      # "excluding reserves and related items": FAB − RUE
+      net: {indicator: FABXRRI, entry: NNAFANIL_T}
+    fdi:
+      net: {indicator: D_F, entry: NNAFANIL_T}
+      assets: {indicator: D_F, entry: A_NFA_T}
+      liabilities: {indicator: D_F, entry: L_NIL_T}
+    portfolio:
+      net: {indicator: P_F, entry: NNAFANIL_T}
+      assets: {indicator: P_F, entry: A_NFA_T}
+      liabilities: {indicator: P_F, entry: L_NIL_T}
+    portfolio_equity:
+      assets: {indicator: P_F5, entry: A_NFA_T}
+      liabilities: {indicator: P_F5, entry: L_NIL_T}
+    portfolio_debt:
+      assets: {indicator: P_F3, entry: A_NFA_T}
+      liabilities: {indicator: P_F3, entry: L_NIL_T}
+    other_inv:
+      net: {indicator: O_F, entry: NNAFANIL_T}
+      assets: {indicator: O_F, entry: A_NFA_T}
+      liabilities: {indicator: O_F, entry: L_NIL_T}
+    derivatives:
+      net: {indicator: F_F7, entry: NNAFANIL_T}
+    reserves:
+      # Reserve assets, transactions. Reserves have no liabilities side.
+      net: {indicator: R_F, entry: A_T}
+    reserves_related:
+      # "Reserves and related items" (reserves + IMF credit + exceptional financing).
+      # Not shown on the site; used to check fa_total − fa_ex_reserves.
+      net: {indicator: RUE, entry: NNAFANIL_T}
+    current_account:
+      net: {indicator: CAB, entry: NETCD_T}
+    capital_account:
+      net: {indicator: KAB, entry: NETCD_T}
+    errors_omissions:
+      net: {indicator: EO, entry: NETCD_T}
+
+imf_weo:
+  agency: IMF.RES
+  dataflow: WEO
+  unit: USD
+  measures:
+    gdp_usd:
+      net: {indicator: NGDPD}
+
+# Aggregates use IMF group codes.
+country_codes:
+  EA: G163   # Euro Area (EA)
 
 oecd_bop:
-  dataflow: OECD.SDD.TPS:DSD_BOP@DF_BOP
-  measures: {}
+  agency: OECD.SDD.TPS
+  dataflow: DSD_BOP@DF_BOP
+  measures: {}   # fase 2 (kontrollkilde)

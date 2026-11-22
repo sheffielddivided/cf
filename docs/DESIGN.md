@@ -68,7 +68,9 @@ Konverteringen gjøres i én funksjon i pipelinen (`to_inflow_sign()`), med enhe
 
 **Strømmer mot beholdninger.** Strømmer er transaksjoner. Beholdninger (IIP, CPIS, BIS-posisjoner) endres også av kurs- og valutaeffekter. Beholdninger kan vises i egne moduler, merket tydelig, men endringer i beholdninger brukes **aldri** som erstatning for strømmer.
 
-**% av BNP.** Firekvartals sum av strømmen delt på BNP for de samme fire kvartalene. For enkeltkvartal: kvartalsstrøm delt på annualisert kvartals-BNP (×4), merket som annualisert.
+**% av BNP.** Firekvartals sum av strømmen delt på BNP for de samme fire kvartalene. BNP er årlig (IMF WEO `NGDPD`), så hvert kvartal får en fjerdedel av sitt års BNP. For enkeltkvartal blir dette kvartalsstrøm delt på årets BNP/4, altså annualisert. BNP for år etter referanseåret er WEO-anslag og merkes slik.
+
+**Beregnet hovedmål.** Der IMF ikke publiserer `fa_ex_reserves` (`FABXRRI`), men har `FAB` og reserver `R_F`, beregnes `fa_ex_reserves = FAB − R_F`, merket `derived` og forklart på landsiden (gjelder Russland fra 2022).
 
 ## Datakilder
 
@@ -92,7 +94,7 @@ IMF BOP er primærkilden. OECD er kontroll og utfylling. Resten er separate modu
 
 ## Landutvalg og perioder
 
-**Utvalg.** De 20 største økonomiene etter nominelt BNP i USD i et **fast referanseår**, satt i `config/countries.yaml`. Referanseåret endres bare ved en bevisst oppdatering. Den endelige listen beregnes fra IMF-data i fase 0.
+**Utvalg.** De 20 største økonomiene etter nominelt BNP i USD (IMF WEO `NGDPD`) i **referanseåret = siste hele år med data**: året før siste felles kvartal, eller samme år hvis siste felles kvartal er K4. Utvalget låses i `data/processed/selection.json` og beregnes automatisk på nytt bare når referanseåret skifter. Endringer meldes som Issue. `config/countries.yaml` holder navn og flagg, ikke utvalget.
 
 **Tillegg.** Norge som valgbart ekstraland, og euroområdet som eget aggregat. Euroområdet summeres aldri med medlemslandene.
 
@@ -176,7 +178,7 @@ En feil i kontrollene stopper jobben før noe committes. Siden viser da forrige 
 
 | Fil | Utløses av | Gjør |
 | --- | --- | --- |
-| `update-data.yml` | Cron ukentlig (man. 05:17 UTC) + `workflow_dispatch` | Kjører `pipeline update`. Committer `data/` og `site/public/data/` bare ved endring, med en maskinlaget revisjonsoppsummering. Advarsler gir en Issue (`data-quality` / `revision`). Feil gir en Issue (`source-down`) uten commit. `concurrency` hindrer overlappende kjøringer |
+| `update-data.yml` | Cron ukentlig (man. 05:17 UTC) + `workflow_dispatch` + push til `main` som endrer `pipeline/` eller `config/` (andre grener: resultat til `bot/data-preview`) | Kjører `pipeline update`. Committer `data/` og `site/public/data/` bare ved endring, med en maskinlaget revisjonsoppsummering. Advarsler gir en Issue (`data-quality` / `revision`). Feil gir en Issue (`source-down`) uten commit. `concurrency` hindrer overlappende kjøringer |
 | `ci.yml` | Push og pull request | `pytest`, lint (`ruff`), senere typesjekk, Vitest, Playwright-røyktest og Lighthouse CI |
 | `deploy.yml` | Push til `main` som endrer `site/**` eller data | Astro-build, deretter `actions/deploy-pages` |
 | `release-snapshot.yml` | Når siste felles kvartal flytter seg | Lager en GitHub Release (`data-2026Q2`) med CSV-er som vedlegg, så hver datautgave kan siteres |
@@ -315,12 +317,12 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 
 **Fase 0: Dekningsmatrise**
 
-- [ ] Utforsk IMF-API-et: list dataflows, hent `DSD_BOP` og kodelister, og finn indikatorkodene for hver `measure` × `side`. Skriv dem i `config/series_map.yaml`.
-- [ ] Gjør det samme for OECD `DSD_BOP@DF_BOP`.
-- [ ] Hent alle serier for utvalget og generer `docs/COVERAGE.md`: land × mål med første og siste kvartal, hull og kilde.
-- [ ] Beregn topp 20 etter BNP i referanseåret og fyll `config/countries.yaml`.
-- [ ] Dokumenter hvordan siste felles kvartal blir, og hvilke land som faller utenfor.
-- [ ] Stopp og rapporter funnene før fase 1.
+- [x] Utforsk IMF-API-et: list dataflows, hent `DSD_BOP` og kodelister, og finn indikatorkodene for hver `measure` × `side`. Skriv dem i `config/series_map.yaml`.
+- [ ] Gjør det samme for OECD `DSD_BOP@DF_BOP`. *(Strukturen er hentet; koblingen flyttes til fase 2, der OECD brukes.)*
+- [x] Hent alle serier for utvalget og generer `docs/COVERAGE.md`: land × mål med første og siste kvartal, hull og kilde.
+- [x] Beregn topp 20 etter BNP i referanseåret og fyll `config/countries.yaml`.
+- [x] Dokumenter hvordan siste felles kvartal blir, og hvilke land som faller utenfor.
+- [x] Stopp og rapporter funnene før fase 1. Se `docs/PHASE0_FINDINGS.md`.
 
 **Fase 1: MVP**
 

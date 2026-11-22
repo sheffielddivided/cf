@@ -41,6 +41,8 @@ IMF_V21 = "https://api.imf.org/external/sdmx/2.1"
 OECD = "https://sdmx.oecd.org/public/rest"
 
 SAMPLE_START = "2023-Q1"
+# OECD's .Stat Suite rejects "version=1.0.0" (HTTP 406) but accepts "version=1.0".
+OECD_STRUCTURE_JSON = "application/vnd.sdmx.structure+json; version=1.0; charset=utf-8"
 
 
 @dataclass
@@ -248,7 +250,7 @@ def explore_oecd(rec: Recorder) -> None:
     flow_id = "DSD_BOP@DF_BOP"
     with SdmxClient(OECD) as co:
         flows_doc = rec.first_json(
-            [(co, "oecd_dataflows", "dataflow/all", None, STRUCTURE_JSON_V1)]
+            [(co, "oecd_dataflows", "dataflow/all", None, OECD_STRUCTURE_JSON)]
         )
         agency = "OECD.SDD.TPS"
         if flows_doc is not None:
@@ -256,7 +258,7 @@ def explore_oecd(rec: Recorder) -> None:
             agency = next((r["agency"] for r in rows if r["id"] == flow_id), agency)
         doc = rec.first_json(
             [(co, "oecd_bop_structure", f"dataflow/{agency}/{flow_id}/latest",
-              {"references": "all"}, STRUCTURE_JSON_V1)]
+              {"references": "all"}, OECD_STRUCTURE_JSON)]
         )
         if doc is None:
             log.error("OECD BOP structure: no JSON response")

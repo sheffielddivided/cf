@@ -1,0 +1,94 @@
+name: update-data
+
+# Ukentlig: hent IMF-data, normaliser, kontroller og eksporter (docs/DESIGN.md).
+# På main committes data kun ved endring, og advarsler/feil meldes som Issues.
+# På phase1/**-grener legges resultatet på bot/data-preview, slik at endringer kan
+# testes uten å røre main.
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # mandag 05:17 UTC
+  workflow_dispatch:
+  push:
+    # main: kjør på nytt når pipeline-kode eller konfigurasjon endres (f.eks. ved merge)
+    branches: [main, "phase1/**"]
+    paths:
+      - "pipeline/**"
+      - "config/**"
+      - ".github/workflows/update-data.yml"
+      - ".github/scripts/**"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: update-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --locked
+
+      - name: Run pipeline
+        id: run
+        run: |
+          set +e
+          uv run pipeline update 2>&1 | tee pipeline.log
+          code=${PIPESTATUS[0]}
+          mkdir -p run && mv pipeline.log run/
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "pipeline exit code: $code"
+
+      - name: Commit data (main)
+        if: steps.run.outputs.code == '0' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data site/public/data
+          [ -f REVISIONS.md ] && git add REVISIONS.md
+          if git diff --cached --quiet; then
+            echo "Ingen dataendringer."
+          else
+            git commit -F run/commit_message.txt
+            git push
+          fi
+
+      - name: Publish preview (branches)
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          src="${GITHUB_REF_NAME}@$(git rev-parse --short HEAD)"
+          tmp=$(mktemp -d)
+          for p in data site/public/data REVISIONS.md run; do
+            [ -e "$p" ] && mkdir -p "$tmp/$(dirname "$p")" && cp -r "$p" "$tmp/$p"
+          done
+          git checkout --orphan bot/data-preview
+          git rm -rq --cached . || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r "$tmp"/. .
+          echo "Forhåndsvisning av pipeline-data fra ${src}, $(date -u +%FT%TZ). Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" > README.md
+          git add -A
+          git commit -qm "preview: pipeline data from ${src}"
+          git push -f origin bot/data-preview
+
+      - name: Report to Issues (main)
+        if: always() && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 .github/scripts/report_issues.py run/summary.json
+
+      - name: Fail if the pipeline failed
+        if: steps.run.outputs.code != '0'
+        run: |
+          echo "Pipeline feilet (exit ${{ steps.run.outputs.code }}). Se run/summary.json."
+          exit 1
