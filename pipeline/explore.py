@@ -353,10 +353,32 @@ def explore_mof(rec: Recorder) -> None:
 def explore_nowcast(out: Path) -> Path:
     out.mkdir(parents=True, exist_ok=True)
     rec = Recorder(out)
-    for step in (explore_ecb, explore_tic, explore_mof):
+    for step in (explore_tic_files,):
         try:
             step(rec)
         except Exception:  # noqa: BLE001
             log.exception("%s crashed", step.__name__)
     rec.write_manifest()
     return out / "manifest.json"
+
+
+TIC_CANDIDATES = [
+    "https://ticdata.treasury.gov/Publish/s1_globl.csv",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/snetfor.csv",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/snetus.csv",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt",
+    "https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table4.txt",
+    "https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/s1_99996.txt",
+    "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FORLTTOTALNET69995",
+    "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USLTTOTALNET69995",
+]
+
+
+def explore_tic_files(rec: Recorder) -> None:
+    for i, url in enumerate(TIC_CANDIDATES):
+        base, _, rest = url.rpartition("/")
+        with SdmxClient(base) as c:
+            name = re.sub(r"[^A-Za-z0-9]+", "_", rest)[:40]
+            rec.fetch(c, f"tic2_{i:02d}_{name}", rest)
