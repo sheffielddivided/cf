@@ -4,7 +4,7 @@ Les `docs/DESIGN.md` først. Den er fasit for definisjoner, datamodell og regler
 Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI-tekst på norsk (bokmål) med engelsk som andrespråk.
 
 ## Status
-- Fase 0 er levert: se `docs/PHASE0_FINDINGS.md` og `docs/COVERAGE.md`. Fase 1 starter først når eieren har godkjent forslagene i PHASE0_FINDINGS.
+- Fase 0 er levert og forslagene godkjent (se `docs/PHASE0_FINDINGS.md`). Fase 1 pågår: pipeline først, deretter frontend.
 - Ikke start på frontend (`site/`) før pipelinen i fase 1 leverer data.
 
 ## Arbeidsmåte
@@ -30,5 +30,6 @@ Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI
 ## Kommandoer
 - `uv sync` – installer
 - `uv run pipeline explore --out data/explore` – fase 0: utforsk IMF/OECD og lagre råsvar
+- `uv run pipeline update` – fase 1: hent, normaliser, kontroller og eksporter (krever nett til api.imf.org)
 - `uv run pytest` – tester
 - `uv run ruff check .` – lint

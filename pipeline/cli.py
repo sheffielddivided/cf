@@ -21,6 +21,9 @@ def main(argv: list[str] | None = None) -> int:
     p_cov.add_argument("--countries", type=Path, default=Path("config/countries.yaml"))
     p_cov.add_argument("--reference-year", type=int, default=2025)
 
+    p_up = sub.add_parser("update", help="phase 1: fetch, normalise, check and export")
+    p_up.add_argument("--root", type=Path, default=Path("."))
+
     args = parser.parse_args(argv)
     logging.basicConfig(
         level=logging.INFO,
@@ -38,6 +41,10 @@ def main(argv: list[str] | None = None) -> int:
 
         path = run(args.out, args.series_map, args.countries, args.reference_year)
         print(f"coverage: {path}")
+    elif args.command == "update":
+        from .update import run as update
+
+        return update(args.root)
     return 0
 
 

@@ -64,11 +64,11 @@ Netto innstrømning ekskl. reserver, sum 2025-K3 til 2026-K2, mrd. USD (positivt
 
 Bildet stemmer med kjente mønstre: USA finansierer driftsunderskuddet med kapitalinnstrømning, mens overskuddsland som Kina, Japan, Korea, Tyskland og Norge har netto utstrømning.
 
-## Forslag til designjusteringer (trenger godkjenning)
+## Designjusteringer (godkjent av eier 22.11.2026)
 
-1. **Russland fra 2022:** beregn `fa_ex_reserves = FAB − R_F`, merket `derived` og med en forklaring på landsiden. Alternativet er å vise Russland som «ikke rapportert» for hovedmålet.
-2. **BNP-nevner:** bruk IMF WEO `NGDPD`, som er årlig. Firekvartals sum deles på BNP vektet etter hvilke år kvartalene tilhører. Kvartalsvis BNP i USD finnes ikke direkte hos IMF og måtte i så fall regnes om fra nasjonal valuta. 2026 er et WEO-estimat og merkes slik.
-3. **Referanseår 2025** for topp 20 (satt i `config/countries.yaml`). Sveits og Polen ligger tett, så listen bør bare endres ved en bevisst beslutning.
+1. **Beregnet hovedmål der IMF mangler det:** `fa_ex_reserves = FAB − R_F`, merket `derived` og forklart på landsiden. Gjelder Russland fra 2022, og ethvert land der `FABXRRI` mangler, men `FAB` og `R_F` finnes. **Godkjent.**
+2. **BNP-nevner (godkjent):** bruk IMF WEO `NGDPD`, som er årlig. Firekvartals sum deles på BNP vektet etter hvilke år kvartalene tilhører. Kvartalsvis BNP i USD finnes ikke direkte hos IMF og måtte i så fall regnes om fra nasjonal valuta. 2026 er et WEO-estimat og merkes slik.
+3. **Referanseår = siste hele år med data (godkjent):** året før siste felles kvartal, eller samme år hvis siste felles kvartal er K4. Per nå 2025. Topp 20 låses for referanseåret i `data/processed/selection.json` og beregnes automatisk på nytt når et nytt helt år er tilgjengelig. Endringen meldes som en Issue.
 
 ## Neste steg (fase 1, etter godkjenning)
 

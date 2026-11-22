@@ -4,9 +4,10 @@ name: phase0-explore
 # ble hentet (råsvar, manifest, strukturoversikt, logg) på grenen bot/phase0.
 # Kjøres ved endringer i pipeline/ eller config/, eller manuelt.
 
+# Fase 0 er ferdig; kjøres nå bare manuelt eller fra phase0/**-grener.
 on:
   push:
-    branches: [main, "phase0/**"]
+    branches: ["phase0/**"]
     paths:
       - "pipeline/**"
       - "config/**"

@@ -68,7 +68,9 @@ Konverteringen gjøres i én funksjon i pipelinen (`to_inflow_sign()`), med enhe
 
 **Strømmer mot beholdninger.** Strømmer er transaksjoner. Beholdninger (IIP, CPIS, BIS-posisjoner) endres også av kurs- og valutaeffekter. Beholdninger kan vises i egne moduler, merket tydelig, men endringer i beholdninger brukes **aldri** som erstatning for strømmer.
 
-**% av BNP.** Firekvartals sum av strømmen delt på BNP for de samme fire kvartalene. For enkeltkvartal: kvartalsstrøm delt på annualisert kvartals-BNP (×4), merket som annualisert.
+**% av BNP.** Firekvartals sum av strømmen delt på BNP for de samme fire kvartalene. BNP er årlig (IMF WEO `NGDPD`), så hvert kvartal får en fjerdedel av sitt års BNP. For enkeltkvartal blir dette kvartalsstrøm delt på årets BNP/4, altså annualisert. BNP for år etter referanseåret er WEO-anslag og merkes slik.
+
+**Beregnet hovedmål.** Der IMF ikke publiserer `fa_ex_reserves` (`FABXRRI`), men har `FAB` og reserver `R_F`, beregnes `fa_ex_reserves = FAB − R_F`, merket `derived` og forklart på landsiden (gjelder Russland fra 2022).
 
 ## Datakilder
 
@@ -92,7 +94,7 @@ IMF BOP er primærkilden. OECD er kontroll og utfylling. Resten er separate modu
 
 ## Landutvalg og perioder
 
-**Utvalg.** De 20 største økonomiene etter nominelt BNP i USD i et **fast referanseår**, satt i `config/countries.yaml`. Referanseåret endres bare ved en bevisst oppdatering. Den endelige listen beregnes fra IMF-data i fase 0.
+**Utvalg.** De 20 største økonomiene etter nominelt BNP i USD (IMF WEO `NGDPD`) i **referanseåret = siste hele år med data**: året før siste felles kvartal, eller samme år hvis siste felles kvartal er K4. Utvalget låses i `data/processed/selection.json` og beregnes automatisk på nytt bare når referanseåret skifter. Endringer meldes som Issue. `config/countries.yaml` holder navn og flagg, ikke utvalget.
 
 **Tillegg.** Norge som valgbart ekstraland, og euroområdet som eget aggregat. Euroområdet summeres aldri med medlemslandene.
 

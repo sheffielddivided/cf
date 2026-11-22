@@ -55,6 +55,22 @@ def bop_key(country: str, refs: Iterable[SeriesRef], unit: str, freq: str) -> st
     return ".".join([country, "+".join(entries), "+".join(indicators), unit, freq])
 
 
+def fetch_bop_csv(
+    client: SdmxClient,
+    country: str,
+    section: dict[str, Any],
+    *,
+    freq: str = "Q",
+    start: str = "2010-Q1",
+) -> tuple[int, str]:
+    """Return (HTTP status, SDMX-CSV text). 404 means "no data" in SDMX."""
+    refs = series_refs(section)
+    key = bop_key(country, refs, section.get("unit", "USD"), freq)
+    path = f"data/dataflow/{section['agency']}/{section['dataflow']}/+/{key}"
+    resp = client.get(path, params={"c[TIME_PERIOD]": f"ge:{start}"}, accept=DATA_CSV_V2)
+    return resp.status_code, resp.text if resp.status_code == 200 else ""
+
+
 def fetch_bop_rows(
     client: SdmxClient,
     country: str,
@@ -63,15 +79,8 @@ def fetch_bop_rows(
     freq: str = "Q",
     start: str = "2010-Q1",
 ) -> tuple[int, list[dict[str, str]]]:
-    refs = series_refs(section)
-    key = bop_key(country, refs, section.get("unit", "USD"), freq)
-    path = f"data/dataflow/{section['agency']}/{section['dataflow']}/+/{key}"
-    resp = client.get(path, params={"c[TIME_PERIOD]": f"ge:{start}"}, accept=DATA_CSV_V2)
-    if resp.status_code == 404:  # SDMX: no data for this query
-        return 404, []
-    if resp.status_code != 200:
-        return resp.status_code, []
-    return 200, parse_csv(resp.text)
+    status, text = fetch_bop_csv(client, country, section, freq=freq, start=start)
+    return status, parse_csv(text) if status == 200 else []
 
 
 def bop_observations(
@@ -110,13 +119,16 @@ def bop_observations(
             }
 
 
-def fetch_weo_gdp(client: SdmxClient, section: dict[str, Any]) -> tuple[int, list[dict[str, str]]]:
+def fetch_weo_csv(client: SdmxClient, section: dict[str, Any]) -> tuple[int, str]:
     indicator = section["measures"]["gdp_usd"]["net"]["indicator"]
     path = f"data/dataflow/{section['agency']}/{section['dataflow']}/+/*.{indicator}.A"
     resp = client.get(path, accept=DATA_CSV_V2)
-    if resp.status_code != 200:
-        return resp.status_code, []
-    return 200, parse_csv(resp.text)
+    return resp.status_code, resp.text if resp.status_code == 200 else ""
+
+
+def fetch_weo_gdp(client: SdmxClient, section: dict[str, Any]) -> tuple[int, list[dict[str, str]]]:
+    status, text = fetch_weo_csv(client, section)
+    return status, parse_csv(text) if status == 200 else []
 
 
 def gdp_by_country_year(rows: Iterable[dict[str, str]]) -> dict[tuple[str, int], float]:

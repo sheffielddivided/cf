@@ -1,30 +1,30 @@
-# Landutvalget. Topp 20 etter nominelt BNP (USD) i referanseåret, beregnet fra IMF WEO
-# (NGDPD, oktober 2026-utgaven) i fase 0. Se docs/COVERAGE.md. Endres bare bevisst.
-reference_year: 2025
+# Navn og flagg for land. Selve utvalget (topp 20 etter BNP i referanseåret) beregnes og
+# låses av pipelinen i data/processed/selection.json; land som kommer inn i topp 20 uten å
+# stå her, får en advarsel og vises med landkode til navnet legges til.
 extra: [NOR]           # valgbare ekstraland
 aggregates: [EA]       # euroområdet (IMF-kode G163); summeres aldri med medlemslandene
 
 countries:
-  - {iso3: USA, iso2: US, name_nb: USA, name_en: United States, in_top20: true}
-  - {iso3: CHN, iso2: CN, name_nb: Kina, name_en: China, in_top20: true}
-  - {iso3: DEU, iso2: DE, name_nb: Tyskland, name_en: Germany, in_top20: true}
-  - {iso3: JPN, iso2: JP, name_nb: Japan, name_en: Japan, in_top20: true}
-  - {iso3: IND, iso2: IN, name_nb: India, name_en: India, in_top20: true}
-  - {iso3: GBR, iso2: GB, name_nb: Storbritannia, name_en: United Kingdom, in_top20: true}
-  - {iso3: FRA, iso2: FR, name_nb: Frankrike, name_en: France, in_top20: true}
-  - {iso3: ITA, iso2: IT, name_nb: Italia, name_en: Italy, in_top20: true}
-  - {iso3: CAN, iso2: CA, name_nb: Canada, name_en: Canada, in_top20: true}
-  - {iso3: BRA, iso2: BR, name_nb: Brasil, name_en: Brazil, in_top20: true}
-  - {iso3: RUS, iso2: RU, name_nb: Russland, name_en: Russia, in_top20: true}
-  - {iso3: ESP, iso2: ES, name_nb: Spania, name_en: Spain, in_top20: true}
-  - {iso3: MEX, iso2: MX, name_nb: Mexico, name_en: Mexico, in_top20: true}
-  - {iso3: AUS, iso2: AU, name_nb: Australia, name_en: Australia, in_top20: true}
-  - {iso3: KOR, iso2: KR, name_nb: Sør-Korea, name_en: South Korea, in_top20: true}
-  - {iso3: IDN, iso2: ID, name_nb: Indonesia, name_en: Indonesia, in_top20: true}
-  - {iso3: NLD, iso2: NL, name_nb: Nederland, name_en: Netherlands, financial_centre: true, in_top20: true}
-  - {iso3: TUR, iso2: TR, name_nb: Tyrkia, name_en: Türkiye, in_top20: true}
-  - {iso3: SAU, iso2: SA, name_nb: Saudi-Arabia, name_en: Saudi Arabia, in_top20: true}
-  - {iso3: CHE, iso2: CH, name_nb: Sveits, name_en: Switzerland, financial_centre: true, in_top20: true}
+  - {iso3: USA, iso2: US, name_nb: USA, name_en: United States}
+  - {iso3: CHN, iso2: CN, name_nb: Kina, name_en: China}
+  - {iso3: DEU, iso2: DE, name_nb: Tyskland, name_en: Germany}
+  - {iso3: JPN, iso2: JP, name_nb: Japan, name_en: Japan}
+  - {iso3: IND, iso2: IN, name_nb: India, name_en: India}
+  - {iso3: GBR, iso2: GB, name_nb: Storbritannia, name_en: United Kingdom}
+  - {iso3: FRA, iso2: FR, name_nb: Frankrike, name_en: France}
+  - {iso3: ITA, iso2: IT, name_nb: Italia, name_en: Italy}
+  - {iso3: CAN, iso2: CA, name_nb: Canada, name_en: Canada}
+  - {iso3: BRA, iso2: BR, name_nb: Brasil, name_en: Brazil}
+  - {iso3: RUS, iso2: RU, name_nb: Russland, name_en: Russia}
+  - {iso3: ESP, iso2: ES, name_nb: Spania, name_en: Spain}
+  - {iso3: MEX, iso2: MX, name_nb: Mexico, name_en: Mexico}
+  - {iso3: AUS, iso2: AU, name_nb: Australia, name_en: Australia}
+  - {iso3: KOR, iso2: KR, name_nb: Sør-Korea, name_en: South Korea}
+  - {iso3: IDN, iso2: ID, name_nb: Indonesia, name_en: Indonesia}
+  - {iso3: NLD, iso2: NL, name_nb: Nederland, name_en: Netherlands, financial_centre: true}
+  - {iso3: TUR, iso2: TR, name_nb: Tyrkia, name_en: Türkiye}
+  - {iso3: SAU, iso2: SA, name_nb: Saudi-Arabia, name_en: Saudi Arabia}
+  - {iso3: CHE, iso2: CH, name_nb: Sveits, name_en: Switzerland, financial_centre: true}
   - {iso3: POL, iso2: PL, name_nb: Polen, name_en: Poland}
   - {iso3: ARG, iso2: AR, name_nb: Argentina, name_en: Argentina}
   - {iso3: BEL, iso2: BE, name_nb: Belgia, name_en: Belgium}
