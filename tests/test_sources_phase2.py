@@ -59,9 +59,8 @@ def test_oecd_key_and_values():
 
 
 def test_tic_skips_not_available():
-    t1 = (FX / "slt_table1.txt").read_text().replace(
-        "Grand Total\t99996\t2026-09\t39751546\t186707", "Grand Total\t99996\t2026-09\t39751546\tn.a."
-    )
+    row = "Grand Total\t99996\t2026-09\t39751546\t"
+    t1 = (FX / "slt_table1.txt").read_text().replace(row + "186707", row + "n.a.")
     s = nowcast.parse_tic(t1, (FX / "slt_table2.txt").read_text())
     i = s["periods"].index("2026-09")
     assert s["nonres"][i] is None and s["net"][i] is None
