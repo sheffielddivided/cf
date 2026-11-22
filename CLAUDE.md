@@ -4,7 +4,8 @@ Les `docs/DESIGN.md` først. Den er fasit for definisjoner, datamodell og regler
 Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI-tekst på norsk (bokmål) med engelsk som andrespråk.
 
 ## Status
-- Fase 0 (dekningsmatrise) pågår. Ikke start på frontend (`site/`) før fase 0 er levert og godkjent av eieren.
+- Fase 0 er levert: se `docs/PHASE0_FINDINGS.md` og `docs/COVERAGE.md`. Fase 1 starter først når eieren har godkjent forslagene i PHASE0_FINDINGS.
+- Ikke start på frontend (`site/`) før pipelinen i fase 1 leverer data.
 
 ## Arbeidsmåte
 - Jobb fase for fase. Én PR per avgrenset oppgave, med tester. Bruk GitHub Issues for oppgaver og funn.

@@ -315,12 +315,12 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 
 **Fase 0: Dekningsmatrise**
 
-- [ ] Utforsk IMF-API-et: list dataflows, hent `DSD_BOP` og kodelister, og finn indikatorkodene for hver `measure` × `side`. Skriv dem i `config/series_map.yaml`.
-- [ ] Gjør det samme for OECD `DSD_BOP@DF_BOP`.
-- [ ] Hent alle serier for utvalget og generer `docs/COVERAGE.md`: land × mål med første og siste kvartal, hull og kilde.
-- [ ] Beregn topp 20 etter BNP i referanseåret og fyll `config/countries.yaml`.
-- [ ] Dokumenter hvordan siste felles kvartal blir, og hvilke land som faller utenfor.
-- [ ] Stopp og rapporter funnene før fase 1.
+- [x] Utforsk IMF-API-et: list dataflows, hent `DSD_BOP` og kodelister, og finn indikatorkodene for hver `measure` × `side`. Skriv dem i `config/series_map.yaml`.
+- [ ] Gjør det samme for OECD `DSD_BOP@DF_BOP`. *(Strukturen er hentet; koblingen flyttes til fase 2, der OECD brukes.)*
+- [x] Hent alle serier for utvalget og generer `docs/COVERAGE.md`: land × mål med første og siste kvartal, hull og kilde.
+- [x] Beregn topp 20 etter BNP i referanseåret og fyll `config/countries.yaml`.
+- [x] Dokumenter hvordan siste felles kvartal blir, og hvilke land som faller utenfor.
+- [x] Stopp og rapporter funnene før fase 1. Se `docs/PHASE0_FINDINGS.md`.
 
 **Fase 1: MVP**
 
