@@ -1,0 +1,17 @@
+{
+ "status": "ok",
+ "warnings": [
+  "ekstremverdi: KOR 2026-Q2: -102.5 mrd. USD er mer enn 4 standardavvik fra landets historikk",
+  "ferskhet: RUS siste kvartal 2026-Q1 er mer enn 200 dager gammelt",
+  "kryssjekk: 26 avvik over 5 % mellom IMF og OECD (se datakvalitet-siden)"
+ ],
+ "changed": false,
+ "stats": {
+  "new": 0,
+  "revised": 0,
+  "removed": 0
+ },
+ "last_common_quarter": "2026-Q2",
+ "reference_year": 2025,
+ "big_revisions": []
+}

@@ -1,0 +1,61 @@
+2026-11-22 17:17:27,182 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/*.NGDPD.A "HTTP/1.1 200 OK"
+2026-11-22 17:17:27,500 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/USA.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:27,524 INFO    pipeline.update: BOP USA: HTTP 200
+2026-11-22 17:17:27,692 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/CHN.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:27,714 INFO    pipeline.update: BOP CHN: HTTP 200
+2026-11-22 17:17:28,176 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/DEU.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:28,183 INFO    pipeline.update: BOP DEU: HTTP 200
+2026-11-22 17:17:28,365 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/JPN.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:28,386 INFO    pipeline.update: BOP JPN: HTTP 200
+2026-11-22 17:17:28,567 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/GBR.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:28,605 INFO    pipeline.update: BOP GBR: HTTP 200
+2026-11-22 17:17:28,809 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/IND.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:28,905 INFO    pipeline.update: BOP IND: HTTP 200
+2026-11-22 17:17:29,315 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/FRA.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:29,342 INFO    pipeline.update: BOP FRA: HTTP 200
+2026-11-22 17:17:29,529 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/RUS.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:29,556 INFO    pipeline.update: BOP RUS: HTTP 200
+2026-11-22 17:17:29,742 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/ITA.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:29,771 INFO    pipeline.update: BOP ITA: HTTP 200
+2026-11-22 17:17:30,002 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/CAN.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:30,009 INFO    pipeline.update: BOP CAN: HTTP 200
+2026-11-22 17:17:30,216 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/BRA.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:30,238 INFO    pipeline.update: BOP BRA: HTTP 200
+2026-11-22 17:17:30,414 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/ESP.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:30,435 INFO    pipeline.update: BOP ESP: HTTP 200
+2026-11-22 17:17:30,614 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/KOR.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:30,635 INFO    pipeline.update: BOP KOR: HTTP 200
+2026-11-22 17:17:30,870 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/AUS.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:30,950 INFO    pipeline.update: BOP AUS: HTTP 200
+2026-11-22 17:17:31,246 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/MEX.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:31,265 INFO    pipeline.update: BOP MEX: HTTP 200
+2026-11-22 17:17:31,531 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/TUR.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:31,565 INFO    pipeline.update: BOP TUR: HTTP 200
+2026-11-22 17:17:31,761 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/IDN.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:31,778 INFO    pipeline.update: BOP IDN: HTTP 200
+2026-11-22 17:17:32,108 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/NLD.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:32,120 INFO    pipeline.update: BOP NLD: HTTP 200
+2026-11-22 17:17:32,308 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/SAU.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:32,328 INFO    pipeline.update: BOP SAU: HTTP 200
+2026-11-22 17:17:32,572 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/CHE.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:32,604 INFO    pipeline.update: BOP CHE: HTTP 200
+2026-11-22 17:17:33,059 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/NOR.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:33,067 INFO    pipeline.update: BOP NOR: HTTP 200
+2026-11-22 17:17:33,278 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/BOP/+/G163.A_NFA_T+A_T+L_NIL_T+NETCD_T+NNAFANIL_T.CAB+D_F+EO+FAB+FABXRRI+F_F7+KAB+O_F+P_F+P_F3+P_F5+RUE+R_F.USD.Q?c%5BTIME_PERIOD%5D=ge%3A2010-Q1 "HTTP/1.1 200 OK"
+2026-11-22 17:17:33,300 INFO    pipeline.update: BOP G163: HTTP 200
+2026-11-22 17:17:34,396 INFO    httpx: HTTP Request: GET https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_BOP@DF_BOP,/USA+CHN+DEU+JPN+GBR+IND+FRA+RUS+ITA+CAN+BRA+ESP+KOR+AUS+MEX+TUR+IDN+NLD+SAU+CHE+NOR.WXD.FA+FA_D_F+FA_P_F+FA_O_F.N.T.Q.USD_EXC.N?startPeriod=2024-Q3&format=csvfile "HTTP/1.1 200 OK"
+2026-11-22 17:17:34,432 INFO    httpx: HTTP Request: GET https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt "HTTP/1.0 302 Moved Temporarily"
+2026-11-22 17:17:44,465 INFO    httpx: HTTP Request: GET https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt "HTTP/1.1 302 Moved Temporarily"
+2026-11-22 17:17:52,543 INFO    httpx: HTTP Request: GET https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt "HTTP/1.1 200 OK"
+2026-11-22 17:17:52,629 INFO    httpx: HTTP Request: GET https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt "HTTP/1.0 302 Moved Temporarily"
+2026-11-22 17:18:00,651 INFO    httpx: HTTP Request: GET https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt "HTTP/1.1 302 Moved Temporarily"
+2026-11-22 17:18:08,793 INFO    httpx: HTTP Request: GET https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt "HTTP/1.1 200 OK"
+2026-11-22 17:18:10,323 INFO    httpx: HTTP Request: GET https://data-api.ecb.europa.eu/service/data/BPS/M.N.U2.W1.S1.S1.T.A+L+N.FA.D+P+O+F.F+F7._Z+T.EUR._T._X+M+T.N.ALL?startPeriod=2020-01&format=csvdata "HTTP/1.1 200 OK"
+2026-11-22 17:18:10,573 INFO    httpx: HTTP Request: GET https://www.norges-bank.no/tema/statistikk/valutatransaksjoner-daglig/ "HTTP/1.1 200 OK"
+2026-11-22 17:18:11,715 INFO    httpx: HTTP Request: GET https://www.mof.go.jp/policy/international_policy/reference/itn_transactions_in_securities/week.csv "HTTP/1.1 200 OK"
+2026-11-22 17:18:13,088 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/USA+CHN+DEU+JPN+GBR+IND+FRA+RUS+ITA+CAN+BRA+ESP+KOR+AUS+MEX+TUR+IDN+NLD+SAU+CHE+NOR.A.P_TOTINV_P_USD.S1.S1.*.S?c%5BTIME_PERIOD%5D=ge%3A2023-S1 "HTTP/1.1 200 OK"
+2026-11-22 17:18:13,906 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/PIP/+/*.A.P_TOTINV_P_USD.S1.S1.USA+CHN+DEU+JPN+GBR+IND+FRA+RUS+ITA+CAN+BRA+ESP+KOR+AUS+MEX+TUR+IDN+NLD+SAU+CHE+NOR.S?c%5BTIME_PERIOD%5D=ge%3A2023-S1 "HTTP/1.1 200 OK"
+2026-11-22 17:18:14,663 INFO    httpx: HTTP Request: GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.STA/DIP/+/USA+CHN+DEU+JPN+GBR+IND+FRA+RUS+ITA+CAN+BRA+ESP+KOR+AUS+MEX+TUR+IDN+NLD+SAU+CHE+NOR.O.OTWD_D_NETAL_FALL_ALL+INWD_D_NETLA_FALL_ALL.*.A?c%5BTIME_PERIOD%5D=ge%3A2021 "HTTP/1.1 200 OK"
+2026-11-22 17:18:18,221 INFO    httpx: HTTP Request: GET https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/+/Q.S.C+L.A.TO1.A.5J.A.5A.A.AU+BR+CA+CH+CN+DE+ES+FR+GB+ID+IN+IT+JP+KR+MX+NL+NO+RU+SA+TR+US.N?c%5BTIME_PERIOD%5D=ge%3A2020-Q1 "HTTP/1.1 200 "
+2026-11-22 17:18:18,338 INFO    pipeline.update: 0 nye observasjoner, 0 reviderte, 0 fjernet. Siste felles kvartal 2026-Q2, referanseår 2025.
+2026-11-22 17:18:21,287 INFO    pipeline.update: no IMF data changes; raw/processed files not rewritten
