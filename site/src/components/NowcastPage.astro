@@ -11,20 +11,25 @@ const { lang } = Astro.props;
 const d = t[lang];
 const nb = lang === "nb";
 const data = optionalData<Nowcast>("nowcast");
-const unit = (cur: string) => (nb ? `mrd. ${cur}` : `${cur} bn`);
+const unitOf = (s: { currency: string; unit?: string }) =>
+  s.unit === "NOK_mn_per_day"
+    ? (nb ? "mill. NOK per handelsdag" : "NOK mn per trading day")
+    : nb ? `mrd. ${s.currency}` : `${s.currency} bn`;
 
 const texts: Record<string, { h: string; lede: string; nonres: string; res: string; avg: number; avgLbl: string }> = nb
   ? {
+      NO_NB: { h: "Norge: statens valutatransaksjoner via Norges Bank", lede: "Hvor mye Norges Bank veksler per handelsdag for staten. Når staten har mer oljeinntekter i kroner enn den bruker, selger Norges Bank kroner og kjøper valuta som spares i oljefondet (utstrømning). Når budsjettet trenger mer, kjøper Norges Bank kroner (innstrømning). Bare statens transaksjoner, ikke banker, bedrifter eller oljefondets egne investeringer. Beløpet for neste måned kunngjøres på forhånd.", nonres: "–", res: "Norges Bank selger kroner (kjøper valuta)", avg: 3, avgLbl: "Glidende snitt, 3 måneder" },
       US_TIC: { h: "USA: kjøp og salg av langsiktige verdipapirer", lede: "Utlendingers netto kjøp av amerikanske langsiktige verdipapirer minus amerikaneres netto kjøp av utenlandske. Bare portefølje, ikke direkteinvesteringer eller banklån. Månedlig, fra US Treasury (TIC).", nonres: "Utlendinger kjøper amerikanske verdipapirer", res: "Amerikanere kjøper utenlandske verdipapirer", avg: 3, avgLbl: "Glidende snitt, 3 måneder" },
       EA_ECB: { h: "Euroområdet: månedlig betalingsbalanse", lede: "Netto finansregnskap ekskl. reserver (direkte, portefølje, annen investering og derivater) for euroområdet, månedlig fra ECB. Fortegnet er snudd: positivt er netto innstrømning.", nonres: "Utlendinger investerer i euroområdet", res: "Euroområdet investerer ute", avg: 3, avgLbl: "Glidende snitt, 3 måneder" },
       JP_MOF: { h: "Japan: ukentlige verdipapirkjøp", lede: "Utlendingers netto kjøp av japanske aksjer og langsiktige obligasjoner minus japanske investorers netto kjøp av utenlandske. Bare store rapporterende investorer. Ukentlig, fra det japanske finansdepartementet.", nonres: "Utlendinger kjøper japanske verdipapirer", res: "Japanske investorer kjøper utenlandske", avg: 4, avgLbl: "Glidende snitt, 4 uker" },
     }
   : {
+      NO_NB: { h: "Norway: the state’s FX transactions via Norges Bank", lede: "How much Norges Bank exchanges per trading day on behalf of the state. When the state has more oil revenue in kroner than it spends, Norges Bank sells kroner and buys foreign currency that is saved in the oil fund (outflow). When the budget needs more, Norges Bank buys kroner (inflow). State transactions only, not banks, companies or the oil fund’s own investments. Next month’s amount is announced in advance.", nonres: "–", res: "Norges Bank sells NOK (buys FX)", avg: 3, avgLbl: "3-month moving average" },
       US_TIC: { h: "United States: purchases of long-term securities", lede: "Foreigners’ net purchases of US long-term securities minus US residents’ net purchases of foreign ones. Portfolio only, no direct investment or bank lending. Monthly, from the US Treasury (TIC).", nonres: "Foreigners buy US securities", res: "US residents buy foreign securities", avg: 3, avgLbl: "3-month moving average" },
       EA_ECB: { h: "Euro area: monthly balance of payments", lede: "Net financial account excluding reserves (direct, portfolio, other investment and derivatives) for the euro area, monthly from the ECB. The sign is flipped: positive is net inflow.", nonres: "Non-residents invest in the euro area", res: "Euro area residents invest abroad", avg: 3, avgLbl: "3-month moving average" },
       JP_MOF: { h: "Japan: weekly securities purchases", lede: "Foreigners’ net purchases of Japanese equities and long-term bonds minus Japanese investors’ net purchases of foreign ones. Large reporting investors only. Weekly, from Japan’s Ministry of Finance.", nonres: "Foreigners buy Japanese securities", res: "Japanese investors buy foreign", avg: 4, avgLbl: "4-week moving average" },
     };
-const order = ["US_TIC", "EA_ECB", "JP_MOF"];
+const order = ["NO_NB", "US_TIC", "EA_ECB", "JP_MOF"];
 ---
 <Base lang={lang} title={d.navNowcast} current="nowcast" alternateHref={alternate(lang, "nowcast")}>
   <h1>{nb ? "Nåkast: ferskere, men smalere tall" : "Nowcast: fresher but narrower data"}</h1>
@@ -40,7 +45,7 @@ const order = ["US_TIC", "EA_ECB", "JP_MOF"];
       const tx = texts[id];
       const i = s.net.length - 1;
       return (
-        <section class="panel" style="margin-bottom:1.5rem" data-source={id} data-avg={tx.avg} data-unit={unit(s.currency)}>
+        <section class="panel" style="margin-bottom:1.5rem" data-source={id} data-avg={tx.avg} data-unit={unitOf(s)}>
           <div class="chart-head">
             <h2 style="margin-top:0">{tx.h}</h2>
             <button type="button" class="toggle" data-toggle>{d.showTable}</button>
@@ -50,7 +55,7 @@ const order = ["US_TIC", "EA_ECB", "JP_MOF"];
             {s.stale && <span class="badge">{nb ? "Ikke oppdatert ved siste kjøring" : "Not updated in the latest run"}</span>}
           </div>
           <p class="muted small">{tx.lede}</p>
-          <p><strong>{periodLabel(s.periods[i], lang)}:</strong> {(s.net[i] ?? 0) >= 0 ? d.inflow.toLowerCase() : d.outflow.toLowerCase()} {num(s.net[i], lang)} {unit(s.currency)}</p>
+          <p><strong>{periodLabel(s.periods[i], lang)}:</strong> {(s.net[i] ?? 0) >= 0 ? d.inflow.toLowerCase() : d.outflow.toLowerCase()} {num(s.net[i], lang)} {unitOf(s)}</p>
           <div class="legend" aria-hidden="true">
             <span><span class="key" style="background:var(--inflow)"></span>{d.inflow}</span>
             <span><span class="key" style="background:var(--outflow)"></span>{d.outflow}</span>
@@ -59,15 +64,15 @@ const order = ["US_TIC", "EA_ECB", "JP_MOF"];
           <div class="chart nowcast-chart" style="min-height:224px" data-name={tx.h}></div>
           <div class="table-scroll nowcast-table" hidden>
             <table class="data">
-              <thead><tr><th scope="col">{d.periodCol}</th><th scope="col" class="num">{tx.nonres}</th><th scope="col" class="num">{tx.res}</th><th scope="col" class="num">{d.inflow}</th></tr></thead>
+              <thead><tr><th scope="col">{d.periodCol}</th>{s.nonres.some((v) => v !== null) && <th scope="col" class="num">{tx.nonres}</th>}<th scope="col" class="num">{tx.res}</th><th scope="col" class="num">{d.inflow}</th></tr></thead>
               <tbody>
                 {s.periods.map((p, k) => ({ p, k })).reverse().map(({ p, k }) => (
-                  <tr><th scope="row">{periodLabel(p, lang)}</th><td class="num">{num(s.nonres[k], lang)}</td><td class="num">{num(s.res[k], lang)}</td><td class="num">{num(s.net[k], lang)}</td></tr>
+                  <tr><th scope="row">{periodLabel(p, lang)}</th>{s.nonres.some((v) => v !== null) && <td class="num">{num(s.nonres[k], lang)}</td>}<td class="num">{num(s.res[k], lang)}</td><td class="num">{num(s.net[k], lang)}</td></tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p class="cite" style="margin-top:0.75rem">{s.citation}, <a href={s.url}>{s.url.replace(/^https:\/\//, "")}</a> · {unit(s.currency)}</p>
+          <p class="cite" style="margin-top:0.75rem">{s.citation}, <a href={s.url}>{s.url.replace(/^https:\/\//, "")}</a> · {unitOf(s)}</p>
         </section>
       );
     })}

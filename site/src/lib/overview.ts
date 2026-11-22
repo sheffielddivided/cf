@@ -99,18 +99,35 @@ export function initOverview(root: HTMLElement): void {
     root.querySelector<HTMLElement>("#fn-missing")!.hidden = isMap && !showTable;
   }
 
+  const viewButtons = [...root.querySelectorAll<HTMLButtonElement>(".segmented button[data-view]")];
+  const syncButtons = () =>
+    viewButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === state.view)));
+
+  function update(next: ViewState) {
+    state = next;
+    history.replaceState(null, "", `${location.pathname}${serializeState(state)}`);
+    syncButtons();
+    render();
+  }
+
   form.addEventListener("change", (e) => {
     const target = e.target as HTMLSelectElement;
-    const before = state.view;
-    state = { ...state, [target.name]: target.value } as ViewState;
-    // switching to the map without having chosen a unit: the map defaults to % of GDP
-    if (target.name === "view" && before !== state.view && !location.search.includes("unit=")) {
-      state.unit = state.view === "map" ? "pct" : "usd";
-      (form.elements.namedItem("unit") as HTMLSelectElement).value = state.unit;
-    }
-    history.replaceState(null, "", `${location.pathname}${serializeState(state)}`);
-    render();
+    update({ ...state, [target.name]: target.value } as ViewState);
   });
+  for (const b of viewButtons) {
+    b.addEventListener("click", () => {
+      const view = b.dataset.view as ViewState["view"];
+      if (view === state.view) return;
+      const next = { ...state, view };
+      // switching to the map without having chosen a unit: the map defaults to % of GDP
+      if (!location.search.includes("unit=")) {
+        next.unit = view === "map" ? "pct" : "usd";
+        (form.elements.namedItem("unit") as HTMLSelectElement).value = next.unit;
+      }
+      update(next);
+    });
+  }
+  syncButtons();
   toggle.addEventListener("click", () => {
     showTable = !showTable;
     toggle.setAttribute("aria-pressed", String(showTable));

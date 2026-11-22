@@ -57,7 +57,7 @@ Kartet viser samme tall som rangeringen, som farge per land. Standard er andel a
 
 ## Nåkast
 
-Nåkast-siden viser ferskere indikatorer fra nasjonale kilder: amerikanske verdipapirkjøp (US Treasury, TIC, månedlig), euroområdets betalingsbalanse (ECB, månedlig) og japanske verdipapirkjøp (finansdepartementet, ukentlig). De dekker bare deler av kapitalstrømmene, bruker egne valutaer og definisjoner, og er aldri med i rangeringen.
+Nåkast-siden viser ferskere indikatorer fra nasjonale kilder: statens valutatransaksjoner via Norges Bank (månedlig, kunngjort på forhånd), amerikanske verdipapirkjøp (US Treasury, TIC, månedlig), euroområdets betalingsbalanse (ECB, månedlig) og japanske verdipapirkjøp (finansdepartementet, ukentlig). De dekker bare deler av kapitalstrømmene, bruker egne valutaer og definisjoner, og er aldri med i rangeringen.
 
 ## Kryssjekk mot OECD
 
@@ -81,7 +81,7 @@ Source: International Monetary Fund, World Economic Outlook (WEO), [https://data
 
 OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.org/](https://data-explorer.oecd.org/) – brukt til kryssjekk.
 
-Nåkast: U.S. Department of the Treasury (TIC), European Central Bank (BPS) og Ministry of Finance Japan (International Transactions in Securities).
+Nåkast: Norges Bank (valutatransaksjoner på vegne av staten), U.S. Department of the Treasury (TIC), European Central Bank (BPS) og Ministry of Finance Japan (International Transactions in Securities).
 
 Kart: Natural Earth via world-atlas (offentlig eiendom).
 

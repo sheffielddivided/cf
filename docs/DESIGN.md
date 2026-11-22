@@ -340,8 +340,8 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 **Fase 2: Kontroll og nåkast**
 
 - [x] OECD som kryssjekk med avviksrapport. *(Siste 8 kvartaler; flagg ved > 5 % og > 0,5 mrd. USD. Aggregater sammenlignes ikke: IMF og OECD setter sammen euroområdet ulikt, med systematiske avvik på opptil ~80 mrd. USD.)*
-- [x] Kartvisning. *(Valg på oversikten; % av BNP som standard; Equal Earth; Natural Earth 110m via world-atlas.)*
-- [x] Egen nåkast-fane: TIC (USA, SLT-tabell 1–2, månedlig fra 2020), ECB (euroområdet, BPS, månedlig) og MOF (Japan, ukentlig). Hver kilde kan feile uten å stoppe hovedtallene; da vises forrige tall merket som ikke oppdatert.
+- [x] Kartvisning. *(Knapper «Rangering | Kart» på oversikten; % av BNP som standard; Equal Earth; Natural Earth 110m via world-atlas.)*
+- [x] Egen nåkast-fane: Norges Bank (statens valutatransaksjoner, månedlig, kunngjort på forhånd), TIC (USA, SLT-tabell 1–2, månedlig fra 2020), ECB (euroområdet, BPS, månedlig) og MOF (Japan, ukentlig). Hver kilde kan feile uten å stoppe hovedtallene; da vises forrige tall merket som ikke oppdatert.
 - [x] Oversikt over revisjoner: hva endret seg ved siste oppdatering (`revisions.json`, side «Datakvalitet»).
 
 **Fase 3: Beholdninger og analyse**

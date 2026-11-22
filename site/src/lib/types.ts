@@ -74,7 +74,8 @@ export interface Heatmap {
 export interface NowcastSource {
   country: string;
   freq: "M" | "W";
-  currency: "USD" | "EUR" | "JPY";
+  currency: "USD" | "EUR" | "JPY" | "NOK";
+  unit?: string;
   url: string;
   citation: string;
   stale: boolean;

@@ -82,6 +82,8 @@ def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, text=(FX / path.rsplit("/", 1)[-1]).read_text())
     if host == "www.mof.go.jp":
         return httpx.Response(200, content=(FX / "mof_week.csv").read_bytes())
+    if host == "www.norges-bank.no":
+        return httpx.Response(200, text=(FX / "nb_fx.html").read_text())
     if "/IMF.RES/WEO/" in path:
         return httpx.Response(200, text=weo_csv())
     if "/IMF.STA/BOP/" in path:
@@ -160,7 +162,8 @@ def test_update_end_to_end(repo: Path):
     usa = next(c for c in cross["countries"] if c["country"] == "USA")
     assert usa["flagged"] == 0 and usa["compared"] == 8
     now = json.loads((site / "nowcast.json").read_text())
-    assert set(now["sources"]) == {"US_TIC", "EA_ECB", "JP_MOF"}
+    assert set(now["sources"]) == {"US_TIC", "EA_ECB", "JP_MOF", "NO_NB"}
+    assert now["sources"]["NO_NB"]["unit"] == "NOK_mn_per_day"
     assert now["sources"]["US_TIC"]["net"][-1] == pytest.approx(155.318)
     assert not now["sources"]["JP_MOF"]["stale"]
     rev = json.loads((site / "revisions.json").read_text())
