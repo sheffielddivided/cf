@@ -12,10 +12,12 @@ import csv
 import gzip
 import json
 import logging
+import re
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 import httpx
 
@@ -279,6 +281,82 @@ def explore(out: Path) -> Path:
         try:
             step(rec)
         except Exception:  # noqa: BLE001 - keep going, record in log
+            log.exception("%s crashed", step.__name__)
+    rec.write_manifest()
+    return out / "manifest.json"
+
+
+# ------------------------------------------------------------------ phase 2: nowcast sources
+
+ECB = "https://data-api.ecb.europa.eu/service"
+TIC_PAGE = ("https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/"
+            "tic-forms-instructions/securities-a-us-transactions-with-foreign-residents-in-long-term-securities")
+MOF_PAGE = ("https://www.mof.go.jp/english/policy/international_policy/reference/"
+            "itn_transactions_in_securities/index.htm")
+DATA_LINK = re.compile(r'href="([^"]+\.(?:csv|txt|xlsx?))"', re.IGNORECASE)
+
+
+def data_links(html: str, base: str, limit: int = 25) -> list[str]:
+    """Absolute URLs of data files (csv/txt/xls[x]) linked from an HTML page."""
+    seen: list[str] = []
+    for href in DATA_LINK.findall(html):
+        url = urljoin(base, href)
+        if url not in seen:
+            seen.append(url)
+    return seen[:limit]
+
+
+def ecb_key(**values: str) -> str:
+    dims = ["FREQ", "ADJUSTMENT", "REF_AREA", "COUNTERPART_AREA", "REF_SECTOR",
+            "COUNTERPART_SECTOR", "FLOW_STOCK_ENTRY", "ACCOUNTING_ENTRY", "INT_ACC_ITEM",
+            "FUNCTIONAL_CAT", "INSTR_ASSET", "MATURITY", "UNIT_MEASURE", "CURRENCY_TRANS",
+            "VALUATION", "COMP_METHOD", "TYPE_ENTITY"]
+    return ".".join(values.get(d, "") for d in dims)
+
+
+def explore_ecb(rec: Recorder) -> None:
+    with SdmxClient(ECB) as c:
+        rec.fetch(c, "ecb_bps_structure", "dataflow/ECB/BPS/latest",
+                  params={"references": "all"}, accept=OECD_STRUCTURE_JSON)
+        common = dict(FREQ="M", ADJUSTMENT="N", REF_AREA="U2", COUNTERPART_AREA="W1",
+                      REF_SECTOR="S1", COUNTERPART_SECTOR="S1", FLOW_STOCK_ENTRY="T",
+                      COMP_METHOD="N", TYPE_ENTITY="ALL")
+        rec.fetch(c, "ecb_bps_fa_m", f"data/BPS/{ecb_key(INT_ACC_ITEM='FA', **common)}",
+                  params={"startPeriod": "2024-01", "format": "csvdata"})
+        ca_key = ecb_key(INT_ACC_ITEM="CA+KA+CKA+EO", ACCOUNTING_ENTRY="B+N", **common)
+        rec.fetch(c, "ecb_bps_ca_m", f"data/BPS/{ca_key}",
+                  params={"startPeriod": "2024-01", "format": "csvdata"})
+
+
+def _follow_links(rec: Recorder, prefix: str, page: str, keep) -> None:
+    base = page.rsplit("/", 1)[0] + "/"
+    with SdmxClient(base) as c:
+        resp = rec.fetch(c, f"{prefix}_page", page.rsplit("/", 1)[1])
+        if resp is None or resp.status_code != 200:
+            return
+        links = [u for u in data_links(resp.text, page) if keep(u)]
+        (rec.out / f"{prefix}_links.txt").write_text("\n".join(links) + "\n")
+        for i, url in enumerate(links[:12]):
+            with SdmxClient(url.rsplit("/", 1)[0]) as cc:
+                name = re.sub(r"[^A-Za-z0-9]+", "_", url.rsplit("/", 1)[1])[:40]
+                rec.fetch(cc, f"{prefix}_{i:02d}_{name}", url.rsplit("/", 1)[1])
+
+
+def explore_tic(rec: Recorder) -> None:
+    _follow_links(rec, "tic", TIC_PAGE, lambda u: True)
+
+
+def explore_mof(rec: Recorder) -> None:
+    _follow_links(rec, "mof", MOF_PAGE, lambda u: "itn_transactions_in_securities" in u)
+
+
+def explore_nowcast(out: Path) -> Path:
+    out.mkdir(parents=True, exist_ok=True)
+    rec = Recorder(out)
+    for step in (explore_ecb, explore_tic, explore_mof):
+        try:
+            step(rec)
+        except Exception:  # noqa: BLE001
             log.exception("%s crashed", step.__name__)
     rec.write_manifest()
     return out / "manifest.json"

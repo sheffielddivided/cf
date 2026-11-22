@@ -7,7 +7,7 @@ name: phase0-explore
 # Fase 0 er ferdig; kjøres nå bare manuelt eller fra phase0/**-grener.
 on:
   push:
-    branches: ["phase0/**"]
+    branches: ["phase0/**", "explore/**"]
     paths:
       - "pipeline/**"
       - "config/**"
@@ -36,9 +36,12 @@ jobs:
         run: |
           mkdir -p data/explore
           set -o pipefail
-          uv run pipeline explore --out data/explore 2>&1 | tee data/explore/run.log || echo "explore exited with $?" | tee -a data/explore/run.log
+          extra=""
+          case "$GITHUB_REF_NAME" in explore/*) extra="--nowcast";; esac
+          uv run pipeline explore $extra --out data/explore 2>&1 | tee data/explore/run.log || echo "explore exited with $?" | tee -a data/explore/run.log
 
       - name: Coverage matrix
+        if: ${{ !startsWith(github.ref_name, 'explore/') }}
         run: |
           set -o pipefail
           uv run pipeline coverage --out data/explore/coverage 2>&1 | tee data/explore/coverage.log || echo "coverage exited with $?" | tee -a data/explore/coverage.log
