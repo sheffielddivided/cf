@@ -15,13 +15,15 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
-from . import checks, phase2
+from . import checks, episodes, phase2, phase3
+from . import summary as quarterly
 from .coverage import last_common_quarter
 from .export import export_all
 from .model import derive_main, frame, latest_period, reference_year, window
 from .sdmx import SdmxClient
 from .selection import Selection
 from .sources import imf
+from .sources import positions as pos
 
 log = logging.getLogger(__name__)
 
@@ -159,6 +161,16 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
         cross["excluded"] = [{"country": c, "reason": "aggregate"} for c in aggregates]
     prev_nowcast = _read_json(site / "nowcast.json")
     now = phase2.nowcast_data(prev_nowcast, warnings, transport=transport)
+
+    # ------------------------------------------------------------------ phase 3 (never fatal)
+    try:
+        eps = episodes.compute(df, countries, last_common)
+    except Exception as e:  # noqa: BLE001 - phase 3 must never stop the pipeline
+        warnings.append(f"episoder: beregning feilet ({e})")
+        eps = None
+    plain = [c for c in countries if c not in aggregates]
+    held = phase3.holdings(plain, {c: names[c].get("iso2") or pos.iso2(c) for c in plain}, warnings,
+                           transport=transport)
     summary_md = (
         f"{stats['new']} nye observasjoner, {stats['revised']} reviderte, "
         f"{stats['removed']} fjernet. Siste felles kvartal {last_common}, "
@@ -179,6 +191,10 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
                                                                      today.isoformat())
     if cross is not None:
         _write_json(site / "crosscheck.json", cross)
+    if eps is not None:
+        _write_json(site / "episodes.json", eps)
+    if held is not None:
+        _write_json(site / "holdings.json", held)
     _write_json(site / "nowcast.json", now)
     revisions = _read_json(site / "revisions.json")
     if data_changed or revisions is None:
@@ -194,6 +210,16 @@ def run(root: Path = Path("."), today: date | None = None, transport=None) -> in
         top=sel.countries, last_common=last_common, ref_year=sel.reference_year,
         latest=all_latest, data_updated_at=updated, warnings=sorted(warnings),
     )
+    # Quarterly summary drafts (opened as a PR by the workflow when a new quarter arrives)
+    try:
+        for lang in ("nb", "en"):
+            (run_dir / f"summary_{lang}.md").write_text(
+                quarterly.draft(site, lang, today.isoformat()))
+    except Exception as e:  # noqa: BLE001
+        warnings.append(f"oppsummering: utkast feilet ({e})")
+    if prev_meta.get("last_common_quarter") and prev_meta["last_common_quarter"] != last_common:
+        (run_dir / "new_quarter.txt").write_text(last_common + "\n")
+
     if not data_changed:
         log.info("no IMF data changes; raw/processed files not rewritten")
         return 0
