@@ -162,3 +162,12 @@ svg a:focus-visible .row-hit { stroke: var(--focus); stroke-width: 2px; }
 .footnotes { font-size: 0.8125rem; color: var(--ink-2); margin-top: 0.75rem; }
 .footnotes p { margin: 0 0 0.25rem; }
 table.data th[scope="row"] { white-space: nowrap; }
+
+/* segmented control (Rangering | Kart) */
+.segmented { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; padding: 2px; gap: 2px; margin: 0 0 1rem; background: var(--page); }
+.segmented button {
+  font: inherit; font-size: 0.9375rem; border: 0; background: transparent; color: var(--ink-2);
+  padding: 0.35rem 1rem; border-radius: 6px; cursor: pointer; min-height: 2.25rem; min-width: 6rem;
+}
+.segmented button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--border); }
+.segmented button:hover:not([aria-pressed="true"]) { color: var(--ink); }

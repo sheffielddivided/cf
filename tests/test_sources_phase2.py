@@ -65,3 +65,13 @@ def test_tic_skips_not_available():
     i = s["periods"].index("2026-09")
     assert s["nonres"][i] is None and s["net"][i] is None
     assert s["res"][i] == pytest.approx(31.389)
+
+
+def test_norges_bank_fx():
+    s = nowcast.parse_norges_bank((FX / "nb_fx.html").read_text())
+    i = s["periods"].index("2026-01")
+    assert s["res"][i] == -650.0      # Norges Bank bought NOK: money came home
+    assert s["net"][i] == 650.0       # site sign: inflow
+    assert s["net"][s["periods"].index("2024-05")] == -550.0
+    assert "2026-12" not in s["periods"]  # empty cell = not announced, never zero
+    assert s["periods"][0] == "2000-01" and all(v is None for v in s["nonres"])

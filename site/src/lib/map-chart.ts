@@ -112,7 +112,8 @@ export async function renderMap(
 
   // legend: gradient, plus "not reported" and "not in selection"
   const lw = 220;
-  const lsvg = n("svg", { width: lw + 300, height: 34, "aria-hidden": "true", style: "display:block;max-width:100%;font:11px var(--font)" });
+  const twoRows = (legend.clientWidth || width) < lw + 260;
+  const lsvg = n("svg", { width: twoRows ? lw + 20 : lw + 300, height: twoRows ? 56 : 34, "aria-hidden": "true", style: "display:block;max-width:100%;font:11px var(--font)" });
   const ldefs = n("defs", {});
   const grad = n("linearGradient", { id: "map-grad" });
   for (let k = 0; k <= 10; k++) grad.append(n("stop", { offset: `${k * 10}%`, "stop-color": color(-limit + (2 * limit * k) / 10) }));
@@ -125,13 +126,14 @@ export async function renderMap(
     tx.textContent = v === 0 ? "0" : `${num(v, o.lang, 0)}${unitSuffix}`;
     lsvg.append(tx);
   }
-  const key = (x: number, fill: string, label: string) => {
-    lsvg.append(n("rect", { x, y: 2, width: 10, height: 10, rx: 2, fill }));
-    const tx = n("text", { x: x + 16, y: 11, fill: "var(--ink-2)" });
+  const key = (x: number, y: number, fill: string, label: string) => {
+    lsvg.append(n("rect", { x, y, width: 10, height: 10, rx: 2, fill }));
+    const tx = n("text", { x: x + 16, y: y + 9, fill: "var(--ink-2)" });
     tx.textContent = label;
     lsvg.append(tx);
   };
-  key(lw + 20, "url(#map-missing-legend)", d.notReported);
-  key(lw + 130, c.grid, o.lang === "nb" ? "ikke i utvalget" : "not in selection");
+  const [kx, ky] = twoRows ? [0, 40] : [lw + 20, 2];
+  key(kx, ky, "url(#map-missing-legend)", d.notReported);
+  key(kx + 110, ky, c.grid, o.lang === "nb" ? "ikke i utvalget" : "not in selection");
   legend.replaceChildren(lsvg);
 }

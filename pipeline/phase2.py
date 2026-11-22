@@ -61,6 +61,10 @@ SOURCES: dict[str, dict[str, Any]] = {
                "url": "https://data.ecb.europa.eu/data/datasets/BPS",
                "citation": "Source: European Central Bank, Balance of Payments (BPS), "
                            "euro area changing composition"},
+    "NO_NB": {"country": "NOR", "freq": "M", "currency": "NOK", "unit": "NOK_mn_per_day",
+              "url": nowcast.NB_FX,
+              "citation": "Source: Norges Bank, valutatransaksjoner på vegne av staten "
+                          "(daglig beløp per måned)"},
     "JP_MOF": {"country": "JPN", "freq": "W", "currency": "JPY",
                "url": "https://www.mof.go.jp/english/policy/international_policy/reference/"
                       "itn_transactions_in_securities/index.htm",
@@ -83,6 +87,11 @@ def _fetch_one(sid: str, transport=None) -> dict:
         if resp.status_code != 200:
             raise RuntimeError(f"HTTP {resp.status_code}")
         return nowcast.parse_ecb(resp.text)
+    if sid == "NO_NB":
+        status, raw = _get(nowcast.NB_FX.rstrip("/") + "/", transport)
+        if status != 200:
+            raise RuntimeError(f"HTTP {status}")
+        return nowcast.parse_norges_bank(raw.decode("utf-8", "replace"))
     if sid == "JP_MOF":
         status, raw = _get(nowcast.MOF_WEEK, transport)
         if status != 200:

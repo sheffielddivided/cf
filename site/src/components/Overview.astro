@@ -21,13 +21,11 @@ const geoUrl = import.meta.env.BASE_URL + "geo/countries-110m.json";
   </p>
 
   <section class="panel" id="overview" data-lang={lang} data-geo={geoUrl}>
+    <div class="segmented" role="group" aria-label={d.view}>
+      <button type="button" data-view="ranking" aria-pressed="true">{d.viewRanking}</button>
+      <button type="button" data-view="map" aria-pressed="false">{d.viewMap}</button>
+    </div>
     <form class="controls" aria-label={lang === "nb" ? "Visningsvalg" : "View options"} onsubmit="return false">
-      <label class="control">{d.view}
-        <select name="view">
-          <option value="ranking">{d.viewRanking}</option>
-          <option value="map">{d.viewMap}</option>
-        </select>
-      </label>
       <label class="control">{d.period}
         <select name="period">
           <option value="4q">{d.period4q}</option>

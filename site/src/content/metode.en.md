@@ -57,7 +57,7 @@ The map shows the same figures as the ranking, as a color per country. The defau
 
 ## Nowcast
 
-The nowcast page shows fresher indicators from national sources: US securities transactions (US Treasury, TIC, monthly), the euro area balance of payments (ECB, monthly) and Japanese securities transactions (Ministry of Finance, weekly). They cover only part of capital flows, use their own currencies and definitions, and are never part of the ranking.
+The nowcast page shows fresher indicators from national sources: the Norwegian state’s FX transactions via Norges Bank (monthly, announced in advance), US securities transactions (US Treasury, TIC, monthly), the euro area balance of payments (ECB, monthly) and Japanese securities transactions (Ministry of Finance, weekly). They cover only part of capital flows, use their own currencies and definitions, and are never part of the ranking.
 
 ## Cross-check against the OECD
 
@@ -81,7 +81,7 @@ Source: International Monetary Fund, World Economic Outlook (WEO), [https://data
 
 OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.org/](https://data-explorer.oecd.org/) – used for the cross-check.
 
-Nowcast: U.S. Department of the Treasury (TIC), European Central Bank (BPS) and Ministry of Finance Japan (International Transactions in Securities).
+Nowcast: Norges Bank (FX transactions on behalf of the state), U.S. Department of the Treasury (TIC), European Central Bank (BPS) and Ministry of Finance Japan (International Transactions in Securities).
 
 Map: Natural Earth via world-atlas (public domain).
 

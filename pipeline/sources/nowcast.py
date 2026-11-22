@@ -126,3 +126,39 @@ def parse_mof(raw: bytes) -> dict:
         if liab is not None:
             nonres[end] = liab / 10
     return _series(sorted(set(res) | set(nonres)), nonres, res)
+
+
+# ------------------------------------------------------------------------------ Norway
+
+NB_FX = "https://www.norges-bank.no/tema/statistikk/valutatransaksjoner-daglig/"
+_TR = re.compile(r"<tr.*?</tr>", re.S)
+_CELL = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
+_TAG = re.compile(r"<[^>]+>")
+
+
+def parse_norges_bank(html_text: str) -> dict:
+    """Norges Bank's daily FX transactions on behalf of the state (NOK million per trading day,
+    by month). Positive = Norges Bank sells NOK / buys foreign currency for the GPFG, i.e. the
+    state invests abroad (outflow). Negative = buys NOK (inflow). Planned amounts are announced
+    on the last business day of the month before."""
+    import html as _html
+
+    start = html_text.find("<table")
+    table = html_text[start:html_text.find("</table>", start)]
+    res: dict[str, float] = {}
+    for row in _TR.findall(table):
+        cells = [_html.unescape(_TAG.sub("", c)).strip() for c in _CELL.findall(row)]
+        if len(cells) < 13 or not cells[0].isdigit():
+            continue
+        year = int(cells[0])
+        for month, cell in enumerate(cells[1:13], start=1):
+            v = cell.replace("−", "-").replace("*", "").replace(" ", "").replace(" ", "")
+            if re.fullmatch(r"-?\d+(\.\d+)?", v):
+                res[f"{year}-{month:02d}"] = float(v)
+    periods = sorted(res)
+    return {
+        "periods": periods,
+        "nonres": [None for _ in periods],
+        "res": [res[p] for p in periods],
+        "net": [-res[p] for p in periods],
+    }

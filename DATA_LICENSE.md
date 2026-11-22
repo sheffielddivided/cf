@@ -28,6 +28,10 @@ Data fra ECB Data Portal (BPS). Gjenbruk er tillatt med kildeangivelse: `Source:
 
 `Source: Ministry of Finance Japan, International Transactions in Securities (weekly, designated major investors)`. Brukes etter departementets vilkår for nettstedet (kildeangivelse påkrevd).
 
+## Norges Bank
+
+Valutatransaksjoner på vegne av staten, https://www.norges-bank.no/tema/statistikk/valutatransaksjoner-daglig/. Siteres som: `Source: Norges Bank`.
+
 ## Kart
 
 Landgrenser fra Natural Earth (offentlig eiendom) via pakken world-atlas (ISC-lisens, se `site/public/geo/LICENSE-world-atlas.txt`).
