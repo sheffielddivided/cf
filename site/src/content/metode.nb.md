@@ -34,7 +34,7 @@ Siden tolker ikke tallene automatisk. Den bruker for eksempel ikke ordet «kapit
 
 ## Strømmer, ikke beholdninger
 
-Alle tall er **strømmer**, altså transaksjoner i en periode. Endringer i beholdninger påvirkes også av kurser og valuta, og brukes aldri som erstatning for strømmer.
+Alle tall utenom siden «Hvem eier hva» er **strømmer**, altså transaksjoner i en periode. Endringer i beholdninger påvirkes også av kurser og valuta, og brukes aldri som erstatning for strømmer.
 
 ## Perioder og sammenlignbarhet
 
@@ -63,6 +63,31 @@ Nåkast-siden viser ferskere indikatorer fra nasjonale kilder: statens valutatra
 
 Hver uke sammenlignes IMF-tallene med OECDs betalingsbalanse for de siste åtte kvartalene. Avvik over 5 % og 0,5 mrd. USD vises på datakvalitet-siden. Aggregater som euroområdet sammenlignes ikke, fordi IMF og OECD setter dem sammen ulikt.
 
+## Hvem eier hva (beholdninger)
+
+Siden «Hvem eier hva» viser **beholdninger**, ikke strømmer, og blandes aldri inn i rangeringen. En beholdning endres både av kjøp og salg og av kurs- og valutaendringer.
+
+- **Porteføljeinvesteringer** fra IMFs Portfolio Investment Positions by Counterpart Economy (PIP, tidligere CPIS), halvårlig. «Hvem eier landets verdipapirer» bygger på hva *andre* land rapporterer, så land som ikke rapporterer, mangler.
+- **Direkteinvesteringer** fra IMFs Direct Investment Positions by Counterpart Economy (DIP), årlig, netto og etter umiddelbar motpart. Finanssentre er ofte mellomledd.
+- **Bankposisjoner** fra BIS Locational Banking Statistics: fordringer og gjeld for banker i BIS-rapporterende land overfor alle sektorer i landet, kvartalsvis.
+
+Motpartsgrupper (som «verden» eller regioner) holdes utenfor topplistene. Manglende tall vises som tomme celler, aldri som null.
+
+## Uvanlige bevegelser
+
+Episoder beregnes etter Forbes og Warnock (2012) for brutto innstrømning (utlendingers investeringer i landet) og brutto utstrømning (innenlandske aktørers investeringer i utlandet), hver lik direkte + portefølje + annen investering:
+
+- C = sum over siste fire kvartaler, ΔC = C minus C fire kvartaler tidligere.
+- Snitt og standardavvik for ΔC over de siste 20 kvartalene.
+- En episode starter når ΔC går mer enn ett standardavvik fra snittet, må nå to standardavvik minst én gang, varer til ΔC er tilbake innenfor ett standardavvik og må vare minst to kvartaler.
+- Økning i innstrømning = «kraftig økning», nedgang = «brå stopp». For utstrømning: «kraftig økning» og «brå nedgang».
+
+Beregningen bruker samme siste felles kvartal som rangeringen og krever minst sju års data. Siden beskriver episodene og tolker dem ikke.
+
+## Kvartalsoppsummering
+
+Når et nytt felles kvartal kommer, lager pipelinen en oppsummering fra tallene med faste maler (størst inn- og utstrømning, størst endring, aktive episoder og datakvalitet). Den åpnes som en PR i GitHub og publiseres først når et menneske har lest den og merget PR-en.
+
 ## Usikkerhet og revisjoner
 
 - Betalingsbalansetall **revideres**, ofte betydelig, de første årene etter publisering. Store revisjoner logges i repoet.
@@ -83,6 +108,8 @@ OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.o
 
 Nåkast: Norges Bank (valutatransaksjoner på vegne av staten), U.S. Department of the Treasury (TIC), European Central Bank (BPS) og Ministry of Finance Japan (International Transactions in Securities).
 
+Beholdninger: International Monetary Fund, Portfolio Investment Positions by Counterpart Economy (PIP) og Direct Investment Positions by Counterpart Economy (DIP), [https://data.imf.org/](https://data.imf.org/); Bank for International Settlements, Locational Banking Statistics, [https://data.bis.org/topics/LBS](https://data.bis.org/topics/LBS).
+
 Kart: Natural Earth via world-atlas (offentlig eiendom).
 
-Dataene gjengis etter kildenes vilkår. Siden er ikke laget av eller godkjent av IMF, OECD, ECB, US Treasury eller det japanske finansdepartementet.
+Dataene gjengis etter kildenes vilkår. Siden er ikke laget av eller godkjent av IMF, BIS, OECD, ECB, US Treasury, Norges Bank eller det japanske finansdepartementet.

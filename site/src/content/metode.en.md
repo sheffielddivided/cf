@@ -34,7 +34,7 @@ The site does not interpret the figures automatically. It does not, for example,
 
 ## Flows, not positions
 
-All figures are **flows**, meaning transactions within a period. Changes in positions are also driven by prices and exchange rates, and are never used as a substitute for flows.
+All figures outside the “Who owns what” page are **flows**, meaning transactions within a period. Changes in positions are also driven by prices and exchange rates, and are never used as a substitute for flows.
 
 ## Periods and comparability
 
@@ -63,6 +63,31 @@ The nowcast page shows fresher indicators from national sources: the Norwegian s
 
 Every week the IMF figures are compared with the OECD’s balance of payments for the last eight quarters. Differences above 5% and USD 0.5 bn are listed on the data quality page. Aggregates such as the euro area are not compared, because the IMF and the OECD compile them differently.
 
+## Who owns what (positions)
+
+The “Who owns what” page shows **positions**, not flows, and is never mixed into the ranking. A position changes with purchases and sales and with price and exchange-rate changes.
+
+- **Portfolio investment** from the IMF’s Portfolio Investment Positions by Counterpart Economy (PIP, formerly CPIS), semi-annual. “Who holds the country’s securities” relies on what *other* countries report, so non-reporting countries are missing.
+- **Direct investment** from the IMF’s Direct Investment Positions by Counterpart Economy (DIP), annual, net and by immediate counterpart. Financial centres are often intermediaries.
+- **Bank positions** from the BIS Locational Banking Statistics: claims and liabilities of banks in BIS reporting countries vis-à-vis all sectors in the country, quarterly.
+
+Counterpart groups (such as “world” or regions) are left out of the top lists. Missing figures are shown as empty cells, never as zero.
+
+## Unusual movements
+
+Episodes are computed after Forbes and Warnock (2012) for gross inflows (non-residents’ investment in the country) and gross outflows (residents’ investment abroad), each equal to direct + portfolio + other investment:
+
+- C = sum over the last four quarters, ΔC = C minus C four quarters earlier.
+- Mean and standard deviation of ΔC over the last 20 quarters.
+- An episode starts when ΔC moves more than one standard deviation from the mean, must reach two standard deviations at least once, lasts until ΔC is back within one standard deviation and must last at least two quarters.
+- A rise in inflows is a “surge”, a fall a “stop”. For outflows: “surge” and “retrenchment”.
+
+The calculation uses the same last common quarter as the ranking and needs at least seven years of continuous data. The site describes episodes and does not interpret them.
+
+## Quarterly summary
+
+When a new common quarter arrives, the pipeline drafts a summary from the figures using fixed templates (largest inflows and outflows, largest changes, active episodes and data quality). It is opened as a pull request on GitHub and published only after a human has read it and merged it.
+
 ## Uncertainty and revisions
 
 - Balance of payments data is **revised**, often substantially, in the first years after publication. Large revisions are logged in the repository.
@@ -83,6 +108,8 @@ OECD (2026), Balance of payments (DSD_BOP@DF_BOP), [https://data-explorer.oecd.o
 
 Nowcast: Norges Bank (FX transactions on behalf of the state), U.S. Department of the Treasury (TIC), European Central Bank (BPS) and Ministry of Finance Japan (International Transactions in Securities).
 
+Positions: International Monetary Fund, Portfolio Investment Positions by Counterpart Economy (PIP) and Direct Investment Positions by Counterpart Economy (DIP), [https://data.imf.org/](https://data.imf.org/); Bank for International Settlements, Locational Banking Statistics, [https://data.bis.org/topics/LBS](https://data.bis.org/topics/LBS).
+
 Map: Natural Earth via world-atlas (public domain).
 
-Data is reproduced under each source’s terms. The site is not produced or endorsed by the IMF, the OECD, the ECB, the US Treasury or Japan’s Ministry of Finance.
+Data is reproduced under each source’s terms. The site is not produced or endorsed by the IMF, the BIS, the OECD, the ECB, the US Treasury, Norges Bank or Japan’s Ministry of Finance.

@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, routes, t } from "../lib/i18n";
+import { quarter } from "../lib/format";
+import type { Lang } from "../lib/types";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const nb = lang === "nb";
+
+// Quarterly summaries: drafted by the pipeline, opened as a PR, published when a human merges it.
+const files = import.meta.glob<{ frontmatter: { quarter: string; lang: Lang }; Content: any }>(
+  "../summaries/*.md", { eager: true },
+);
+const items = Object.values(files)
+  .filter((f) => f.frontmatter.lang === lang)
+  .sort((a, b) => b.frontmatter.quarter.localeCompare(a.frontmatter.quarter));
+---
+<Base lang={lang} title={d.navSummaries} current="summaries" alternateHref={alternate(lang, "summaries")}>
+  <h1>{nb ? "Kvartalsoppsummeringer" : "Quarterly summaries"}</h1>
+  <p class="muted">
+    {nb
+      ? "Når et nytt kvartal er på plass for de fleste landene, lager nettstedet et utkast fra tallene. Et menneske leser det gjennom før det publiseres. Teksten beskriver tallene og tolker dem ikke."
+      : "When a new quarter is in place for most countries, the site drafts a summary from the figures. A human reviews it before it is published. The text describes the figures and does not interpret them."}
+    {" "}<a href={routes(lang).method}>{d.readMethod}</a>
+  </p>
+  {items.length === 0 && <p>{nb ? "Ingen oppsummeringer ennå." : "No summaries yet."}</p>}
+  {items.length > 1 && (
+    <nav aria-label={nb ? "Kvartaler" : "Quarters"} class="small">
+      {items.map((f, i) => <>{i > 0 && " · "}<a href={`#${f.frontmatter.quarter}`}>{quarter(f.frontmatter.quarter, lang)}</a></>)}
+    </nav>
+  )}
+  {items.map((f) => (
+    <article class="summary panel" id={f.frontmatter.quarter}>
+      <f.Content />
+    </article>
+  ))}
+</Base>

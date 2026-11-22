@@ -90,3 +90,42 @@ describe("charts", () => {
     expect(colorLimit(rows)).toBe(50);
   });
 });
+
+// ---------------------------------------------------------------- phase 3
+import { amount, barWidths, matrixBin, positionPeriod } from "./holdings";
+import { bisRows } from "./holdings-page";
+import { episodeRows } from "./country-charts";
+
+describe("holdings helpers", () => {
+  it("formats stocks without a sign", () => {
+    expect(amount(19189, "en")).toBe("19,189");
+    expect(amount(4.25, "en")).toBe("4.3");
+    expect(amount(null, "nb")).toBe("–");
+  });
+  it("bins matrix values and keeps missing as null", () => {
+    expect(matrixBin(null)).toBeNull();
+    expect(matrixBin(0)).toBe(0);
+    expect(matrixBin(50)).toBe(2);
+    expect(matrixBin(3000)).toBe(4);
+  });
+  it("scales bars to the largest value", () => {
+    expect(barWidths([{ iso3: "A", iso2: "AA", usd_bn: 200 }, { iso3: "B", iso2: "BB", usd_bn: 50 }])).toEqual([100, 25]);
+  });
+  it("labels position dates", () => {
+    expect(positionPeriod("2025-S2", "en")).toBe("December 2025");
+    expect(positionPeriod("2024", "nb")).toBe("utgangen av 2024");
+  });
+  it("leaves BIS gaps out instead of drawing zero", () => {
+    const rows = bisRows({ periods: ["2026-Q1", "2026-Q2"], claims: [1, null], liabilities: [2, 3] }, { claims: "C", liabilities: "L" });
+    expect(rows).toHaveLength(3);
+    expect(rows.some((r) => r.value === 0)).toBe(false);
+  });
+});
+
+describe("episodes", () => {
+  it("builds ±1/±2 sd bands only where the window is complete", () => {
+    const rows = episodeRows({ periods: ["2026-Q1", "2026-Q2"], dC: [1, 5], mu: [null, 0], sd: [null, 2], episodes: [] });
+    expect(rows[0].lo2).toBeNull();
+    expect([rows[1].lo2, rows[1].lo1, rows[1].hi1, rows[1].hi2]).toEqual([-4, -2, 2, 4]);
+  });
+});

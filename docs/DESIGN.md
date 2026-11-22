@@ -237,7 +237,7 @@ Forklarer BPM6, fortegnet, hva «ekskl. reserver» betyr, strømmer mot beholdni
 
 **Senere: 5. Nåkast** (egen fane, fase 2): månedlige og ukentlige indikatorer for USA (TIC), euroområdet (ECB) og Japan (MOF). Hver graf merkes «foreløpig og delvis dekning, ikke sammenlignbar med hovedrangeringen».
 
-**Senere: 6. Hvem eier hva** (egen fane, fase 3): bilaterale **beholdninger** fra CPIS og Direct Investment Positions, vist som matrise eller chord-diagram. Tittelen sier «beholdninger», ikke «strømmer».
+**6. Hvem eier hva** (egen fane, fase 3, `/eierskap/`): bilaterale **beholdninger** fra IMF PIP (tidligere CPIS) og Direct Investment Positions som topplister og matrise, pluss BIS-bankposisjoner. Tittelen sier «beholdninger», ikke «strømmer».
 
 ## Visuelt design og tilgjengelighet
 
@@ -346,10 +346,10 @@ Hver fase er ferdig først når alle kriteriene er oppfylt. Fase 0 og 1 utgjør 
 
 **Fase 3: Beholdninger og analyse**
 
-- [ ] «Hvem eier hva» fra CPIS og Direct Investment Positions.
-- [ ] BIS-bankposisjoner.
-- [ ] «Surge/stop»-indikator à la Forbes–Warnock basert på bruttostrømmer, med beskrivende tekst og uten tolkning.
-- [ ] Kvartalsvis automatisk oppsummering som utkast i en PR, gjennomgått av et menneske før publisering.
+- [x] «Hvem eier hva» fra CPIS og Direct Investment Positions.
+- [x] BIS-bankposisjoner.
+- [x] «Surge/stop»-indikator à la Forbes–Warnock basert på bruttostrømmer, med beskrivende tekst og uten tolkning.
+- [x] Kvartalsvis automatisk oppsummering som utkast i en PR, gjennomgått av et menneske før publisering.
 
 ## Referanser
 

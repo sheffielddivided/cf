@@ -100,3 +100,38 @@ export interface Revisions {
   latest: RevisionEntry & { changes: { country: string; measure: string; period: string; old: number; new: number; diff: number }[] };
   history: RevisionEntry[];
 }
+
+// ---------------------------------------------------------------- phase 3
+
+export interface Holder { iso3: string; iso2: string | null; usd_bn: number }
+
+export interface HoldingsCountry {
+  pip_assets?: { period: string; world: number; top: Holder[] };
+  pip_held_by?: { period: string; reporters_total: number; top: Holder[] };
+  dip_out?: { period: string; world: number; top: Holder[] };
+  dip_in?: { period: string; world: number; top: Holder[] };
+  bis?: { periods: string[]; claims: (number | null)[]; liabilities: (number | null)[] };
+}
+
+export interface Holdings {
+  countries: Record<string, HoldingsCountry>;
+  pip_matrix?: { period: string; holders: string[]; issuers: string[]; usd_bn: (number | null)[][] };
+}
+
+export type EpisodeType = "inflow_surge" | "inflow_stop" | "outflow_surge" | "outflow_retrenchment";
+
+export interface Episode { type: EpisodeType; start: string; end: string; peak: string; peak_z: number }
+
+export interface EpisodeSeries {
+  periods: string[];
+  dC: (number | null)[];
+  mu: (number | null)[];
+  sd: (number | null)[];
+  episodes: Episode[];
+}
+
+export interface Episodes {
+  method: { window_quarters: number; threshold_sd: number; bounds_sd: number; min_quarters: number; components: string[] };
+  countries: Record<string, { inflows?: EpisodeSeries; outflows?: EpisodeSeries }>;
+  active: (Episode & { country: string })[];
+}

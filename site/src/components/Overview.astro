@@ -1,7 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
-import { alternate, routes, t } from "../lib/i18n";
+import { alternate, countryName, routes, t } from "../lib/i18n";
 import { date, quarter } from "../lib/format";
+import { optionalData } from "../lib/optional-data";
 import type { Lang, Meta } from "../lib/types";
 import meta from "../../public/data/meta.json";
 import ranking from "../../public/data/ranking.json";
@@ -12,6 +13,12 @@ const d = t[lang];
 const m = meta as Meta;
 const r = routes(lang);
 const geoUrl = import.meta.env.BASE_URL + "geo/countries-110m.json";
+const nb = lang === "nb";
+const eps = optionalData("episodes");
+const cname = (iso: string) => { const c = m.countries.find((x) => x.iso3 === iso); return c ? countryName(c, lang) : iso; };
+const epType: Record<string, string> = nb
+  ? { inflow_surge: "kraftig økning i innstrømning", inflow_stop: "brå stopp i innstrømning", outflow_surge: "kraftig økning i utstrømning", outflow_retrenchment: "brå nedgang i utstrømning" }
+  : { inflow_surge: "inflow surge", inflow_stop: "inflow stop", outflow_surge: "outflow surge", outflow_retrenchment: "outflow retrenchment" };
 ---
 <Base lang={lang} title={d.navOverview} current="home" alternateHref={alternate(lang, "home")}>
   <h1>{d.siteTagline}</h1>
@@ -85,6 +92,21 @@ const geoUrl = import.meta.env.BASE_URL + "geo/countries-110m.json";
     </div>
     <noscript><p>{lang === "nb" ? "Grafen krever JavaScript. Dataene kan lastes ned fra landsidene." : "The chart needs JavaScript. Data can be downloaded from the country pages."}</p></noscript>
   </section>
+  {eps && (
+    <section class="active-episodes">
+      <h2>{nb ? `Uvanlige bevegelser i ${quarter(m.last_common_quarter, lang)}` : `Unusual movements in ${quarter(m.last_common_quarter, lang)}`}</h2>
+      <p class="muted small">
+        {nb
+          ? "Land der endringen i brutto strømmer over fire kvartaler er uvanlig stor sammenlignet med landets egne siste fem år (Forbes og Warnock, 2012). Beskriver, tolker ikke."
+          : "Countries where the four-quarter change in gross flows is unusually large compared with the country’s own last five years (Forbes and Warnock, 2012). Descriptive, not an interpretation."}
+      </p>
+      {eps.active.length === 0
+        ? <p>{nb ? "Ingen land har uvanlige bevegelser nå." : "No country has unusual movements now."}</p>
+        : <ul class="notes">{eps.active.map((e) => (
+            <li><a href={`${r.country(e.country)}#episodes`}>{cname(e.country)}</a>: {epType[e.type]} {nb ? "siden" : "since"} {quarter(e.start, lang)}</li>
+          ))}</ul>}
+    </section>
+  )}
   <script type="application/json" id="overview-data" set:html={JSON.stringify({ meta: m, ranking })} />
 </Base>
 

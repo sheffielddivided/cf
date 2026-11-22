@@ -1,0 +1,218 @@
+---
+import Base from "../layouts/Base.astro";
+import { alternate, countryName, t } from "../lib/i18n";
+import { optionalData } from "../lib/optional-data";
+import { amount, barWidths, MATRIX_BINS, matrixBin, positionPeriod, regionName } from "../lib/holdings";
+import type { Holder, Lang, Meta } from "../lib/types";
+import meta from "../../public/data/meta.json";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = t[lang];
+const nb = lang === "nb";
+const m = meta as Meta;
+const data = optionalData("holdings");
+const metaName = new Map(m.countries.map((c) => [c.iso3, countryName(c, lang)]));
+const nameOf = (h: { iso3: string; iso2: string | null }) => metaName.get(h.iso3) ?? regionName(h.iso2, h.iso3, lang);
+const coll = new Intl.Collator(nb ? "nb" : "en");
+const countries = data
+  ? Object.keys(data.countries).filter((c) => metaName.has(c)).sort((a, b) => coll.compare(metaName.get(a)!, metaName.get(b)!))
+  : [];
+const initial = countries.includes("USA") ? "USA" : countries[0];
+const share = (v: number, total: number) =>
+  total > 0 ? new Intl.NumberFormat(nb ? "nb-NO" : "en-GB", { style: "percent", maximumFractionDigits: 0 }).format(v / total) : "–";
+
+const L = nb
+  ? {
+      title: "Hvem eier hva",
+      lede: "Beholdninger av utenlandske eiendeler og gjeld på et gitt tidspunkt. Dette er ikke strømmer: en beholdning endres både av nye kjøp og salg og av kurs- og valutaendringer. Tallene kommer fra andre kilder og med lengre etterslep enn betalingsbalansen.",
+      badge: "Beholdninger – ikke strømmer",
+      country: "Land",
+      bn: "Mrd. USD",
+      share: "Andel",
+      cp: "Motpart",
+      pipA: "Porteføljeinvesteringer i utlandet",
+      pipALede: (p: string, w: number) => `Aksjer, fondsandeler og obligasjoner utstedt i andre land som investorer i landet eier, per ${p}. Totalt ${amount(w, lang)} mrd. USD. De ti største landene; andel av totalen.`,
+      pipH: "Hvem eier landets verdipapirer",
+      pipHLede: (p: string, w: number) => `Andre lands investorer, slik de selv rapporterer det, per ${p}. Sum fra land som rapporterer: ${amount(w, lang)} mrd. USD. Land som ikke rapporterer til IMF, mangler.`,
+      dipO: "Direkteinvesteringer i utlandet",
+      dipOLede: (p: string, w: number) => `Eierandeler på minst 10 % i selskaper i andre land, netto, per ${p}. Totalt ${amount(w, lang)} mrd. USD. Etter landet der det umiddelbare eierselskapet ligger, ikke endelig eier.`,
+      dipI: "Utenlandske direkteinvesteringer i landet",
+      dipILede: (p: string, w: number) => `Utenlandske eierandeler på minst 10 % i selskaper i landet, netto, per ${p}. Totalt ${amount(w, lang)} mrd. USD. Finanssentre som Nederland og Luxembourg er ofte mellomledd.`,
+      bisH: "Utenlandske bankers fordringer og gjeld",
+      bisLede: "Banker i BIS-rapporterende land: fordringer på (lån og verdipapirer) og gjeld til (blant annet innskudd) alle sektorer i landet, alle valutaer. Beholdning ved utgangen av hvert kvartal.",
+      claims: "Fordringer på landet",
+      liabilities: "Gjeld til landet",
+      none: "Ikke rapportert.",
+      matrixH: "Hvem eier hvem",
+      matrixLede: (p: string) => `Porteføljebeholdninger mellom de største økonomiene per ${p}. Rad = eier (landet som rapporterer), kolonne = utsteder av verdipapirene. Mrd. USD. Tomme celler er ikke rapportert eller konfidensielle.`,
+      holder: "Eier",
+      issuer: "Utsteder",
+      missing: "ikke rapportert",
+      sources: "Kilder",
+    }
+  : {
+      title: "Who owns what",
+      lede: "Holdings of foreign assets and liabilities at a point in time. These are not flows: a position changes with new purchases and sales and with price and exchange-rate changes. The figures come from other sources and with longer lags than the balance of payments.",
+      badge: "Positions – not flows",
+      country: "Country",
+      bn: "USD bn",
+      share: "Share",
+      cp: "Counterpart",
+      pipA: "Portfolio investment abroad",
+      pipALede: (p: string, w: number) => `Equities, fund shares and bonds issued in other countries held by investors in the country, as of ${p}. Total USD ${amount(w, lang)} bn. The ten largest countries; share of the total.`,
+      pipH: "Who holds the country’s securities",
+      pipHLede: (p: string, w: number) => `Other countries’ investors, as they report it themselves, as of ${p}. Sum from reporting countries: USD ${amount(w, lang)} bn. Countries that do not report to the IMF are missing.`,
+      dipO: "Direct investment abroad",
+      dipOLede: (p: string, w: number) => `Stakes of at least 10% in companies in other countries, net, as of ${p}. Total USD ${amount(w, lang)} bn. By the country of the immediate owner, not the ultimate owner.`,
+      dipI: "Foreign direct investment in the country",
+      dipILede: (p: string, w: number) => `Foreign stakes of at least 10% in companies in the country, net, as of ${p}. Total USD ${amount(w, lang)} bn. Financial centres such as the Netherlands and Luxembourg are often intermediaries.`,
+      bisH: "Foreign banks’ claims and liabilities",
+      bisLede: "Banks in BIS reporting countries: claims on (loans and securities) and liabilities to (deposits, among others) all sectors in the country, all currencies. Position at the end of each quarter.",
+      claims: "Claims on the country",
+      liabilities: "Liabilities to the country",
+      none: "Not reported.",
+      matrixH: "Who holds whom",
+      matrixLede: (p: string) => `Portfolio holdings between the largest economies as of ${p}. Row = holder (the reporting country), column = issuer of the securities. USD bn. Empty cells are not reported or confidential.`,
+      holder: "Holder",
+      issuer: "Issuer",
+      missing: "not reported",
+      sources: "Sources",
+    };
+
+const mx = data?.pip_matrix;
+const binLabels = (() => {
+  const b = MATRIX_BINS.map((x) => amount(x, lang));
+  return [`< ${b[0]}`, `${b[0]}–${b[1]}`, `${b[1]}–${b[2]}`, `${b[2]}–${b[3]}`, `≥ ${b[3]}`];
+})();
+const short = (iso3: string) => iso3;
+---
+<Base lang={lang} title={L.title} current="holdings" alternateHref={alternate(lang, "holdings")}>
+  <h1>{L.title}</h1>
+  <div class="badges"><span class="badge">{L.badge}</span></div>
+  <p class="muted">{L.lede}</p>
+  {!data && <p>{d.notReported}</p>}
+
+  {data && (
+    <section class="panel" id="holdings" data-lang={lang}>
+      <form class="controls" onsubmit="return false">
+        <label class="control">{L.country}
+          <select id="holdings-country">
+            {countries.map((c) => <option value={c} selected={c === initial}>{metaName.get(c)}</option>)}
+          </select>
+        </label>
+      </form>
+      {countries.map((c) => {
+        const h = data.countries[c];
+        const lists: { key: string; title: string; lede: string; rows: Holder[]; total: number }[] = [];
+        if (h.pip_assets) lists.push({ key: "pipA", title: L.pipA, lede: L.pipALede(positionPeriod(h.pip_assets.period, lang), h.pip_assets.world), rows: h.pip_assets.top, total: h.pip_assets.world });
+        if (h.pip_held_by) lists.push({ key: "pipH", title: L.pipH, lede: L.pipHLede(positionPeriod(h.pip_held_by.period, lang), h.pip_held_by.reporters_total), rows: h.pip_held_by.top, total: h.pip_held_by.reporters_total });
+        if (h.dip_out) lists.push({ key: "dipO", title: L.dipO, lede: L.dipOLede(positionPeriod(h.dip_out.period, lang), h.dip_out.world), rows: h.dip_out.top, total: h.dip_out.world });
+        if (h.dip_in) lists.push({ key: "dipI", title: L.dipI, lede: L.dipILede(positionPeriod(h.dip_in.period, lang), h.dip_in.world), rows: h.dip_in.top, total: h.dip_in.world });
+        return (
+          <div class="holdings-country" data-country={c} hidden={c !== initial}>
+            <h2 style="margin-top:0.5rem">{metaName.get(c)}</h2>
+            <div class="bar-grid">
+              {lists.map((l) => {
+                const w = barWidths(l.rows);
+                return (
+                  <figure class="bar-list">
+                    <figcaption><h3>{l.title}</h3><p class="muted small">{l.lede}</p></figcaption>
+                    <table class="data bars">
+                      <thead><tr><th scope="col">{L.cp}</th><th scope="col">{L.bn}</th><th scope="col" class="num">{L.share}</th></tr></thead>
+                      <tbody>
+                        {l.rows.map((r, i) => (
+                          <tr>
+                            <th scope="row">{nameOf(r)}</th>
+                            <td class="bar-cell"><span class="bar" style={`width:calc(${w[i].toFixed(1)}% * 0.78)`}></span><span>{amount(r.usd_bn, lang)}</span></td>
+                            <td class="num">{share(r.usd_bn, l.total)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </figure>
+                );
+              })}
+            </div>
+            {lists.length === 0 && <p>{L.none}</p>}
+
+            {h.bis && (
+              <div class="bis" data-bis={c}>
+                <div class="chart-head"><h3>{L.bisH}</h3><button type="button" class="toggle" data-toggle>{d.showTable}</button></div>
+                <p class="muted small">{L.bisLede}</p>
+                <div class="legend" aria-hidden="true">
+                  <span><span class="key line" style="background:var(--s5)"></span>{L.claims}</span>
+                  <span><span class="key line" style="background:var(--s1)"></span>{L.liabilities}</span>
+                </div>
+                <div class="chart bis-chart" style="min-height:240px" data-name={`${L.bisH}: ${metaName.get(c)}`}></div>
+                <div class="table-scroll bis-table" hidden>
+                  <table class="data">
+                    <thead><tr><th scope="col">{d.periodCol}</th><th scope="col" class="num">{L.claims}</th><th scope="col" class="num">{L.liabilities}</th></tr></thead>
+                    <tbody>
+                      {h.bis.periods.map((p, k) => ({ p, k })).reverse().map(({ p, k }) => (
+                        <tr><th scope="row">{positionPeriod(p, lang)}</th><td class="num">{amount(h.bis!.claims[k], lang)}</td><td class="num">{amount(h.bis!.liabilities[k], lang)}</td></tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </section>
+  )}
+
+  {mx && (
+    <section>
+      <h2>{L.matrixH}</h2>
+      <p class="muted small">{L.matrixLede(positionPeriod(mx.period, lang))}</p>
+      <div class="legend matrix-legend" aria-hidden="true">
+        {binLabels.map((b, i) => <span><span class={`key seq${i}`}></span>{b}</span>)}
+        <span><span class="key seq-none"></span>{L.missing}</span>
+      </div>
+      <div class="table-scroll">
+        <table class="data matrix">
+          <caption class="sr-only">{L.matrixH}, {L.bn}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{L.holder} ↓ / {L.issuer} →</th>
+              {mx.issuers.map((i) => <th scope="col" class="num"><abbr title={metaName.get(i) ?? i}>{short(i)}</abbr></th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {mx.holders.map((h, r) => (
+              <tr>
+                <th scope="row">{metaName.get(h) ?? h}</th>
+                {mx.usd_bn[r].map((v, k) => {
+                  const b = h === mx.issuers[k] ? null : matrixBin(v);
+                  return <td class={`num ${b === null ? "seq-none" : `seq${b}`}`} title={`${metaName.get(h) ?? h} → ${metaName.get(mx.issuers[k]) ?? mx.issuers[k]}: ${amount(v, lang)}`}>{h === mx.issuers[k] ? "" : amount(v, lang)}</td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  <section>
+    <h2>{L.sources}</h2>
+    <ul class="notes small">
+      <li>Source: International Monetary Fund, Portfolio Investment Positions by Counterpart Economy (PIP), <a href="https://data.imf.org/en/datasets/IMF.STA:PIP">https://data.imf.org/en/datasets/IMF.STA:PIP</a></li>
+      <li>Source: International Monetary Fund, Direct Investment Positions by Counterpart Economy (DIP), <a href="https://data.imf.org/en/datasets/IMF.STA:DIP">https://data.imf.org/en/datasets/IMF.STA:DIP</a></li>
+      <li>Source: Bank for International Settlements, Locational Banking Statistics, <a href="https://data.bis.org/topics/LBS">https://data.bis.org/topics/LBS</a></li>
+    </ul>
+  </section>
+
+  <script type="application/json" id="holdings-data" set:html={JSON.stringify({
+    bis: Object.fromEntries(countries.filter((c) => data?.countries[c].bis).map((c) => [c, data!.countries[c].bis])),
+    labels: { claims: L.claims, liabilities: L.liabilities },
+  })} />
+</Base>
+
+<script>
+  import { initHoldings } from "../lib/holdings-page";
+  const root = document.getElementById("holdings");
+  if (root) initHoldings(root);
+</script>

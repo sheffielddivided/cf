@@ -4,8 +4,9 @@ Les `docs/DESIGN.md` først. Den er fasit for definisjoner, datamodell og regler
 Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI-tekst på norsk (bokmål) med engelsk som andrespråk.
 
 ## Status
-- Fase 0, 1 og 2 er levert (pipeline, nettside, OECD-kryssjekk, kart, nåkast, revisjoner). Neste er fase 3, se `docs/DESIGN.md`.
-- Nåkast og kryssjekk (`pipeline/phase2.py`) skal aldri stoppe hovedpipelinen: feil blir advarsler.
+- Fase 0–3 er levert (pipeline, nettside, OECD-kryssjekk, kart, nåkast, revisjoner, beholdninger, episoder, kvartalsoppsummering).
+- Nåkast og kryssjekk (`pipeline/phase2.py`) og fase 3 (`pipeline/phase3.py`, `episodes.py`, `summary.py`) skal aldri stoppe hovedpipelinen: feil blir advarsler, og forrige fil beholdes.
+- Kvartalsoppsummeringer ligger i `site/src/summaries/`. Workflowen åpner dem som utkast-PR når et nytt felles kvartal kommer; de publiseres først når et menneske merger.
 - Nettsiden ligger i `site/` (Astro). Den leser bare filene i `site/public/data/`, som pipelinen skriver. Endre aldri disse for hånd.
 - Grafer: følg dataviz-reglene (blå = innstrømning, oransje = utstrømning, tabellvisning for hver graf, ingen dobbel y-akse).
 
@@ -15,6 +16,7 @@ Skriv kode, identifikatorer og commit-meldinger på engelsk; dokumentasjon og UI
 - Hvis miljøet ditt ikke når `api.imf.org` / `sdmx.oecd.org` (f.eks. en sandkasse med nettverks-allowlist), kjør hentingen i GitHub Actions: `phase0.yml` kjører ved push som endrer `pipeline/` eller `config/`, og legger alt den hentet (råsvar, manifest, logg) på grenen `bot/phase0`. Hent med `git fetch origin bot/phase0`.
 
 ## Data
+- Kilder i fase 3: IMF `IMF.STA:PIP` og `IMF.STA:DIP` (samme API), BIS `stats.bis.org/api/v2` (WS_LBS_D_PUB). Beholdninger vises bare på «Hvem eier hva».
 - Kilder i fase 2: OECD `sdmx.oecd.org` (DSD_BOP@DF_BOP), ECB `data-api.ecb.europa.eu` (BPS), US Treasury SLT-tabell 1–2, MOF `week.csv` (Shift-JIS). Utforsk nye kilder med `pipeline explore --nowcast` på en `explore/**`-gren.
 - IMF API: `https://api.imf.org/external/sdmx/3.0` (SDMX 3.0) og `https://api.imf.org/external/sdmx/2.1`. Ingen innlogging. Dataflow `IMF.STA:BOP`.
 - IKKE bruk `dataservices.imf.org`. Den ble lagt ned i november 2025, og mange eksempler på nettet er utdaterte.

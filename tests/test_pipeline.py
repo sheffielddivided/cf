@@ -84,6 +84,12 @@ def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, content=(FX / "mof_week.csv").read_bytes())
     if host == "www.norges-bank.no":
         return httpx.Response(200, text=(FX / "nb_fx.html").read_text())
+    if host == "stats.bis.org":
+        return httpx.Response(200, text=(FX / "bis_lbs.csv").read_text())
+    if "/IMF.STA/PIP/" in path:
+        return httpx.Response(200, text=(FX / "pip.csv").read_text())
+    if "/IMF.STA/DIP/" in path:
+        return httpx.Response(200, text=(FX / "dip.csv").read_text())
     if "/IMF.RES/WEO/" in path:
         return httpx.Response(200, text=weo_csv())
     if "/IMF.STA/BOP/" in path:
@@ -164,6 +170,15 @@ def test_update_end_to_end(repo: Path):
     now = json.loads((site / "nowcast.json").read_text())
     assert set(now["sources"]) == {"US_TIC", "EA_ECB", "JP_MOF", "NO_NB"}
     assert now["sources"]["NO_NB"]["unit"] == "NOK_mn_per_day"
+
+    # phase 3: holdings (stocks, separate file), episodes and summary drafts
+    held = json.loads((site / "holdings.json").read_text())
+    assert held["countries"]["USA"]["pip_assets"]["period"] == "2025-S2"
+    assert "G163" not in held["countries"]  # aggregates are not looked up as countries
+    eps = json.loads((site / "episodes.json").read_text())
+    assert eps["method"]["window_quarters"] == 20
+    assert (repo / "run/summary_nb.md").read_text().startswith("## Kapitalstrømmer")
+    assert (repo / "run/summary_en.md").exists()
     assert now["sources"]["US_TIC"]["net"][-1] == pytest.approx(155.318)
     assert not now["sources"]["JP_MOF"]["stale"]
     rev = json.loads((site / "revisions.json").read_text())

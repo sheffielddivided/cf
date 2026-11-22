@@ -2,6 +2,8 @@ name: update-data
 
 # Ukentlig: hent IMF-data, normaliser, kontroller og eksporter (docs/DESIGN.md).
 # På main committes data kun ved endring, og advarsler/feil meldes som Issues.
+# Når et nytt felles kvartal kommer, åpnes et utkast til kvartalsoppsummering som PR
+# (krever at "Allow GitHub Actions to create and approve pull requests" er slått på).
 # På phase1/**-grener legges resultatet på bot/data-preview, slik at endringer kan
 # testes uten å røre main.
 
@@ -11,7 +13,7 @@ on:
   workflow_dispatch:
   push:
     # main: kjør på nytt når pipeline-kode eller konfigurasjon endres (f.eks. ved merge)
-    branches: [main, "phase1/**", "phase2/**"]
+    branches: [main, "phase1/**", "phase2/**", "phase3/**"]
     paths:
       - "pipeline/**"
       - "config/**"
@@ -21,6 +23,7 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 
 concurrency:
   group: update-data-${{ github.ref }}
@@ -66,6 +69,41 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Open quarterly summary draft as PR (main, new quarter)
+        # Never fatal: the data commit above is already pushed.
+        if: steps.run.outputs.code == '0' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          q=$(python3 -c "import json;print(json.load(open('site/public/data/meta.json'))['last_common_quarter'])")
+          dir=site/src/summaries
+          if [ -f "$dir/$q.nb.md" ]; then echo "Oppsummering for $q finnes."; exit 0; fi
+          if [ ! -f run/new_quarter.txt ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            echo "Ikke nytt kvartal."; exit 0
+          fi
+          branch="summary/$q"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "$branch finnes allerede."; exit 0
+          fi
+          git checkout -b "$branch"
+          mkdir -p "$dir"
+          for lang in nb en; do
+            { printf -- '---\nquarter: "%s"\nlang: %s\ngenerated: "%s"\n---\n\n' "$q" "$lang" "$(date -u +%F)"
+              cat "run/summary_$lang.md"; } > "$dir/$q.$lang.md"
+          done
+          git add "$dir"
+          git commit -qm "summary: draft for $q"
+          git push -u origin "$branch"
+          gh pr create --draft --base main --head "$branch" \
+            --title "Kvartalsoppsummering $q (utkast)" \
+            --body "Automatisk utkast laget fra tallene. Les gjennom, rett teksten om nødvendig og merge for å publisere. Ingenting vises på nettsiden før PR-en er merget.
+
+          Sjekkliste:
+          - [ ] Tallene stemmer med rangeringen på siden
+          - [ ] Teksten beskriver og tolker ikke
+          - [ ] Engelsk og norsk sier det samme"
 
       - name: Publish preview (branches)
         if: always() && github.ref != 'refs/heads/main'

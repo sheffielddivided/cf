@@ -8,6 +8,8 @@ export const routes = (lang: Lang) =>
         home: `${BASE}/`,
         heatmap: `${BASE}/varmekart/`,
         nowcast: `${BASE}/naakast/`,
+        holdings: `${BASE}/eierskap/`,
+        summaries: `${BASE}/oppsummeringer/`,
         quality: `${BASE}/datakvalitet/`,
         method: `${BASE}/metode/`,
         country: (iso: string) => `${BASE}/land/${iso}/`,
@@ -16,13 +18,15 @@ export const routes = (lang: Lang) =>
         home: `${BASE}/en/`,
         heatmap: `${BASE}/en/heatmap/`,
         nowcast: `${BASE}/en/nowcast/`,
+        holdings: `${BASE}/en/holdings/`,
+        summaries: `${BASE}/en/summaries/`,
         quality: `${BASE}/en/data-quality/`,
         method: `${BASE}/en/method/`,
         country: (iso: string) => `${BASE}/en/country/${iso}/`,
       };
 
 /** The same page in the other language. */
-export type PageKey = "home" | "heatmap" | "nowcast" | "quality" | "method";
+export type PageKey = "home" | "heatmap" | "nowcast" | "holdings" | "summaries" | "quality" | "method";
 
 export function alternate(lang: Lang, page: PageKey | { country: string }) {
   const other: Lang = lang === "nb" ? "en" : "nb";
@@ -39,6 +43,8 @@ export const t = {
     navOverview: "Oversikt",
     navHeatmap: "Varmekart",
     navNowcast: "Nåkast",
+    navHoldings: "Hvem eier hva",
+    navSummaries: "Oppsummeringer",
     navQuality: "Datakvalitet",
     navMethod: "Metode",
     otherLang: "English",
@@ -101,6 +107,8 @@ export const t = {
     navOverview: "Overview",
     navHeatmap: "Heatmap",
     navNowcast: "Nowcast",
+    navHoldings: "Who owns what",
+    navSummaries: "Summaries",
     navQuality: "Data quality",
     navMethod: "Method",
     otherLang: "Norsk",
