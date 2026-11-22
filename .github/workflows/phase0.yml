@@ -1,0 +1,54 @@
+name: phase0-explore
+
+# Fase 0: utforsk IMF- og OECD-API-ene fra en runner med åpent nett, og legg alt som
+# ble hentet (råsvar, manifest, strukturoversikt, logg) på grenen bot/phase0.
+# Kjøres ved endringer i pipeline/ eller config/, eller manuelt.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/**"
+      - "config/**"
+      - ".github/workflows/phase0.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phase0
+  cancel-in-progress: false
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --locked
+
+      - name: Explore APIs
+        run: |
+          mkdir -p data/explore
+          set -o pipefail
+          uv run pipeline explore --out data/explore 2>&1 | tee data/explore/run.log || echo "explore exited with $?" | tee -a data/explore/run.log
+
+      - name: Publish results to bot/phase0
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          src_sha="$(git rev-parse --short HEAD)"
+          cp -r data/explore /tmp/explore
+          git checkout --orphan bot/phase0
+          git rm -rq --cached . || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          mkdir -p data && cp -r /tmp/explore data/explore
+          echo "Fase 0-utforskning fra main@${src_sha}, kjørt $(date -u +%FT%TZ). Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" > README.md
+          git add -A
+          git commit -qm "phase0: explore results from ${src_sha}"
+          git push -f origin bot/phase0

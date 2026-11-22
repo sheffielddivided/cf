@@ -1,0 +1,14 @@
+# Våre måltall (measure × side) mot kildens SDMX-koder.
+# Fylles i fase 0 fra strukturfilene som phase0.yml henter. Ikke gjett koder.
+# measure: fa_total | fa_ex_reserves | fdi | portfolio | portfolio_equity | portfolio_debt |
+#          other_inv | derivatives | reserves | current_account | capital_account |
+#          errors_omissions | gdp_usd
+# side:    net | assets | liabilities
+
+imf_bop:
+  dataflow: IMF.STA:BOP
+  measures: {}
+
+oecd_bop:
+  dataflow: OECD.SDD.TPS:DSD_BOP@DF_BOP
+  measures: {}

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.DS_Store
+node_modules/
+site/dist/
+# Fase 0-utforskning lagres på grenen bot/phase0, ikke på main
+data/explore/

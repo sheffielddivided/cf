@@ -1,0 +1,38 @@
+name: Feil i data
+description: Meld fra om et tall som ser feil ut, mangler eller avviker fra kilden.
+labels: [data-quality]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Land / økonomi
+      placeholder: f.eks. Japan
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: Periode
+      placeholder: f.eks. 2026-K2
+    validations:
+      required: true
+  - type: dropdown
+    id: measure
+    attributes:
+      label: Måltall
+      options:
+        - Netto finansregnskap ekskl. reserver
+        - Netto finansregnskap inkl. reserver
+        - Direkteinvesteringer
+        - Porteføljeinvesteringer
+        - Annen investering
+        - Reserver
+        - Driftsbalanse
+        - Annet
+  - type: textarea
+    id: details
+    attributes:
+      label: Hva ser feil ut?
+      description: Hva viser siden, hva forventet du, og hvor kommer det forventede tallet fra (lenke)?
+    validations:
+      required: true
